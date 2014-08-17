@@ -30,7 +30,11 @@
 		A060C2141997DA2100C4C876 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060C2121997DA2100C4C876 /* HomeViewController.m */; };
 		A060C2151997DA2100C4C876 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A060C2131997DA2100C4C876 /* HomeViewController.xib */; };
 		A060C21A1997DAE500C4C876 /* iNeedClass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A060C2181997DAE500C4C876 /* iNeedClass.xcdatamodeld */; };
+		A0730C6719A0C31A0069736B /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0730C6619A0C31A0069736B /* libPKRevealController.a */; };
+		A0730C6C19A0C3270069736B /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0730C6919A0C3270069736B /* libPKRevealController.a */; };
 		A0A2B2C4199F9D63001734AF /* CategoryType.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A2B2C3199F9D63001734AF /* CategoryType.m */; };
+		A0A2B2E5199FA915001734AF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A2B2E3199FA915001734AF /* MenuViewController.m */; };
+		A0A2B2E6199FA915001734AF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A2B2E4199FA915001734AF /* MenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +85,15 @@
 		A060C2121997DA2100C4C876 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = iPhone/Home/HomeViewController.m; sourceTree = "<group>"; };
 		A060C2131997DA2100C4C876 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = iPhone/Home/HomeViewController.xib; sourceTree = "<group>"; };
 		A060C2191997DAE500C4C876 /* iNeedClass.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iNeedClass.xcdatamodel; sourceTree = "<group>"; };
+		A0730C6619A0C31A0069736B /* libPKRevealController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPKRevealController.a; path = iNeedClass/Resources/Libraries/PKRevealController/libPKRevealController.a; sourceTree = "<group>"; };
+		A0730C6919A0C3270069736B /* libPKRevealController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPKRevealController.a; sourceTree = "<group>"; };
+		A0730C6A19A0C3270069736B /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealController.h; sourceTree = "<group>"; };
+		A0730C6B19A0C3270069736B /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		A0A2B2C2199F9D63001734AF /* CategoryType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryType.h; sourceTree = "<group>"; };
 		A0A2B2C3199F9D63001734AF /* CategoryType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryType.m; sourceTree = "<group>"; };
+		A0A2B2E2199FA915001734AF /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = iPhone/Menu/MenuViewController.h; sourceTree = "<group>"; };
+		A0A2B2E3199FA915001734AF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = iPhone/Menu/MenuViewController.m; sourceTree = "<group>"; };
+		A0A2B2E4199FA915001734AF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = iPhone/Menu/MenuViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +101,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0730C6719A0C31A0069736B /* libPKRevealController.a in Frameworks */,
 				A060C1BB1997CCD700C4C876 /* CoreGraphics.framework in Frameworks */,
 				A060C1BD1997CCD700C4C876 /* UIKit.framework in Frameworks */,
 				A060C1B91997CCD700C4C876 /* Foundation.framework in Frameworks */,
+				A0730C6C19A0C3270069736B /* libPKRevealController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +163,7 @@
 		A060C1B71997CCD700C4C876 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0730C6619A0C31A0069736B /* libPKRevealController.a */,
 				A060C1B81997CCD700C4C876 /* Foundation.framework */,
 				A060C1BA1997CCD700C4C876 /* CoreGraphics.framework */,
 				A060C1BC1997CCD700C4C876 /* UIKit.framework */,
@@ -212,6 +226,7 @@
 		A060C1F31997CE3300C4C876 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0A2B2C5199FA85B001734AF /* Libraries */,
 				A060C1FF1997D0FA00C4C876 /* Utils */,
 				A060C1F41997CE3300C4C876 /* Backgrounds */,
 				A060C1F51997CE3300C4C876 /* Icons */,
@@ -292,6 +307,7 @@
 		A060C20F1997D97200C4C876 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				A0A2B2E0199FA8D7001734AF /* Menu */,
 				A060C1FE1997CEE700C4C876 /* Home */,
 			);
 			name = iPhone;
@@ -304,6 +320,34 @@
 				A060C2181997DAE500C4C876 /* iNeedClass.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A0730C6819A0C3270069736B /* PKRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				A0730C6919A0C3270069736B /* libPKRevealController.a */,
+				A0730C6A19A0C3270069736B /* PKRevealController.h */,
+				A0730C6B19A0C3270069736B /* UIViewController+PKRevealController.h */,
+			);
+			path = PKRevealController;
+			sourceTree = "<group>";
+		};
+		A0A2B2C5199FA85B001734AF /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				A0730C6819A0C3270069736B /* PKRevealController */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		A0A2B2E0199FA8D7001734AF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A0A2B2E2199FA915001734AF /* MenuViewController.h */,
+				A0A2B2E3199FA915001734AF /* MenuViewController.m */,
+				A0A2B2E4199FA915001734AF /* MenuViewController.xib */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A2B2E6199FA915001734AF /* MenuViewController.xib in Resources */,
 				A060C1D41997CCD700C4C876 /* Images.xcassets in Resources */,
 				A060C1C31997CCD700C4C876 /* InfoPlist.strings in Resources */,
 				A060C2151997DA2100C4C876 /* HomeViewController.xib in Resources */,
@@ -416,6 +461,7 @@
 				A060C21A1997DAE500C4C876 /* iNeedClass.xcdatamodeld in Sources */,
 				A0A2B2C4199F9D63001734AF /* CategoryType.m in Sources */,
 				A060C2141997DA2100C4C876 /* HomeViewController.m in Sources */,
+				A0A2B2E5199FA915001734AF /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,9 +580,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iNeedClass/iNeedClass-Prefix.pch";
 				INFOPLIST_FILE = "iNeedClass/iNeedClass-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/PKRevealController",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -547,9 +599,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iNeedClass/iNeedClass-Prefix.pch";
 				INFOPLIST_FILE = "iNeedClass/iNeedClass-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/PKRevealController",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

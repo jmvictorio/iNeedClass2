@@ -9,14 +9,18 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "Utils.h"
+#import "PKRevealController.h"
 #import "UIColor+RGB.h"
 
-@interface AppDelegate()
+@interface AppDelegate()<PKRevealing>
+
+@property (nonatomic, strong, readwrite) PKRevealController *revealController;
 
 @property (nonatomic, strong) UINavigationController    *navController;
 @property (nonatomic, strong) UINavigationController    *navControllerMenu;
 
 @property (nonatomic, strong) HomeViewController        *homeViewController;
+@property (nonatomic, strong) MenuViewController        *menuViewController;
 @property (nonatomic, strong) UISplitViewController     *splitController;
 
 - (void)appearance;
@@ -32,6 +36,7 @@
     [self appearance];
     
     self.homeViewController    = [HomeViewController new];
+    self.menuViewController    = [MenuViewController new];
     
     if([Utils is_iPhoneDevice])
     {
@@ -48,11 +53,17 @@
         self.navController.navigationBar.translucent = YES;
         //-----------------
         
+        self.revealController = [PKRevealController revealControllerWithFrontViewController: _navController
+                                                                         leftViewController: [self leftViewController]
+                                                                        rightViewController: nil];
+        
+        self.revealController.delegate = self;
+        self.revealController.animationDuration = 0.25;
+        
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.backgroundColor = [UIColor whiteColor];
         
-        self.window.rootViewController = self.navController;
-        
+        self.window.rootViewController = self.revealController;
         
     }
     //iPad
@@ -112,7 +123,7 @@
 - (void)appearance
 {
     NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
-                                      [UIColor blueColor], NSForegroundColorAttributeName, nil];
+                                      [UIColor colorWithHexString:@"4bc1d2"], NSForegroundColorAttributeName, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:navBarTextAttrs];
     
@@ -120,5 +131,113 @@
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
 }
+
+#pragma mark - Helpers
+
+- (UIViewController *)leftViewController
+{
+    
+    MenuViewController *leftViewController = [[MenuViewController alloc] initMenuWithDelegate:self];
+    
+    return leftViewController;
+    
+    
+}
+
+- (void)didMenuItemSelected:(NSUInteger)indexMenuItem
+{
+    // Cerrar el panel lateral (util solo para iPhone)
+    //
+    
+    Class requestedViewController;
+    UIViewController *viewController = nil;
+    
+    /*switch (indexMenuItem) {
+            
+        case 0:
+            requestedViewController = [InboxViewController class];
+            viewController = _inboxViewController;
+            if(![Utils is_iPhoneDevice]){
+                
+                [_detailViewController removeViews];
+                
+                [_navControllerMenu pushViewController:viewController animated:YES];
+                
+            }
+            break;
+            
+        case 1:
+            if([Utils is_iPhoneDevice])
+            {
+                //TODO: Jesus: El webview consume mucha memoria, liberar
+                 /*if(!_wallViewController)
+                 {
+                 _wallViewController = [WallViewController new];
+                 }*/
+                /*requestedViewController = [WallViewController class];
+                viewController = _wallViewController;
+                //_wallViewController = nil;
+            }
+            else{
+                [_detailViewController openView:1];
+            }
+            break;
+            
+        case 2:
+            if([Utils is_iPhoneDevice])
+            {
+                requestedViewController = [SettingsViewController class];
+                viewController = _settingsViewController;
+            }
+            else{
+                [_detailViewController openView:2];
+            }
+            break;
+            
+        case 3:
+            if([Utils is_iPhoneDevice])
+            {
+                requestedViewController = [AboutViewController class];
+                viewController = _aboutViewController;
+            }
+            else{
+                [_detailViewController openView:3];
+            }
+            break;
+    }
+    
+    if([Utils is_iPhoneDevice])
+    {
+        
+        [_navController setViewControllers:[NSArray arrayWithObject:viewController]];
+        [self.revealController resignPresentationModeEntirely:YES animated:YES completion:nil];
+        
+    }
+    */
+    
+}
+
+#pragma mark - Metodos publicos
+
+// Devuelve el delegado de la instancia singleton de la aplicacion
++ (AppDelegate *)sharedInstance
+{
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+/// Conmuta el estado de visibilidad del panel lateral:
+/// Si esta esta oculto lo muestra y si esta visible lo oculta.
+- (void)switchLateralPanelState
+{
+    if ([self.revealController isPresentationModeActive])
+    {
+        [self.revealController resignPresentationModeEntirely:NO animated:YES completion:nil];
+    }
+    else
+    {
+        [self.revealController enterPresentationModeAnimated:YES completion:nil];
+    }
+}
+
 
 @end

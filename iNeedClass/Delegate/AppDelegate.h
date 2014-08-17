@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MenuDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+// Devuelve el delegado de la instancia singleton de la aplicacion
++ (AppDelegate *)sharedInstance;
+
+/// Conmuta el estado de visibilidad del panel lateral:
+/// Si esta esta oculto lo muestra y si esta visible lo oculta.
+- (void)switchLateralPanelState;
 
 @end

@@ -7,8 +7,14 @@
 //
 
 #import "HomeViewController.h"
+#import "AppDelegate.h"
 
-@interface HomeViewController ()
+@interface HomeViewController (){
+    // Botones de 'Edicion'
+    UIBarButtonItem *menuButton;
+    
+    AppDelegate *delegate;
+}
 
 @end
 
@@ -28,6 +34,16 @@
     [super viewDidLoad];
     
     [self preferredStatusBarStyle];
+    
+    delegate = [AppDelegate sharedInstance];
+    
+    menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                  style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(menuAction)];
+    
+    [self.navigationItem setLeftBarButtonItem:menuButton];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,9 +52,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)menuAction
+{
+    [delegate switchLateralPanelState];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
 }
+
+
 
 @end
