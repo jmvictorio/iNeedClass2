@@ -37,12 +37,51 @@
     
     delegate = [AppDelegate sharedInstance];
     
-    menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+    [self setUpAnimations];
+    
+    menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"]
                                                   style:UIBarButtonItemStyleBordered
                                                  target:self
                                                  action:@selector(menuAction)];
     
     [self.navigationItem setLeftBarButtonItem:menuButton];
+    
+    [self animationBarraVertical];
+    
+}
+
+- (void)setUpAnimations
+{
+    [self.barraVertical setFrame:CGRectMake(59, 0, 3, 0)];
+    
+    [self.borde1 setAlpha:0.0];
+    
+    [self.borde2 setAlpha:0.0];
+    
+    [self.borde3 setAlpha:0.0];
+    
+    
+    
+}
+
+- (void)animationBarraVertical
+{
+    [UIView beginAnimations:@"ShowBarraVertical" context:NULL];
+    [UIView setAnimationDuration:3];
+    [UIView setAnimationDelegate: self];
+    
+    [self.barraVertical setFrame:CGRectMake(59, 0, 3, self.view.frame.size.height)];
+    
+    [UIView setAnimationDuration:1];
+    [self.borde1 setAlpha:1];
+    
+    [UIView setAnimationDuration:2];
+    [self.borde2 setAlpha:1];
+    
+    [UIView setAnimationDuration:3];
+    [self.borde3 setAlpha:1];
+    
+    [UIView commitAnimations];
     
 }
 

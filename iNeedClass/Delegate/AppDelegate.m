@@ -127,8 +127,10 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:navBarTextAttrs];
     
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
     
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    
+    //[[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
 }
 

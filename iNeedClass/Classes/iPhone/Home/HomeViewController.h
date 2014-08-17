@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *barraVertical;
+@property (weak, nonatomic) IBOutlet UIImageView *borde1;
+@property (weak, nonatomic) IBOutlet UIImageView *borde2;
+@property (weak, nonatomic) IBOutlet UIImageView *borde3;
 
 @end

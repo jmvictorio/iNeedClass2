@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "UIColor+RGB.h"
 
 
 static NSString * const MenuCellIdentifier = @"MenuCell";
@@ -27,6 +28,7 @@ static NSString * const MenuCellIdentifier = @"MenuCell";
 {
     if ( self = [super init] ) {
         _delegate = delegate;
+        [self.view setBackgroundColor:[UIColor colorWithHexString:@"4bc1d2"]];
     }
     
     return self;
