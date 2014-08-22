@@ -130,7 +130,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
     
     
-    //[[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
 }
 
@@ -151,8 +151,8 @@
     // Cerrar el panel lateral (util solo para iPhone)
     //
     
-    Class requestedViewController;
-    UIViewController *viewController = nil;
+    //Class requestedViewController;
+    //UIViewController *viewController = nil;
     
     /*switch (indexMenuItem) {
             
@@ -172,11 +172,11 @@
             if([Utils is_iPhoneDevice])
             {
                 //TODO: Jesus: El webview consume mucha memoria, liberar
-                 /*if(!_wallViewController)
+                 if(!_wallViewController)
                  {
                  _wallViewController = [WallViewController new];
-                 }*/
-                /*requestedViewController = [WallViewController class];
+                 }
+                requestedViewController = [WallViewController class];
                 viewController = _wallViewController;
                 //_wallViewController = nil;
             }
