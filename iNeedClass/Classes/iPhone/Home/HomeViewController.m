@@ -8,7 +8,6 @@
 
 #import "HomeViewController.h"
 #import "AppDelegate.h"
-#import "CBZSplashView.h"
 #import "UIColor+RGB.h"
 #import "AboutViewController.h"
 
@@ -16,9 +15,9 @@
     // Botones de 'Edicion'
     UIBarButtonItem *menuButton;
     
-    AppDelegate *delegate;
+    UIButton *mustache;
     
-    UIView *waitBlue;
+    AppDelegate *delegate;
     
     UIView *tutorialGray;
     
@@ -44,12 +43,6 @@
     
     [self preferredStatusBarStyle];
     
-    waitBlue = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    
-    [waitBlue setBackgroundColor:[UIColor colorWithHexString:@"4bc1d2"]];
-    
-    [self.view addSubview:waitBlue];
-    
     delegate = [AppDelegate sharedInstance];
     
     [self setUpAnimations];
@@ -59,39 +52,45 @@
                                                  target:self
                                                  action:@selector(menuAction)];
     
+    mustache = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [mustache addTarget:self
+                 action:@selector(actionHelp)
+       forControlEvents:UIControlEventTouchUpInside];
+    
+    [mustache setImage:[UIImage imageNamed:@"Doctor100.png"] forState:UIControlStateNormal];
+    mustache.frame = CGRectMake(242, 20, 65, 65);
+    
+    //[self initWithButtons];
+    
     [self.navigationItem setLeftBarButtonItem:menuButton];
     
-    [menuButton setEnabled:NO];
+    [menuButton setEnabled:YES];
+    
+    [self.navigationController.navigationBar setHidden:NO];
     
     [self animationBarraVertical];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:5.0
-                                             target:self
-                                           selector:@selector(quitarWaitBlue)
-                                           userInfo:nil
-                                            repeats:NO];
-    
 }
 
-- (void)quitarWaitBlue
+- (void)viewWillAppear:(BOOL)animated
 {
-    [waitBlue removeFromSuperview];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *firstTime = [defaults objectForKey:@"firstTime"];
     
-    [self loadFirstTime];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    UIImage *icon = [UIImage imageNamed:@"Business-Situations_05.png"];
-    UIColor *color = [UIColor colorWithHexString:@"4bc1d2"];
-    
-    CBZSplashView *splashView = [[CBZSplashView alloc] initWithIcon:icon backgroundColor:color];
-    
-    splashView.animationDuration = 5;
-    
-    [self.view addSubview:splashView];
-    
-    [splashView startAnimation];
+    if(![firstTime isEqualToString:@"1"]){
+        [self loadFirstTime];
+        [defaults setObject:@"1" forKey:@"firstTime"];
+        [defaults synchronize];
+    }else{
+        [self.navigationController.navigationBar setHidden:NO];
+        
+        [mustache setHidden:NO];
+        
+        [self.navigationController.view addSubview:mustache];
+        
+        [self.navigationController.navigationBar setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
+    }
     
 }
 
@@ -114,10 +113,12 @@
     //almacenar si es la primera vez que se entra en la app.
     //deshabilitar el icono del menu
     
-    [self.navigationController.view addSubview:self.mustache];
+    [self.navigationController.view addSubview:mustache];
     
     [self.tutorial setHidden:NO];
     [self.arrow setHidden:NO];
+    [menuButton setEnabled:NO];
+    
     
     [self.view addSubview:self.tutorial];
     
@@ -148,7 +149,7 @@
 - (void)animationBarraVertical
 {
     [UIView beginAnimations:@"ShowBarraVertical" context:NULL];
-    [UIView setAnimationDuration:6];
+    [UIView setAnimationDuration:4];
     [UIView setAnimationDelegate: self];
     
     [self.barraVertical setFrame:CGRectMake(59, 0, 3, self.view.frame.size.height)];
@@ -188,14 +189,14 @@
     [self finishFirstTime];
 }
 
-- (IBAction)actionHelp:(id)sender {
+- (IBAction)actionHelp{
     
     NSLog(@"DALE");
     
 }
 
 - (IBAction)actionAbout:(id)sender {
-    [self.mustache removeFromSuperview];
+    [mustache removeFromSuperview];
     AboutViewController *about = [[AboutViewController alloc]init];
     [self.navigationController pushViewController:about animated:YES];
 }

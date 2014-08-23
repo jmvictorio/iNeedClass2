@@ -8,14 +8,13 @@
 
 #import "MenuViewController.h"
 #import "UIColor+RGB.h"
+#import "MenuItemCell.h"
 
 
-static NSString * const MenuCellIdentifier = @"MenuCell";
+static NSString * const MenuCellIdentifier = @"MenuItemCell";
 
 
-@interface MenuViewController (){
-    NSString *noReads;
-}
+@interface MenuViewController ()
 
 @property (weak, nonatomic) id<MenuDelegate>delegate;
 
@@ -38,6 +37,10 @@ static NSString * const MenuCellIdentifier = @"MenuCell";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.tableView setRowHeight:60.0];
+    
+    [self.tableView registerNib:[MenuItemCell nib] forCellReuseIdentifier:MenuCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +48,53 @@ static NSString * const MenuCellIdentifier = @"MenuCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuCellIdentifier];
+    
+    NSString *menuItemLabel = nil;
+    UIImage *menuItemIcon = nil;
+    
+    switch (indexPath.row)
+    {
+        case 0:
+            menuItemLabel = @"Home";
+            menuItemIcon = [UIImage imageNamed:@"ic_inbox"];
+            break;
+            
+        case 1:
+            menuItemLabel = @"Añadir Asignatura";
+            menuItemIcon = [UIImage imageNamed:@"ic_about"];
+            break;
+            
+        case 2:
+            menuItemLabel = @"Añadir Intercambio";
+            menuItemIcon = [UIImage imageNamed:@"ic_about"];
+            break;
+            
+        case 3:
+            menuItemLabel = @"Configuración";
+            menuItemIcon = [UIImage imageNamed:@"setting.png"];
+            break;
+    }
+    
+    [cell.iconImage setImage:menuItemIcon];
+    [cell.descriptionLabel setText:menuItemLabel];
+    
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_delegate didMenuItemSelected:indexPath.row];
+}
+
 
 @end

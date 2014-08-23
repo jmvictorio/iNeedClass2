@@ -16,8 +16,9 @@
 
 @end
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (id)initMenuWithDelegate:(id<MenuDelegate>)delegate;
 

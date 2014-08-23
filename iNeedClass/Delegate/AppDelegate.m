@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "Utils.h"
 #import "PKRevealController.h"
+#import "IntroViewController.h"
 #import "UIColor+RGB.h"
 
 @interface AppDelegate()<PKRevealing>
@@ -19,7 +20,7 @@
 @property (nonatomic, strong) UINavigationController    *navController;
 @property (nonatomic, strong) UINavigationController    *navControllerMenu;
 
-@property (nonatomic, strong) HomeViewController        *homeViewController;
+@property (nonatomic, strong) IntroViewController       *introViewController;
 @property (nonatomic, strong) MenuViewController        *menuViewController;
 @property (nonatomic, strong) UISplitViewController     *splitController;
 
@@ -35,16 +36,12 @@
     
     [self appearance];
     
-    self.homeViewController    = [HomeViewController new];
+    self.introViewController   = [IntroViewController new];
     self.menuViewController    = [MenuViewController new];
     
     if([Utils is_iPhoneDevice])
     {
-        self.navController = [[UINavigationController alloc] initWithRootViewController:self.homeViewController];
-        
-        [self.homeViewController.view setBackgroundColor:[UIColor whiteColor]];
-        
-        //[self.homeViewController.view setBackgroundColor:[UIColor colorWithHexString:@"4bc1d2"]];
+        self.navController = [[UINavigationController alloc] initWithRootViewController:self.introViewController];
     
         //HACER OVERLAY DE UN NAVIGATIONBAR
         [self.navController.navigationBar setBackgroundImage:[UIImage new]
@@ -52,6 +49,7 @@
         self.navController.navigationBar.shadowImage = [UIImage new];
         self.navController.navigationBar.translucent = YES;
         //-----------------
+        [self.navController.navigationBar setHidden:YES];
         
         self.revealController = [PKRevealController revealControllerWithFrontViewController: _navController
                                                                          leftViewController: [self leftViewController]

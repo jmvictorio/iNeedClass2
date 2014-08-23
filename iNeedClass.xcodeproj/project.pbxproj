@@ -60,6 +60,12 @@
 		A0A302A419A2755600947E72 /* 1136iPhone2.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A302A219A2755600947E72 /* 1136iPhone2.png */; };
 		A0A423CB19A2505B00F3D1E0 /* snapchatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A423CA19A2505B00F3D1E0 /* snapchatIcon.png */; };
 		A0A423CF19A2506200F3D1E0 /* CBZSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A423CE19A2506200F3D1E0 /* CBZSplashView.m */; };
+		A0A717C719A8A61D000C6527 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A717C519A8A61D000C6527 /* IntroViewController.m */; };
+		A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A717C619A8A61D000C6527 /* IntroViewController.xib */; };
+		A0A717CC19A8ACB3000C6527 /* perfilMustache.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A717CB19A8ACB3000C6527 /* perfilMustache.png */; };
+		A0A717D419A8B581000C6527 /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A717D219A8B581000C6527 /* MenuItemCell.m */; };
+		A0A717D519A8B581000C6527 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A717D319A8B581000C6527 /* MenuItemCell.xib */; };
+		A0A717D719A8E5D2000C6527 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A717D619A8E5D2000C6527 /* x.png */; };
 		A0AABEF719A1055D008E3F99 /* IMG_5078.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0AABEF619A1055D008E3F99 /* IMG_5078.PNG */; };
 		A0AABEF919A105A1008E3F99 /* IMG_3036.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0AABEF819A105A1008E3F99 /* IMG_3036.PNG */; };
 		A0AABEFF19A10C44008E3F99 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A0AABEFE19A10C44008E3F99 /* menu.png */; };
@@ -169,6 +175,16 @@
 		A0A423CA19A2505B00F3D1E0 /* snapchatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchatIcon.png; sourceTree = "<group>"; };
 		A0A423CD19A2506200F3D1E0 /* CBZSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZSplashView.h; sourceTree = "<group>"; };
 		A0A423CE19A2506200F3D1E0 /* CBZSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZSplashView.m; sourceTree = "<group>"; };
+		A0A717C419A8A61D000C6527 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		A0A717C519A8A61D000C6527 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		A0A717C619A8A61D000C6527 /* IntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
+		A0A717C919A8AB26000C6527 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0A717CA19A8AB26000C6527 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0A717CB19A8ACB3000C6527 /* perfilMustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perfilMustache.png; sourceTree = "<group>"; };
+		A0A717D119A8B581000C6527 /* MenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCell.h; sourceTree = "<group>"; };
+		A0A717D219A8B581000C6527 /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
+		A0A717D319A8B581000C6527 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
+		A0A717D619A8E5D2000C6527 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		A0AABEF619A1055D008E3F99 /* IMG_5078.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_5078.PNG; sourceTree = "<group>"; };
 		A0AABEF819A105A1008E3F99 /* IMG_3036.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3036.PNG; sourceTree = "<group>"; };
 		A0AABEFE19A10C44008E3F99 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
@@ -364,6 +380,7 @@
 		A060C1F51997CE3300C4C876 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A0A717D619A8E5D2000C6527 /* x.png */,
 				A0AABF0C19A11A73008E3F99 /* iconoLogo */,
 				A0AABF0019A10D7B008E3F99 /* settings.png */,
 				A0AABEFE19A10C44008E3F99 /* menu.png */,
@@ -440,6 +457,11 @@
 		A060C20F1997D97200C4C876 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				A0A717CD19A8AD35000C6527 /* BackEnd */,
+				A0A717CE19A8AD35000C6527 /* Exchanges */,
+				A0A717CF19A8AD35000C6527 /* Classes */,
+				A0A717D019A8AD35000C6527 /* Cells */,
+				A0A717C319A8A60E000C6527 /* Intro */,
 				A0433BB819A7BF0B001FD407 /* About */,
 				A0433BB219A7B9A5001FD407 /* Tutorial */,
 				A0A2B2E0199FA8D7001734AF /* Menu */,
@@ -500,6 +522,7 @@
 		A0A3029019A2719C00947E72 /* dr */ = {
 			isa = PBXGroup;
 			children = (
+				A0A717CB19A8ACB3000C6527 /* perfilMustache.png */,
 				A045775C19A3B2A900143159 /* Business-Situations_05_1.png */,
 				A045775D19A3B2A900143159 /* Business-Situations_05_2.png */,
 				A045775E19A3B2A900143159 /* Business-Situations_05_3.png */,
@@ -525,6 +548,52 @@
 				A0A423CE19A2506200F3D1E0 /* CBZSplashView.m */,
 			);
 			path = CBZSplashView;
+			sourceTree = "<group>";
+		};
+		A0A717C319A8A60E000C6527 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				A0A717C419A8A61D000C6527 /* IntroViewController.h */,
+				A0A717C519A8A61D000C6527 /* IntroViewController.m */,
+				A0A717C619A8A61D000C6527 /* IntroViewController.xib */,
+			);
+			name = Intro;
+			path = iPhone/Intro;
+			sourceTree = "<group>";
+		};
+		A0A717CD19A8AD35000C6527 /* BackEnd */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BackEnd;
+			path = iPhone/BackEnd;
+			sourceTree = "<group>";
+		};
+		A0A717CE19A8AD35000C6527 /* Exchanges */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Exchanges;
+			path = iPhone/Exchanges;
+			sourceTree = "<group>";
+		};
+		A0A717CF19A8AD35000C6527 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			path = iPhone/Classes;
+			sourceTree = "<group>";
+		};
+		A0A717D019A8AD35000C6527 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0A717D119A8B581000C6527 /* MenuItemCell.h */,
+				A0A717D219A8B581000C6527 /* MenuItemCell.m */,
+				A0A717D319A8B581000C6527 /* MenuItemCell.xib */,
+			);
+			name = Cells;
+			path = iPhone/Cells;
 			sourceTree = "<group>";
 		};
 		A0AABF0C19A11A73008E3F99 /* iconoLogo */ = {
@@ -609,6 +678,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = A060C1AC1997CCD600C4C876;
 			productRefGroup = A060C1B61997CCD700C4C876 /* Products */;
@@ -633,6 +703,7 @@
 				A0AABF2519A11A73008E3F99 /* Icon.png in Resources */,
 				A0AABF2419A11A73008E3F99 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				A0AABEFF19A10C44008E3F99 /* menu.png in Resources */,
+				A0A717D519A8B581000C6527 /* MenuItemCell.xib in Resources */,
 				A0A2B2E6199FA915001734AF /* MenuViewController.xib in Resources */,
 				A045777219A3B2A900143159 /* Business-Situations_05_9.png in Resources */,
 				A0A423CB19A2505B00F3D1E0 /* snapchatIcon.png in Resources */,
@@ -657,6 +728,7 @@
 				A0AABF1C19A11A73008E3F99 /* Icon-72@2x.png in Resources */,
 				A045777119A3B2A900143159 /* Business-Situations_05_8.png in Resources */,
 				A0AABF0B19A11618008E3F99 /* borde100.png in Resources */,
+				A0A717CC19A8ACB3000C6527 /* perfilMustache.png in Resources */,
 				A0433BB719A7B9F2001FD407 /* TutorialViewController.xib in Resources */,
 				A0AABF1F19A11A73008E3F99 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				A045776C19A3B2A900143159 /* Business-Situations_05_3.png in Resources */,
@@ -664,6 +736,7 @@
 				A045776B19A3B2A900143159 /* Business-Situations_05_2.png in Resources */,
 				A045777019A3B2A900143159 /* Business-Situations_05_7.png in Resources */,
 				A045777419A3B2A900143159 /* Business-Situations_05_11.png in Resources */,
+				A0A717D719A8E5D2000C6527 /* x.png in Resources */,
 				A0AABF1D19A11A73008E3F99 /* Icon-76.png in Resources */,
 				A0AABF1B19A11A73008E3F99 /* Icon-72.png in Resources */,
 				A045776D19A3B2A900143159 /* Business-Situations_05_4.png in Resources */,
@@ -672,6 +745,7 @@
 				A0AABF0519A110BC008E3F99 /* inclogo100.png in Resources */,
 				A0AABF0919A11229008E3F99 /* intercambio100.png in Resources */,
 				A0AABF2219A11A73008E3F99 /* Icon-Small@2x.png in Resources */,
+				A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */,
 				A0A27B9319A11D6B00E376D5 /* 960iPhone.png in Resources */,
 				A0A27B9219A11D6B00E376D5 /* 1136iPhone.png in Resources */,
 			);
@@ -696,6 +770,7 @@
 				A012F1AB199E35EF00320C3B /* Teacher.m in Sources */,
 				A060C1F81997CE3300C4C876 /* AppDelegate.m in Sources */,
 				A060C20B1997D0FA00C4C876 /* UIColor+RGB.m in Sources */,
+				A0A717D419A8B581000C6527 /* MenuItemCell.m in Sources */,
 				A060C1C51997CCD700C4C876 /* main.m in Sources */,
 				A060C2091997D0FA00C4C876 /* ConfigHelper.m in Sources */,
 				A0433BB619A7B9F2001FD407 /* TutorialViewController.m in Sources */,
@@ -705,6 +780,7 @@
 				A012F1A5199E35EF00320C3B /* Login.m in Sources */,
 				A060C20C1997D0FA00C4C876 /* Utils.m in Sources */,
 				A012F1A2199E35EF00320C3B /* Exchange.m in Sources */,
+				A0A717C719A8A61D000C6527 /* IntroViewController.m in Sources */,
 				A060C21A1997DAE500C4C876 /* iNeedClass.xcdatamodeld in Sources */,
 				A0A2B2C4199F9D63001734AF /* CategoryType.m in Sources */,
 				A060C2141997DA2100C4C876 /* HomeViewController.m in Sources */,
@@ -735,6 +811,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A060C1C21997CCD700C4C876 /* en */,
+				A0A717C919A8AB26000C6527 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -743,6 +820,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A060C1E41997CCD700C4C876 /* en */,
+				A0A717CA19A8AB26000C6527 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
