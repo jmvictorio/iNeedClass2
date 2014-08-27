@@ -7,8 +7,13 @@
 //
 
 #import "MenuItemCell.h"
+#import "UIColor+RGB.h"
+
 
 @implementation MenuItemCell
+
+@synthesize descriptionLabel;
+@synthesize iconImage;
 
 + (UINib *)nib
 {
@@ -20,13 +25,13 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    // Don't call to super to avoid highlight the cell after pressed.
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "UIColor+RGB.h"
 #import "AboutViewController.h"
+#import "TutorialViewController.h"
 
 @interface HomeViewController (){
     // Botones de 'Edicion'
@@ -71,6 +72,8 @@
     
     [self animationBarraVertical];
     
+    [self loadFonts];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -92,6 +95,14 @@
         [self.navigationController.navigationBar setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
     }
     
+}
+
+- (void)loadFonts
+{
+    [self.buttonINC.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:25]];
+    [self.tutorial setFont:[UIFont fontWithName:@"Montserrat-Regular" size:25]];
+    [self.buttonClasses.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:25]];
+    [self.buttonExchange.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:25]];
 }
 
 - (void)loadFirstTime
@@ -190,8 +201,9 @@
 }
 
 - (IBAction)actionHelp{
-    
-    NSLog(@"DALE");
+    [mustache removeFromSuperview];
+    TutorialViewController *tuto = [[TutorialViewController alloc]init];
+    [self.navigationController pushViewController:tuto animated:YES];
     
 }
 

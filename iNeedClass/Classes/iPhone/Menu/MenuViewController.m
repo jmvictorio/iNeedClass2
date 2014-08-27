@@ -38,9 +38,19 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.tableView setRowHeight:60.0];
+    [self.tableView setRowHeight:62.0];
     
     [self.tableView registerNib:[MenuItemCell nib] forCellReuseIdentifier:MenuCellIdentifier];
+    
+    [self.labelName setTextAlignment:NSTextAlignmentCenter];
+    [self.labelName setTextColor:[UIColor whiteColor]];
+    self.labelName.backgroundColor = [UIColor colorWithHexString:@"4bc1d2"];
+    self.labelName.layer.cornerRadius = 15;
+    [self.labelName setFont:[UIFont fontWithName:@"Montserrat-Bold" size:17]];
+    [self.labelName setText:@"Dr Mustache"];
+    //self.labelName.layer.borderColor = [UIColor redColor].CGColor;
+    //originaltagLbl.layer.borderWidth = 1;
+    //[scrollView addSubview:originaltagLbl];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +61,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,27 +75,32 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     {
         case 0:
             menuItemLabel = @"Home";
-            menuItemIcon = [UIImage imageNamed:@"ic_inbox"];
+            menuItemIcon = [UIImage imageNamed:@"home-50"];
             break;
             
         case 1:
             menuItemLabel = @"Añadir Asignatura";
-            menuItemIcon = [UIImage imageNamed:@"ic_about"];
+            menuItemIcon = [UIImage imageNamed:@"school-50"];
             break;
             
         case 2:
             menuItemLabel = @"Añadir Intercambio";
-            menuItemIcon = [UIImage imageNamed:@"ic_about"];
+            menuItemIcon = [UIImage imageNamed:@"data_in_both_directions-50"];
             break;
             
         case 3:
             menuItemLabel = @"Configuración";
-            menuItemIcon = [UIImage imageNamed:@"setting.png"];
+            menuItemIcon = [UIImage imageNamed:@"settings"];
+            break;
+        case 4:
+            menuItemLabel = @"Login";
+            menuItemIcon = [UIImage imageNamed:@"enter-50"];
             break;
     }
     
     [cell.iconImage setImage:menuItemIcon];
     [cell.descriptionLabel setText:menuItemLabel];
+    [cell.descriptionLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:18]];
     
     return cell;
 }

@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) IntroViewController       *introViewController;
 @property (nonatomic, strong) MenuViewController        *menuViewController;
+@property (nonatomic, strong) HomeViewController        *homeViewController;
 @property (nonatomic, strong) UISplitViewController     *splitController;
 
 - (void)appearance;
@@ -38,6 +39,7 @@
     
     self.introViewController   = [IntroViewController new];
     self.menuViewController    = [MenuViewController new];
+    self.homeViewController    = [HomeViewController new];
     
     if([Utils is_iPhoneDevice])
     {
@@ -149,72 +151,48 @@
     // Cerrar el panel lateral (util solo para iPhone)
     //
     
-    //Class requestedViewController;
-    //UIViewController *viewController = nil;
+    Class requestedViewController;
+    UIViewController *viewController = nil;
     
-    /*switch (indexMenuItem) {
+    switch (indexMenuItem) {
             
         case 0:
-            requestedViewController = [InboxViewController class];
-            viewController = _inboxViewController;
-            if(![Utils is_iPhoneDevice]){
+            requestedViewController = [HomeViewController class];
+            viewController = self.homeViewController;
+            /*if(![Utils is_iPhoneDevice]){
                 
                 [_detailViewController removeViews];
                 
                 [_navControllerMenu pushViewController:viewController animated:YES];
                 
-            }
+            }*/
             break;
             
         case 1:
-            if([Utils is_iPhoneDevice])
-            {
-                //TODO: Jesus: El webview consume mucha memoria, liberar
-                 if(!_wallViewController)
-                 {
-                 _wallViewController = [WallViewController new];
-                 }
-                requestedViewController = [WallViewController class];
-                viewController = _wallViewController;
-                //_wallViewController = nil;
-            }
-            else{
-                [_detailViewController openView:1];
-            }
+            requestedViewController = [HomeViewController class];
+            viewController = self.homeViewController;
             break;
-            
         case 2:
-            if([Utils is_iPhoneDevice])
-            {
-                requestedViewController = [SettingsViewController class];
-                viewController = _settingsViewController;
-            }
-            else{
-                [_detailViewController openView:2];
-            }
+            requestedViewController = [HomeViewController class];
+            viewController = self.homeViewController;
             break;
-            
         case 3:
-            if([Utils is_iPhoneDevice])
-            {
-                requestedViewController = [AboutViewController class];
-                viewController = _aboutViewController;
-            }
-            else{
-                [_detailViewController openView:3];
-            }
+            requestedViewController = [HomeViewController class];
+            viewController = self.homeViewController;
+            break;
+        case 4:
+            requestedViewController = [HomeViewController class];
+            viewController = self.homeViewController;
             break;
     }
     
     if([Utils is_iPhoneDevice])
     {
-        
-        [_navController setViewControllers:[NSArray arrayWithObject:viewController]];
+        if(![self.navController.visibleViewController isKindOfClass:[viewController class]]){
+            [_navController setViewControllers:[NSArray arrayWithObject:viewController]];
+        }
         [self.revealController resignPresentationModeEntirely:YES animated:YES completion:nil];
-        
     }
-    */
-    
 }
 
 #pragma mark - Metodos publicos

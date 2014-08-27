@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TutorialViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *buttonLogin;
+@property (weak, nonatomic) IBOutlet UIButton *butonSign;
+- (IBAction)loginAction:(id)sender;
+- (IBAction)signAction:(id)sender;
 
 @end

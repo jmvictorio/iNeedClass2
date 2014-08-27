@@ -15,8 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *borde3;
 @property (weak, nonatomic) IBOutlet UIImageView *arrow;
 @property (weak, nonatomic) IBOutlet UILabel *tutorial;
+@property (weak, nonatomic) IBOutlet UIButton *buttonExchange;
+@property (weak, nonatomic) IBOutlet UIButton *buttonClasses;
+@property (weak, nonatomic) IBOutlet UIButton *buttonINC;
 
-- (IBAction)actionHelp;
 - (IBAction)actionAbout:(id)sender;
 - (IBAction)actionClass:(id)sender;
 - (IBAction)actionExchange:(id)sender;

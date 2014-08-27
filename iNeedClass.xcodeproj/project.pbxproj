@@ -12,6 +12,8 @@
 		A012F1A5199E35EF00320C3B /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = A012F1A4199E35EF00320C3B /* Login.m */; };
 		A012F1AB199E35EF00320C3B /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = A012F1AA199E35EF00320C3B /* Teacher.m */; };
 		A012F1AE199E35EF00320C3B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A012F1AD199E35EF00320C3B /* User.m */; };
+		A036D38819ADDE8F00CD9850 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A036D38619ADDE8F00CD9850 /* Montserrat-Bold.ttf */; };
+		A036D38919ADDE8F00CD9850 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A036D38719ADDE8F00CD9850 /* Montserrat-Regular.ttf */; };
 		A0433BB619A7B9F2001FD407 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0433BB419A7B9F2001FD407 /* TutorialViewController.m */; };
 		A0433BB719A7B9F2001FD407 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0433BB519A7B9F2001FD407 /* TutorialViewController.xib */; };
 		A0433BBC19A7BF25001FD407 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0433BBA19A7BF25001FD407 /* AboutViewController.m */; };
@@ -66,6 +68,12 @@
 		A0A717D419A8B581000C6527 /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A717D219A8B581000C6527 /* MenuItemCell.m */; };
 		A0A717D519A8B581000C6527 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A717D319A8B581000C6527 /* MenuItemCell.xib */; };
 		A0A717D719A8E5D2000C6527 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A717D619A8E5D2000C6527 /* x.png */; };
+		A0A8429219AA016E002968A2 /* edit-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A8428D19AA016E002968A2 /* edit-50.png */; };
+		A0A8429319AA016E002968A2 /* data_in_both_directions-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A8428E19AA016E002968A2 /* data_in_both_directions-50.png */; };
+		A0A8429419AA016E002968A2 /* courses-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A8428F19AA016E002968A2 /* courses-50.png */; };
+		A0A8429519AA016E002968A2 /* school-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A8429019AA016E002968A2 /* school-50.png */; };
+		A0A8429619AA016E002968A2 /* home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A8429119AA016E002968A2 /* home-50.png */; };
+		A0A8429819AA2F61002968A2 /* enter-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A8429719AA2F61002968A2 /* enter-50.png */; };
 		A0AABEF719A1055D008E3F99 /* IMG_5078.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0AABEF619A1055D008E3F99 /* IMG_5078.PNG */; };
 		A0AABEF919A105A1008E3F99 /* IMG_3036.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0AABEF819A105A1008E3F99 /* IMG_3036.PNG */; };
 		A0AABEFF19A10C44008E3F99 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A0AABEFE19A10C44008E3F99 /* menu.png */; };
@@ -111,6 +119,8 @@
 		A012F1AA199E35EF00320C3B /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
 		A012F1AC199E35EF00320C3B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		A012F1AD199E35EF00320C3B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		A036D38619ADDE8F00CD9850 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		A036D38719ADDE8F00CD9850 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		A0433BB319A7B9F2001FD407 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		A0433BB419A7B9F2001FD407 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		A0433BB519A7B9F2001FD407 /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +195,12 @@
 		A0A717D219A8B581000C6527 /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
 		A0A717D319A8B581000C6527 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		A0A717D619A8E5D2000C6527 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		A0A8428D19AA016E002968A2 /* edit-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-50.png"; sourceTree = "<group>"; };
+		A0A8428E19AA016E002968A2 /* data_in_both_directions-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data_in_both_directions-50.png"; sourceTree = "<group>"; };
+		A0A8428F19AA016E002968A2 /* courses-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "courses-50.png"; sourceTree = "<group>"; };
+		A0A8429019AA016E002968A2 /* school-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-50.png"; sourceTree = "<group>"; };
+		A0A8429119AA016E002968A2 /* home-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-50.png"; sourceTree = "<group>"; };
+		A0A8429719AA2F61002968A2 /* enter-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enter-50.png"; sourceTree = "<group>"; };
 		A0AABEF619A1055D008E3F99 /* IMG_5078.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_5078.PNG; sourceTree = "<group>"; };
 		A0AABEF819A105A1008E3F99 /* IMG_3036.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3036.PNG; sourceTree = "<group>"; };
 		A0AABEFE19A10C44008E3F99 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
@@ -252,6 +268,15 @@
 				A0A2B2C3199F9D63001734AF /* CategoryType.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		A036D38519ADDE8F00CD9850 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A036D38619ADDE8F00CD9850 /* Montserrat-Bold.ttf */,
+				A036D38719ADDE8F00CD9850 /* Montserrat-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		A0433BB219A7B9A5001FD407 /* Tutorial */ = {
@@ -361,6 +386,7 @@
 		A060C1F31997CE3300C4C876 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A036D38519ADDE8F00CD9850 /* fonts */,
 				A0A2B2C5199FA85B001734AF /* Libraries */,
 				A060C1FF1997D0FA00C4C876 /* Utils */,
 				A060C1F41997CE3300C4C876 /* Backgrounds */,
@@ -380,6 +406,12 @@
 		A060C1F51997CE3300C4C876 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A0A8429719AA2F61002968A2 /* enter-50.png */,
+				A0A8428D19AA016E002968A2 /* edit-50.png */,
+				A0A8428E19AA016E002968A2 /* data_in_both_directions-50.png */,
+				A0A8428F19AA016E002968A2 /* courses-50.png */,
+				A0A8429019AA016E002968A2 /* school-50.png */,
+				A0A8429119AA016E002968A2 /* home-50.png */,
 				A0A717D619A8E5D2000C6527 /* x.png */,
 				A0AABF0C19A11A73008E3F99 /* iconoLogo */,
 				A0AABF0019A10D7B008E3F99 /* settings.png */,
@@ -703,12 +735,15 @@
 				A0AABF2519A11A73008E3F99 /* Icon.png in Resources */,
 				A0AABF2419A11A73008E3F99 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				A0AABEFF19A10C44008E3F99 /* menu.png in Resources */,
+				A0A8429219AA016E002968A2 /* edit-50.png in Resources */,
 				A0A717D519A8B581000C6527 /* MenuItemCell.xib in Resources */,
 				A0A2B2E6199FA915001734AF /* MenuViewController.xib in Resources */,
 				A045777219A3B2A900143159 /* Business-Situations_05_9.png in Resources */,
 				A0A423CB19A2505B00F3D1E0 /* snapchatIcon.png in Resources */,
+				A036D38819ADDE8F00CD9850 /* Montserrat-Bold.ttf in Resources */,
 				A060C1D41997CCD700C4C876 /* Images.xcassets in Resources */,
 				A0A302A419A2755600947E72 /* 1136iPhone2.png in Resources */,
+				A0A8429419AA016E002968A2 /* courses-50.png in Resources */,
 				A0A302A319A2755600947E72 /* 960iPhone2.png in Resources */,
 				A045777719A3B2A900143159 /* Business-Situations_05_14.png in Resources */,
 				A045776E19A3B2A900143159 /* Business-Situations_05_5.png in Resources */,
@@ -728,8 +763,10 @@
 				A0AABF1C19A11A73008E3F99 /* Icon-72@2x.png in Resources */,
 				A045777119A3B2A900143159 /* Business-Situations_05_8.png in Resources */,
 				A0AABF0B19A11618008E3F99 /* borde100.png in Resources */,
+				A0A8429519AA016E002968A2 /* school-50.png in Resources */,
 				A0A717CC19A8ACB3000C6527 /* perfilMustache.png in Resources */,
 				A0433BB719A7B9F2001FD407 /* TutorialViewController.xib in Resources */,
+				A0A8429819AA2F61002968A2 /* enter-50.png in Resources */,
 				A0AABF1F19A11A73008E3F99 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				A045776C19A3B2A900143159 /* Business-Situations_05_3.png in Resources */,
 				A0433BBD19A7BF25001FD407 /* AboutViewController.xib in Resources */,
@@ -739,13 +776,16 @@
 				A0A717D719A8E5D2000C6527 /* x.png in Resources */,
 				A0AABF1D19A11A73008E3F99 /* Icon-76.png in Resources */,
 				A0AABF1B19A11A73008E3F99 /* Icon-72.png in Resources */,
+				A036D38919ADDE8F00CD9850 /* Montserrat-Regular.ttf in Resources */,
 				A045776D19A3B2A900143159 /* Business-Situations_05_4.png in Resources */,
 				A060C2151997DA2100C4C876 /* HomeViewController.xib in Resources */,
 				A0AABF2019A11A73008E3F99 /* Icon-Small-50.png in Resources */,
 				A0AABF0519A110BC008E3F99 /* inclogo100.png in Resources */,
+				A0A8429319AA016E002968A2 /* data_in_both_directions-50.png in Resources */,
 				A0AABF0919A11229008E3F99 /* intercambio100.png in Resources */,
 				A0AABF2219A11A73008E3F99 /* Icon-Small@2x.png in Resources */,
 				A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */,
+				A0A8429619AA016E002968A2 /* home-50.png in Resources */,
 				A0A27B9319A11D6B00E376D5 /* 960iPhone.png in Resources */,
 				A0A27B9219A11D6B00E376D5 /* 1136iPhone.png in Resources */,
 			);
