@@ -8,10 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TutorialViewController : UIViewController
+@interface TutorialViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, FBLoginViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollTutorial;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
 @property (weak, nonatomic) IBOutlet UIButton *buttonLogin;
 @property (weak, nonatomic) IBOutlet UIButton *butonSign;
-- (IBAction)loginAction:(id)sender;
-- (IBAction)signAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
+@property (weak, nonatomic) IBOutlet UIView *vistaGris;
+@property (weak, nonatomic) IBOutlet UIView *viewButtons;
+
+- (IBAction)loginAction:(id)sender;
+- (IBAction)dismiss:(id)sender;
+- (IBAction)signAction:(id)sender;
 @end

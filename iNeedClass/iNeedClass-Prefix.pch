@@ -13,4 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <FacebookSDK/FacebookSDK.h>
+    #import "PKRevealController.h"
+    #import "UIColor+RGB.h"
+    #import "AppDelegate.h"
 #endif

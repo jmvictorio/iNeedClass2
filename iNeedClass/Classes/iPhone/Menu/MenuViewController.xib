@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
             <connections>
                 <outlet property="labelName" destination="pQh-iW-BHo" id="bJc-6m-THO"/>
+                <outlet property="profilePic" destination="cnG-d7-osa" id="JVN-8g-K8W"/>
                 <outlet property="tableView" destination="zZK-Xt-QTD" id="ehb-Sz-J3d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,20 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zZK-Xt-QTD">
-                    <rect key="frame" x="0.0" y="250" width="250" height="318"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <view key="tableFooterView" contentMode="scaleToFill" id="cps-Rf-5xx">
-                        <rect key="frame" x="0.0" y="317" width="250" height="1"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="V6W-lr-uhi"/>
-                        <outlet property="delegate" destination="-1" id="8fe-Yh-K8r"/>
-                    </connections>
-                </tableView>
                 <view contentMode="scaleToFill" id="n41-hm-LzM">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,6 +26,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
+                        <view contentMode="scaleToFill" id="cnG-d7-osa" customClass="FBProfilePictureView">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pQh-iW-BHo">
                             <rect key="frame" x="28" y="182" width="195" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,12 +40,33 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zZK-Xt-QTD">
+                    <rect key="frame" x="0.0" y="250" width="250" height="318"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexTrackingBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <view key="tableFooterView" contentMode="scaleToFill" id="cps-Rf-5xx">
+                        <rect key="frame" x="0.0" y="317" width="250" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="V6W-lr-uhi"/>
+                        <outlet property="delegate" destination="-1" id="8fe-Yh-K8r"/>
+                    </connections>
+                </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
         <image name="perfilMustache.png" width="500" height="500"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

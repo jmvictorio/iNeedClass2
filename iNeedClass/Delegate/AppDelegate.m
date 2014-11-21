@@ -8,12 +8,13 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "Home2ViewController.h"
 #import "Utils.h"
-#import "PKRevealController.h"
 #import "IntroViewController.h"
+#import "LoginViewController.h"
 #import "UIColor+RGB.h"
 
-@interface AppDelegate()<PKRevealing>
+@interface AppDelegate()
 
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) IntroViewController       *introViewController;
 @property (nonatomic, strong) MenuViewController        *menuViewController;
 @property (nonatomic, strong) HomeViewController        *homeViewController;
+@property (nonatomic, strong) Home2ViewController       *home2ViewController;
 @property (nonatomic, strong) UISplitViewController     *splitController;
 
 - (void)appearance;
@@ -40,6 +42,7 @@
     self.introViewController   = [IntroViewController new];
     self.menuViewController    = [MenuViewController new];
     self.homeViewController    = [HomeViewController new];
+    self.home2ViewController   = [Home2ViewController new];
     
     if([Utils is_iPhoneDevice])
     {
@@ -57,7 +60,7 @@
                                                                          leftViewController: [self leftViewController]
                                                                         rightViewController: nil];
         
-        self.revealController.delegate = self;
+        //self.revealController.delegate = self;
         self.revealController.animationDuration = 0.25;
         
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -87,6 +90,7 @@
         self.window.rootViewController = self.splitController;
     }*/
     
+    [FBLoginView class];
     
     [self.window makeKeyAndVisible];
     
@@ -129,7 +133,6 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
     
-    
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
 }
@@ -153,7 +156,7 @@
     
     Class requestedViewController;
     UIViewController *viewController = nil;
-    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
     switch (indexMenuItem) {
             
         case 0:
@@ -177,12 +180,14 @@
             viewController = self.homeViewController;
             break;
         case 3:
-            requestedViewController = [HomeViewController class];
-            viewController = self.homeViewController;
+            requestedViewController = [Home2ViewController class];
+            viewController = self.home2ViewController;
+            
             break;
         case 4:
-            requestedViewController = [HomeViewController class];
-            viewController = self.homeViewController;
+            requestedViewController = [LoginViewController class];
+            viewController = [LoginViewController new];
+            [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
             break;
     }
     
@@ -217,5 +222,19 @@
     }
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *) sourceApplication annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
+}
+
+- (UINavigationController *)getNavigationController
+{
+    return _navController;
+}
 
 @end

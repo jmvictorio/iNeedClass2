@@ -16,7 +16,7 @@
 
 @end
 
-@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,FBLoginViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;

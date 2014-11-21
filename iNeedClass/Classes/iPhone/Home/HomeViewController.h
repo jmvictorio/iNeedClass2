@@ -10,9 +10,9 @@
 
 @interface HomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *barraVertical;
-@property (weak, nonatomic) IBOutlet UIImageView *borde1;
-@property (weak, nonatomic) IBOutlet UIImageView *borde2;
-@property (weak, nonatomic) IBOutlet UIImageView *borde3;
+@property (weak, nonatomic) IBOutlet UIButton *borde1;
+@property (weak, nonatomic) IBOutlet UIButton *borde2;
+@property (weak, nonatomic) IBOutlet UIButton *borde3;
 @property (weak, nonatomic) IBOutlet UIImageView *arrow;
 @property (weak, nonatomic) IBOutlet UILabel *tutorial;
 @property (weak, nonatomic) IBOutlet UIButton *buttonExchange;

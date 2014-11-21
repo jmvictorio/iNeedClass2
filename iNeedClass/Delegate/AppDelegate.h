@@ -20,4 +20,6 @@
 /// Si esta esta oculto lo muestra y si esta visible lo oculta.
 - (void)switchLateralPanelState;
 
+- (UINavigationController *)getNavigationController;
+
 @end

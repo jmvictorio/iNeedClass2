@@ -24,6 +24,11 @@
     return [UIColor colorWithHexValue: rgbval];
 }
 
+
++ (UIColor *)colorINC
+{
+    return [UIColor colorWithHexString:@"4bc1d2"];
+}
 // Create a color using a hex RGB value
 // ex. [UIColor colorWithHexValue: 0x03047F]
 + (UIColor *) colorWithHexValue:(NSInteger)rgbValue
@@ -32,6 +37,16 @@
                            green: ((float)((rgbValue & 0xFF00) >> 8))/255.0
                             blue: ((float)(rgbValue & 0xFF))/255.0
                            alpha: 1.0];
+}
+
++ (UIFont *)fontMontseRegular:(CGFloat)size
+{
+    return [UIFont fontWithName:@"Montserrat-Regular" size:size];
+}
+
++ (UIFont *)fontMontseBold:(CGFloat)size
+{
+    return [UIFont fontWithName:@"Montserrat-Bold" size:size];
 }
 
 @end

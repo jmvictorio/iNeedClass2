@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *PrincipalView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *designFreepik;
+@property (weak, nonatomic) IBOutlet UILabel *tituloFreepik;
+@property (weak, nonatomic) IBOutlet UILabel *byME;
+@property (weak, nonatomic) IBOutlet UILabel *agrees;
+@property (weak, nonatomic) IBOutlet UILabel *appFriend;
+@property (weak, nonatomic) IBOutlet UILabel *appFriendDescription;
+
 - (IBAction)backToHome:(id)sender;
 
 @end

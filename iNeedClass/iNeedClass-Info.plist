@@ -24,8 +24,11 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>Main_iPad</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -45,10 +48,18 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
+	<key>FacebookAppID</key>
+	<string>743250515736012</string>
+	<key>FacebookDisplayName</key>
+	<string>iNeedClass</string>
+	<key>CFBundleURLTypes</key>
 	<array>
-		<string>Montserrat-Bold.ttf</string>
-		<string>Montserrat-Regular.ttf</string>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb743250515736012</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

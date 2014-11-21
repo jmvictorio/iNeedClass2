@@ -17,6 +17,8 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 @interface MenuViewController ()
 
 @property (weak, nonatomic) id<MenuDelegate>delegate;
+@property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePic;
+@property (nonatomic, strong) FBLoginView *loginView;
 
 @end
 
@@ -48,6 +50,13 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     self.labelName.layer.cornerRadius = 15;
     [self.labelName setFont:[UIFont fontWithName:@"Montserrat-Bold" size:17]];
     [self.labelName setText:@"Dr Mustache"];
+    
+    self.loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
+    
+    self.loginView.delegate = self;
+    
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    
     //self.labelName.layer.borderColor = [UIColor redColor].CGColor;
     //originaltagLbl.layer.borderWidth = 1;
     //[scrollView addSubview:originaltagLbl];
@@ -75,26 +84,26 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     {
         case 0:
             menuItemLabel = @"Home";
-            menuItemIcon = [UIImage imageNamed:@"home-50"];
+            menuItemIcon = [UIImage imageNamed:@"home-50White"];
             break;
             
         case 1:
             menuItemLabel = @"Añadir Asignatura";
-            menuItemIcon = [UIImage imageNamed:@"school-50"];
+            menuItemIcon = [UIImage imageNamed:@"school-50White"];
             break;
             
         case 2:
             menuItemLabel = @"Añadir Intercambio";
-            menuItemIcon = [UIImage imageNamed:@"data_in_both_directions-50"];
+            menuItemIcon = [UIImage imageNamed:@"data_in_both_directions-50White"];
             break;
             
         case 3:
             menuItemLabel = @"Configuración";
-            menuItemIcon = [UIImage imageNamed:@"settings"];
+            menuItemIcon = [UIImage imageNamed:@"settingsWhite"];
             break;
         case 4:
             menuItemLabel = @"Login";
-            menuItemIcon = [UIImage imageNamed:@"enter-50"];
+            menuItemIcon = [UIImage imageNamed:@"enter-50White"];
             break;
     }
     
@@ -110,6 +119,42 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 {
     [_delegate didMenuItemSelected:indexPath.row];
 }
+
+#pragma mark - FBLoginViewDelegate
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    // first get the buttons set for login mode
+    [self.profilePic setHidden:NO];
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    // here we use helper properties of FBGraphUser to dot-through to first_name and
+    // id properties of the json response from the server; alternatively we could use
+    // NSDictionary methods such as objectForKey to get values from the my json object
+    self.labelName.text = [NSString stringWithFormat:@"%@", user.first_name];
+    // setting the profileID property of the FBProfilePictureView instance
+    // causes the control to fetch and display the profile picture for the user
+    self.profilePic.profileID = user.objectID;
+
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    // test to see if we can use the share dialog built into the Facebook application
+    FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
+    p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
+    
+    self.profilePic.profileID = nil;
+    [self.profilePic setHidden:YES];
+    self.labelName.text = @"Dr Mustache";
+}
+
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
+    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
+    // our policy here is to let the login view handle errors, but to log the results
+    NSLog(@"FBLoginView encountered an error=%@", error);
+}
+
 
 
 @end

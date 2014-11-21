@@ -11,4 +11,9 @@
 @interface UIColor (util)
 + (UIColor *)colorWithHexString:(NSString *)hex;
 + (UIColor *)colorWithHexValue:(NSInteger)hex;
+
++ (UIColor *)colorINC;
+
++ (UIFont *)fontMontseRegular:(NSInteger)size;
++ (UIFont *)fontMontseBold:(CGFloat)size;
 @end
