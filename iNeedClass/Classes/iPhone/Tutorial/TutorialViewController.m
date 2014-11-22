@@ -7,6 +7,8 @@
 //
 
 #import "TutorialViewController.h"
+#import "ProfileViewController.h"
+#import "LoginViewController.h"
 #import "AppDelegate.h"
 
 @interface TutorialViewController ()
@@ -101,13 +103,10 @@
 
 - (void)loadFonts
 {
-    [self.butonSign.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:20]];
     [self.buttonLogin.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:20]];
     [self.dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:20]];
     
-    [self.butonSign setHidden:YES];
     [self.buttonLogin setHidden:YES];
-    [self.separatorView setHidden:YES];
     [self.vistaGris setHidden:YES];
 }
 
@@ -290,6 +289,13 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // first get the buttons set for login mode
     NSLog(@"LOGADO");
+    [self.buttonLogin.titleLabel setText:@"Ve al Perfil"];
+    if(pageActual == 3)
+    {
+        [self.buttonLogin setHidden:NO];
+        [self.vistaGris setHidden:NO];
+        [self.dismissButton setHidden:YES];
+    }
     loginOK = true;
     /* self.buttonPostPhoto.enabled = YES;
     self.buttonPostStatus.enabled = YES;
@@ -309,7 +315,7 @@
     bocadilloLogado = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bocadillo-white"]];
     [bocadilloLogado setFrame:CGRectMake(30, 50, 250, 120)];
     [bocadilloLogado setAlpha:0.0];
-    
+    [self.buttonLogin.titleLabel setText:@"Ve al Perfil"];
     bocadilloLogin = [[UILabel alloc]initWithFrame:CGRectMake(75,50,150,100)];
     [bocadilloLogin setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     [bocadilloLogin setText:[NSString stringWithFormat:@"Buenas %@ \nYa estas dentro! :D", user.first_name]];
@@ -328,12 +334,18 @@
     
     [bocadilloLogado setAlpha:1];
     [bocadilloLogin setAlpha:1];
+    if(pageActual == 3)
+    {
+        [self.buttonLogin setHidden:NO];
+        [self.vistaGris setHidden:NO];
+        [self.dismissButton setHidden:YES];
+    }else{
+        [self.buttonLogin setHidden:YES];
+        [self.vistaGris setHidden:YES];
+        [self.dismissButton setHidden:NO];
+    }
     
-    [self.butonSign setHidden:YES];
-    [self.buttonLogin setHidden:YES];
-    [self.separatorView setHidden:YES];
-    [self.vistaGris setHidden:YES];
-    [self.dismissButton setHidden:NO];
+    
     
     [UIView commitAnimations];
     
@@ -352,23 +364,23 @@
     //BOOL canShareFB = [FBDialogs canPresentShareDialogWithParams:p];
     //BOOL canShareiOS6 = [FBDialogs canPresentOSIntegratedShareDialogWithSession:nil];
     //BOOL canShareFBPhoto = [FBDialogs canPresentShareDialogWithPhotos];
-    
+    [self.buttonLogin.titleLabel setText:@"Ingresar"];
     [UIView beginAnimations:@"LoggedOut" context:NULL];
     [UIView setAnimationDuration:1];
     [UIView setAnimationDelegate: self];
     
     [bocadilloLogado setAlpha:0];
     [bocadilloLogin setAlpha:0];
-    if(pageActual == 3)
+    [bocadilloLogado removeFromSuperview];
+    [bocadilloLogin removeFromSuperview];
+    /*if(pageActual == 3)
     {
-        [self.butonSign setHidden:NO];
         [self.buttonLogin setHidden:NO];
-        [self.separatorView setHidden:NO];
         [self.vistaGris setHidden:NO];
         [self.dismissButton setHidden:YES];
 
     }
-    
+    */
     [UIView commitAnimations];
     loginOK = false;
     
@@ -445,26 +457,13 @@
     }
     if(pageActual == 3)
     {
-        if(!loginOK)
-        {
-            [self.butonSign setHidden:NO];
-            [self.buttonLogin setHidden:NO];
-            [self.separatorView setHidden:NO];
-            [self.vistaGris setHidden:NO];
-            [self.dismissButton setHidden:YES];
-        }else{
-            [self.butonSign setHidden:YES];
-            [self.buttonLogin setHidden:YES];
-            [self.separatorView setHidden:YES];
-            [self.vistaGris setHidden:YES];
-            [self.dismissButton setHidden:NO];
-        }
+        [self.buttonLogin setHidden:NO];
+        [self.vistaGris setHidden:NO];
+        [self.dismissButton setHidden:YES];
     }
     else
     {
-        [self.butonSign setHidden:YES];
         [self.buttonLogin setHidden:YES];
-        [self.separatorView setHidden:YES];
         [self.vistaGris setHidden:YES];
         [self.dismissButton setHidden:NO];
     }
@@ -477,6 +476,13 @@
 }
 
 - (IBAction)loginAction:(id)sender {
+    if(loginOK){
+        ProfileViewController *profile = [[ProfileViewController alloc]init];
+        [self.navigationController pushViewController:profile animated:YES];
+    }else{
+        LoginViewController *login = [[LoginViewController alloc]init];
+        [self.navigationController pushViewController:login animated:YES];
+    }
 }
 
 - (IBAction)dismiss:(id)sender {

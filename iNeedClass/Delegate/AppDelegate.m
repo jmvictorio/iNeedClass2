@@ -12,6 +12,7 @@
 #import "Utils.h"
 #import "IntroViewController.h"
 #import "LoginViewController.h"
+#import "ProfileViewController.h"
 #import "UIColor+RGB.h"
 
 @interface AppDelegate()
@@ -135,6 +136,9 @@
     
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
+    
+    
 }
 
 #pragma mark - Helpers
@@ -156,7 +160,7 @@
     
     Class requestedViewController;
     UIViewController *viewController = nil;
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     switch (indexMenuItem) {
             
         case 0:
@@ -188,6 +192,10 @@
             requestedViewController = [LoginViewController class];
             viewController = [LoginViewController new];
             [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+            break;
+        case 5:
+            requestedViewController = [ProfileViewController class];
+            viewController = [ProfileViewController new];
             break;
     }
     

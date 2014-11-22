@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 
+- (IBAction)openProfile:(id)sender;
 - (id)initMenuWithDelegate:(id<MenuDelegate>)delegate;
 
 @end

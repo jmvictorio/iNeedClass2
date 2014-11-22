@@ -14,14 +14,12 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLogin;
-@property (weak, nonatomic) IBOutlet UIButton *butonSign;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
-@property (weak, nonatomic) IBOutlet UIView *separatorView;
 @property (weak, nonatomic) IBOutlet UIView *vistaGris;
 @property (weak, nonatomic) IBOutlet UIView *viewButtons;
 
 - (IBAction)loginAction:(id)sender;
 - (IBAction)dismiss:(id)sender;
-- (IBAction)signAction:(id)sender;
+
 @end

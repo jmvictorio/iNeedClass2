@@ -10,6 +10,8 @@
 #import "HomeViewController.h"
 
 @interface Home2ViewController ()
+@property (nonatomic, assign) NSInteger idx;
+@property (nonatomic, strong) NSArray *textValues;
 
 @end
 
@@ -21,12 +23,32 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self prepareScrollView];
     [self prepareTabBar];
+    
+    [self.labelView setFont:[UIFont fontWithName:@"Montserrat-Regular" size:20]];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSArray *)textValues
+{
+    if (!_textValues) {
+        _textValues = @[
+                        @"Intro",
+                        @"Clases",
+                        @"Intercambios",
+                        @""
+                        ];
+    }
+    return _textValues;
+}
+
+- (void)setIdx:(NSInteger)idx
+{
+    _idx = MAX(0, MIN(idx, idx % [self.textValues count]));
 }
 
 - (void)prepareScrollView
@@ -83,8 +105,10 @@
     if(scrollView.contentOffset.x == 0)
     {
         [self.tabBar setSelectedItem:[self.tabBar.items objectAtIndex:0]];
+        [self.labelView setText:self.textValues[0]];
     }else{
         [self.tabBar setSelectedItem:[self.tabBar.items objectAtIndex:1]];
+        [self.labelView setText:self.textValues[1]];
     }
 }
 
@@ -94,6 +118,7 @@
 {
     if (item == self.menuItem)
     {
+        [self.labelView setText:self.textValues[0]];
         NSInteger width = self.scrollView.contentSize.width/2;
         if(self.scrollView.bounds.origin.x != width)
         {
@@ -102,6 +127,7 @@
     }
     else
     {
+        [self.labelView setText:self.textValues[1]];
         if(self.scrollView.bounds.origin.x != 0.0)
         {
             [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];

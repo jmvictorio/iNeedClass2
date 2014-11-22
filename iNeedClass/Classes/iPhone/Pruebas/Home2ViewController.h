@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BFPaperTabBar.h"
+#import "TOMSMorphingLabel.h"
 
 @interface Home2ViewController : UIViewController <UITabBarControllerDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet BFPaperTabBar *tabBar;
 @property (weak, nonatomic) IBOutlet UITabBarItem *menuItem;
+@property (weak, nonatomic) IBOutlet TOMSMorphingLabel *labelView;
 
 @end

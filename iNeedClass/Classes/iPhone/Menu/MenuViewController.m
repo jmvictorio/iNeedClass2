@@ -25,6 +25,10 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 
 @implementation MenuViewController
 
+- (IBAction)openProfile:(id)sender {
+    [_delegate didMenuItemSelected:5];
+}
+
 - (id)initMenuWithDelegate:(id<MenuDelegate>)delegate
 {
     if ( self = [super init] ) {
@@ -89,7 +93,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
             
         case 1:
             menuItemLabel = @"Añadir Asignatura";
-            menuItemIcon = [UIImage imageNamed:@"school-50White"];
+            menuItemIcon = [UIImage imageNamed:@"iconoTeacher"];
             break;
             
         case 2:

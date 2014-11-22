@@ -33,6 +33,10 @@
 {
     [super viewDidLoad];
     
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [self.navigationController.navigationBar setHidden:NO];
+    
     [self.buttonLogin.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:17]];
     [self.buttonRegister.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:17]];
     [self.labelOR setFont:[UIFont fontWithName:@"Montserrat-Regular" size:15]];
@@ -47,6 +51,7 @@
                                                   style:UIBarButtonItemStyleBordered
                                                  target:self
                                                  action:@selector(menuAction)];
+    
     [self.navigationItem setLeftBarButtonItem:menuButton];
     
     [menuButton setEnabled:YES];
