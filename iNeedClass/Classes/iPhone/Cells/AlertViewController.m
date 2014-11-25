@@ -10,7 +10,6 @@
 
 @interface AlertViewController ()
 {
-    
     UIView *_backgroundView;
     UIButton *_dismissButton;
     UIButton *_addOption1;
@@ -115,6 +114,7 @@
     _addOption1.frame = CGRectMake(0, 120 - 44, 300, 44);
     _addOption1.backgroundColor = [UIColor colorINC];
     [_addOption1 addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_addOption1.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_addOption1 setTitle:@"Añadir Materia" forState:UIControlStateNormal];
     [_addOption1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_addOption1 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
@@ -124,6 +124,7 @@
     _addOption2.frame = CGRectMake(0, 170 - 44, 300, 44);
     _addOption2.backgroundColor = [UIColor colorINC];
     [_addOption2 addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_addOption2.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_addOption2 setTitle:@"Añadir Intercambio" forState:UIControlStateNormal];
     [_addOption2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_addOption2 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
@@ -133,6 +134,7 @@
     _dismissButton.frame = CGRectMake(0, 250 - 44, 300, 44);
     _dismissButton.backgroundColor = [UIColor colorINC];
     [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_dismissButton setTitle:@"Aceptar" forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
@@ -160,6 +162,7 @@
     _dismissButton.backgroundColor = [UIColor colorINC];
     [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_dismissButton setTitle:@"Añadir" forState:UIControlStateNormal];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self addSubview:_dismissButton];
@@ -186,6 +189,7 @@
     _dismissButton.backgroundColor = [UIColor colorINC];
     [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_dismissButton setTitle:@"Añadir" forState:UIControlStateNormal];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self addSubview:_dismissButton];

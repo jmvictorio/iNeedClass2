@@ -28,19 +28,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkW-Fx-Ojz">
-                    <rect key="frame" x="0.0" y="240" width="320" height="328"/>
+                    <rect key="frame" x="0.0" y="232" width="320" height="336"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drtuto2.png" translatesAutoresizingMaskIntoConstraints="NO" id="TQw-GZ-GVa">
-                            <rect key="frame" x="12" y="8" width="296" height="253"/>
+                            <rect key="frame" x="12" y="16" width="296" height="253"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aún no has registrado ninguna actividad" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="171" translatesAutoresizingMaskIntoConstraints="NO" id="9Wf-0d-q7L">
-                            <rect key="frame" x="73" y="35" width="171" height="72"/>
+                            <rect key="frame" x="73" y="43" width="171" height="72"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rf-Hv-ee5">
-                            <rect key="frame" x="55" y="269" width="210" height="40"/>
+                            <rect key="frame" x="55" y="277" width="210" height="40"/>
                             <color key="backgroundColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
                             <state key="normal" title="Añadir">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

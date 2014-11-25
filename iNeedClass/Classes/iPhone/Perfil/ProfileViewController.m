@@ -11,6 +11,7 @@
 #import "AlertViewController.h"
 #import "CXCardView.h"
 #import "EditProfileViewController.h"
+#import "ClassViewController.h"
 
 @interface ProfileViewController ()
 {
@@ -20,6 +21,7 @@
 }
 
 @property (nonatomic, strong) FBLoginView *loginView;
+@property (nonatomic, strong) ClassViewController *classCollection;
 
 @end
 
@@ -145,46 +147,25 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    /*AlertViewController *alert;
-    UILabel *descriptionLabel = [[UILabel alloc] init];
-    descriptionLabel.frame = CGRectMake(20, 0, 260, 75);
-    descriptionLabel.numberOfLines = 0.;
-    descriptionLabel.textAlignment = NSTextAlignmentCenter;
-    descriptionLabel.backgroundColor = [UIColor clearColor];
-    descriptionLabel.textColor = [UIColor blackColor];
-    descriptionLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:14.0f];*/
-    
+    [self removeSubviews];
+    self.classCollection = nil;
     if(self.classItem == item)
     {
-        /*alert = [AlertViewController defaultView:1];
-        
-        descriptionLabel.frame = CGRectMake(20, 8, 260, 100);
-        
-        descriptionLabel.text = @"¿Desea Añadir una Materia?";*/
-        UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc]init];
-        flowLayout.itemSize = CGSizeMake(300, 50);
-        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        
-        //CollectionClassController *viewCollection = [[CollectionClassController alloc] initWithCollectionViewLayout:flowLayout];
-        
-        //[self.navigationController pushViewController:viewCollection animated:YES];
+        self.classCollection = [ClassViewController defaultView:0];
+        [self.containerView addSubview:self.classCollection.view];
     }
     else
     {
-        /*alert = [AlertViewController defaultView:2];
-        
-        descriptionLabel.frame = CGRectMake(20, 8, 260, 100);
-        
-        descriptionLabel.text = @"¿Desea Añadir un Intercambio?";*/
+        self.classCollection=[ClassViewController defaultView:1];
+        [self.containerView addSubview:self.classCollection.view];
     }
-   /* [alert addSubview:descriptionLabel];
-    
-    [alert setDismissHandler:^(AlertViewController *view) {
-        // to dismiss current cardView. Also you could call the `dismiss` method.
-        [CXCardView dismissCurrent];
-    }];
-    [CXCardView showWithView:alert draggable:YES];
-    */
+}
+
+- (void)removeSubviews
+{
+    for (UIView *view in  [self.containerView subviews]) {
+        [view removeFromSuperview];
+    }
 }
 
 - (IBAction)actionAdd:(id)sender {

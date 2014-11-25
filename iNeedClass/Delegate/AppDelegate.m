@@ -198,9 +198,16 @@
             
             break;
         case 4:
-            requestedViewController = [LoginViewController class];
-            viewController = [LoginViewController new];
-            [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+            
+            if([[NSUserDefaults standardUserDefaults] boolForKey:@"login"]){
+                requestedViewController = [LoginViewController class];
+                viewController = [LoginViewController new];
+                [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+            }else{
+                requestedViewController = [ProfileViewController class];
+                viewController = [ProfileViewController new];
+            }
+            
             break;
         case 5:
             requestedViewController = [ProfileViewController class];

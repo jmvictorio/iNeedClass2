@@ -75,6 +75,8 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // first get the buttons set for login mode
     NSLog(@"LOGADO, DEBE DE IR DIRECTAMENTE A PERFIL");
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     [self.buttonPassOK setHidden:NO];
     /* self.buttonPostPhoto.enabled = YES;
      self.buttonPostStatus.enabled = YES;
