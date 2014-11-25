@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ProfileViewController.h"
 
 
 @interface LoginViewController ()
@@ -43,6 +44,10 @@
     [self.textFieldEmail setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     [self.textFieldPass setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     
+    [self.buttonPassOK.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
+    [self.buttonPassOK.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.buttonPassOK.titleLabel setNumberOfLines:5];
+    
     delegate = [AppDelegate sharedInstance];
     
     [self.viewButtons setBackgroundColor:[UIColor colorWithHexString:@"3b5998"]];
@@ -70,6 +75,7 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // first get the buttons set for login mode
     NSLog(@"LOGADO, DEBE DE IR DIRECTAMENTE A PERFIL");
+    [self.buttonPassOK setHidden:NO];
     /* self.buttonPostPhoto.enabled = YES;
      self.buttonPostStatus.enabled = YES;
      self.buttonPickFriends.enabled = YES;
@@ -99,6 +105,7 @@
     // test to see if we can use the share dialog built into the Facebook application
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
+    [self.buttonPassOK setHidden:YES];
     //BOOL canShareFB = [FBDialogs canPresentShareDialogWithParams:p];
     //BOOL canShareiOS6 = [FBDialogs canPresentOSIntegratedShareDialogWithSession:nil];
     //BOOL canShareFBPhoto = [FBDialogs canPresentShareDialogWithPhotos];
@@ -135,6 +142,12 @@
 
 - (IBAction)RegisterUser:(id)sender {
     NSLog(@"REGISTRATE");
+}
+
+- (IBAction)passOK:(id)sender {
+    
+    ProfileViewController *profileView = [[ProfileViewController alloc] init];
+    [self.navigationController pushViewController:profileView animated:YES];
 }
 
 - (void)menuAction

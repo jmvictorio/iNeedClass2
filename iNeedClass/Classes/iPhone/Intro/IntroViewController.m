@@ -8,8 +8,6 @@
 
 #import "IntroViewController.h"
 #import "CBZSplashView.h"
-#import "UIColor+RGB.h"
-#import "AppDelegate.h"
 #import "HomeViewController.h"
 
 @interface IntroViewController ()

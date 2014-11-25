@@ -24,4 +24,8 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *classItem;
 @property (weak, nonatomic) IBOutlet UITabBarItem *exchangeItem;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonAdd;
+
+- (IBAction)actionAdd:(id)sender;
+
 @end

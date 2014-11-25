@@ -8,12 +8,14 @@
 
 #import "ProfileViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "UIColor+RGB.h"
-#import "AppDelegate.h"
+#import "AlertViewController.h"
+#import "CXCardView.h"
+#import "EditProfileViewController.h"
 
 @interface ProfileViewController ()
 {
     UIBarButtonItem *menuButton;
+    UIBarButtonItem *settingButton;
     AppDelegate *delegate;
 }
 
@@ -49,7 +51,16 @@
     [self.navigationItem setLeftBarButtonItem:menuButton];
     
     [menuButton setEnabled:YES];
+
+    settingButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]
+                                                  style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(settingAction)];
     
+    [self.navigationItem setRightBarButtonItem:settingButton];
+    
+    [settingButton setEnabled:YES];
+
     [self prepareViews];
     [self prepareLabelAndButtons];
     
@@ -58,6 +69,13 @@
 - (void)menuAction
 {
     [delegate switchLateralPanelState];
+}
+
+- (void)settingAction
+{
+    EditProfileViewController *editProfile = [[EditProfileViewController alloc] init];
+    
+    [self.navigationController presentViewController:editProfile animated:YES completion:nil];
 }
 
 - (void)prepareViews
@@ -116,6 +134,8 @@
 {
     [self.nameLabel setFont:[UIFont fontWithName:@"Montserrat-Bold" size:16.0]];
     [self.valorationButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:15.0]];
+    [self.buttonAdd.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:15.0]];
+    [self.buttonAdd.layer setCornerRadius:10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,4 +143,71 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    /*AlertViewController *alert;
+    UILabel *descriptionLabel = [[UILabel alloc] init];
+    descriptionLabel.frame = CGRectMake(20, 0, 260, 75);
+    descriptionLabel.numberOfLines = 0.;
+    descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    descriptionLabel.backgroundColor = [UIColor clearColor];
+    descriptionLabel.textColor = [UIColor blackColor];
+    descriptionLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:14.0f];*/
+    
+    if(self.classItem == item)
+    {
+        /*alert = [AlertViewController defaultView:1];
+        
+        descriptionLabel.frame = CGRectMake(20, 8, 260, 100);
+        
+        descriptionLabel.text = @"¿Desea Añadir una Materia?";*/
+        UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        flowLayout.itemSize = CGSizeMake(300, 50);
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        
+        //CollectionClassController *viewCollection = [[CollectionClassController alloc] initWithCollectionViewLayout:flowLayout];
+        
+        //[self.navigationController pushViewController:viewCollection animated:YES];
+    }
+    else
+    {
+        /*alert = [AlertViewController defaultView:2];
+        
+        descriptionLabel.frame = CGRectMake(20, 8, 260, 100);
+        
+        descriptionLabel.text = @"¿Desea Añadir un Intercambio?";*/
+    }
+   /* [alert addSubview:descriptionLabel];
+    
+    [alert setDismissHandler:^(AlertViewController *view) {
+        // to dismiss current cardView. Also you could call the `dismiss` method.
+        [CXCardView dismissCurrent];
+    }];
+    [CXCardView showWithView:alert draggable:YES];
+    */
+}
+
+- (IBAction)actionAdd:(id)sender {
+    AlertViewController *alert;
+    alert = [AlertViewController defaultView:0];
+    
+    UILabel *descriptionLabel = [[UILabel alloc] init];
+    descriptionLabel.frame = CGRectMake(20, 0, 260, 75);
+    descriptionLabel.numberOfLines = 0.;
+    descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    descriptionLabel.backgroundColor = [UIColor clearColor];
+    descriptionLabel.textColor = [UIColor blackColor];
+    descriptionLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:14.0f];
+    descriptionLabel.text = @"¿Qué desea hacer?";
+    [alert addSubview:descriptionLabel];
+    
+    [alert setDismissHandler:^(AlertViewController *view) {
+        // to dismiss current cardView. Also you could call the `dismiss` method.
+        [CXCardView dismissCurrent];
+    }];
+    
+    
+    [CXCardView showWithView:alert draggable:YES];
+
+}
 @end

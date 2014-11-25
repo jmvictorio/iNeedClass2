@@ -128,17 +128,26 @@
 - (void)appearance
 {
     NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
-                                      [UIColor colorWithHexString:@"4bc1d2"], NSForegroundColorAttributeName, nil];
+                                      [UIColor colorINC], NSForegroundColorAttributeName, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:navBarTextAttrs];
     
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorINC]];
     
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
     
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Montserrat-Regular" size:10.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
     
+    UIFont *font = [UIFont boldSystemFontOfSize:12.0f];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                           forKey:NSFontAttributeName];
+    
+    [[UISegmentedControl appearance] setTitleTextAttributes:attributes
+                                    forState:UIControlStateNormal];
+    
+    [[UITextField appearance] setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
 }
 
 #pragma mark - Helpers

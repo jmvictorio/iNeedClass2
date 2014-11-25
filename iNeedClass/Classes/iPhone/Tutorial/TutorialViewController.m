@@ -9,7 +9,6 @@
 #import "TutorialViewController.h"
 #import "ProfileViewController.h"
 #import "LoginViewController.h"
-#import "AppDelegate.h"
 
 @interface TutorialViewController ()
 {

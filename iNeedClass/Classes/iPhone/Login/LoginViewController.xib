@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="buttonLogin" destination="aWY-Cx-7YW" id="X7S-ff-Nlk"/>
+                <outlet property="buttonPassOK" destination="taE-ci-dKV" id="Ihl-AL-yTD"/>
                 <outlet property="buttonRegister" destination="g7z-LT-5XX" id="4jy-Bk-pZU"/>
                 <outlet property="labelOR" destination="1hw-Su-cMK" id="ssw-aq-jL5"/>
                 <outlet property="textFieldEmail" destination="wpm-ch-R8f" id="GWg-SO-jGI"/>
@@ -54,7 +55,7 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                     <state key="normal" title="Login con Email">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="loginUser:" destination="-1" eventType="touchUpInside" id="tVB-rC-AA7"/>
@@ -94,6 +95,17 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taE-ci-dKV">
+                    <rect key="frame" x="0.0" y="185" width="320" height="136"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Enhorabuena compañero, ya estas dentro!! Pulsa Aqui para ir a tu perfil.">
+                        <color key="titleColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="passOK:" destination="-1" eventType="touchUpInside" id="t3o-hW-auh"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
             <point key="canvasLocation" x="375" y="369"/>

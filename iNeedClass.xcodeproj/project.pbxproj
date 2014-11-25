@@ -89,6 +89,10 @@
 		C6467D8919B2467C0041CAE8 /* drtuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6467D8519B2467C0041CAE8 /* drtuto2.png */; };
 		C6467D8B19B2467C0041CAE8 /* drtuto4.png in Resources */ = {isa = PBXBuildFile; fileRef = C6467D8719B2467C0041CAE8 /* drtuto4.png */; };
 		C695316719B77E9400886DD0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C695316619B77E9400886DD0 /* FacebookSDK.framework */; };
+		C6A0E1121A233F04008D518A /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E1101A233F04008D518A /* AlertViewController.m */; };
+		C6A0E1171A234088008D518A /* AFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E1161A234088008D518A /* AFPopupView.m */; };
+		C6A0E11D1A237ADC008D518A /* CXCardContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E11A1A237ADC008D518A /* CXCardContainerView.m */; };
+		C6A0E11E1A237ADC008D518A /* CXCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E11C1A237ADC008D518A /* CXCardView.m */; };
 		C6A24A4919BA2CCD00175981 /* bocadillo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A24A4819BA2CCD00175981 /* bocadillo-white.png */; };
 		C6A2AB251A1F7937000AB7A9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2AB231A1F7937000AB7A9 /* ProfileViewController.m */; };
 		C6A2AB261A1F7937000AB7A9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2AB241A1F7937000AB7A9 /* ProfileViewController.xib */; };
@@ -106,6 +110,11 @@
 		C6AB46A119AF0E6900F710B1 /* Business-Situations_05_12.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AB469319AF0E6900F710B1 /* Business-Situations_05_12.png */; };
 		C6AB46A219AF0E6900F710B1 /* Business-Situations_05_13.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AB469419AF0E6900F710B1 /* Business-Situations_05_13.png */; };
 		C6AB46A319AF0E6900F710B1 /* Business-Situations_05_14.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AB469519AF0E6900F710B1 /* Business-Situations_05_14.png */; };
+		C6C2A8411A249045002FBF96 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */; };
+		C6C2A8421A249045002FBF96 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */; };
+		C6C2A8441A249B86002FBF96 /* down-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8431A249B86002FBF96 /* down-32.png */; };
+		C6C2A8461A249C2F002FBF96 /* cancel-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8451A249C2F002FBF96 /* cancel-32.png */; };
+		C6C2A8481A24A504002FBF96 /* delete_sign-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8471A24A504002FBF96 /* delete_sign-32.png */; };
 		C6C41ADF19AF3D95002F8876 /* tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C41ADE19AF3D95002F8876 /* tattoo.png */; };
 		C6C41AE119AF5748002F8876 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C41AE019AF5748002F8876 /* QuartzCore.framework */; };
 		C6D1EB711A1F53FA003AF7A5 /* NSString+Morphing.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D1EB6E1A1F53FA003AF7A5 /* NSString+Morphing.m */; };
@@ -258,6 +267,14 @@
 		C6467D8519B2467C0041CAE8 /* drtuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto2.png; sourceTree = "<group>"; };
 		C6467D8719B2467C0041CAE8 /* drtuto4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto4.png; sourceTree = "<group>"; };
 		C695316619B77E9400886DD0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		C6A0E10F1A233F04008D518A /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		C6A0E1101A233F04008D518A /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
+		C6A0E1151A234088008D518A /* AFPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPopupView.h; sourceTree = "<group>"; };
+		C6A0E1161A234088008D518A /* AFPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPopupView.m; sourceTree = "<group>"; };
+		C6A0E1191A237ADC008D518A /* CXCardContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXCardContainerView.h; sourceTree = "<group>"; };
+		C6A0E11A1A237ADC008D518A /* CXCardContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXCardContainerView.m; sourceTree = "<group>"; };
+		C6A0E11B1A237ADC008D518A /* CXCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXCardView.h; sourceTree = "<group>"; };
+		C6A0E11C1A237ADC008D518A /* CXCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXCardView.m; sourceTree = "<group>"; };
 		C6A24A4819BA2CCD00175981 /* bocadillo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bocadillo-white.png"; sourceTree = "<group>"; };
 		C6A2AB221A1F7937000AB7A9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C6A2AB231A1F7937000AB7A9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -276,6 +293,12 @@
 		C6AB469319AF0E6900F710B1 /* Business-Situations_05_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Business-Situations_05_12.png"; sourceTree = "<group>"; };
 		C6AB469419AF0E6900F710B1 /* Business-Situations_05_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Business-Situations_05_13.png"; sourceTree = "<group>"; };
 		C6AB469519AF0E6900F710B1 /* Business-Situations_05_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Business-Situations_05_14.png"; sourceTree = "<group>"; };
+		C6C2A83E1A249045002FBF96 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		C6C2A8431A249B86002FBF96 /* down-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-32.png"; sourceTree = "<group>"; };
+		C6C2A8451A249C2F002FBF96 /* cancel-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-32.png"; sourceTree = "<group>"; };
+		C6C2A8471A24A504002FBF96 /* delete_sign-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_sign-32.png"; sourceTree = "<group>"; };
 		C6C41ADE19AF3D95002F8876 /* tattoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tattoo.png; sourceTree = "<group>"; };
 		C6C41AE019AF5748002F8876 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C6D1EB6D1A1F53FA003AF7A5 /* NSString+Morphing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Morphing.h"; sourceTree = "<group>"; };
@@ -500,6 +523,9 @@
 		A060C1F51997CE3300C4C876 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C6C2A8471A24A504002FBF96 /* delete_sign-32.png */,
+				C6C2A8451A249C2F002FBF96 /* cancel-32.png */,
+				C6C2A8431A249B86002FBF96 /* down-32.png */,
 				C61D2ED51A2110B700EF8023 /* data_in_both_directions-32White.png */,
 				C61D2ED31A21107100EF8023 /* iconoTeacher-32.png */,
 				C61D2ED01A210FE200EF8023 /* iconoTeacher.png */,
@@ -635,6 +661,8 @@
 		A0A2B2C5199FA85B001734AF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C6A0E1181A237ADC008D518A /* CXCardView */,
+				C6A0E1141A234088008D518A /* AFPopup */,
 				C6D1EB6C1A1F53FA003AF7A5 /* MorphLabel */,
 				C62BFCF81A1E0B7E00D84ED5 /* PKReveal */,
 				C62BFCF41A1E0B6A00D84ED5 /* BFTabBar */,
@@ -704,6 +732,8 @@
 				A0A717D119A8B581000C6527 /* MenuItemCell.h */,
 				A0A717D219A8B581000C6527 /* MenuItemCell.m */,
 				A0A717D319A8B581000C6527 /* MenuItemCell.xib */,
+				C6A0E10F1A233F04008D518A /* AlertViewController.h */,
+				C6A0E1101A233F04008D518A /* AlertViewController.m */,
 			);
 			name = Cells;
 			path = iPhone/Cells;
@@ -735,6 +765,9 @@
 				C6A2AB221A1F7937000AB7A9 /* ProfileViewController.h */,
 				C6A2AB231A1F7937000AB7A9 /* ProfileViewController.m */,
 				C6A2AB241A1F7937000AB7A9 /* ProfileViewController.xib */,
+				C6C2A83E1A249045002FBF96 /* EditProfileViewController.h */,
+				C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */,
+				C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */,
 			);
 			name = Perfil;
 			path = iPhone/Perfil;
@@ -789,6 +822,26 @@
 				C6467D8719B2467C0041CAE8 /* drtuto4.png */,
 			);
 			path = tutorial;
+			sourceTree = "<group>";
+		};
+		C6A0E1141A234088008D518A /* AFPopup */ = {
+			isa = PBXGroup;
+			children = (
+				C6A0E1151A234088008D518A /* AFPopupView.h */,
+				C6A0E1161A234088008D518A /* AFPopupView.m */,
+			);
+			path = AFPopup;
+			sourceTree = "<group>";
+		};
+		C6A0E1181A237ADC008D518A /* CXCardView */ = {
+			isa = PBXGroup;
+			children = (
+				C6A0E1191A237ADC008D518A /* CXCardContainerView.h */,
+				C6A0E11A1A237ADC008D518A /* CXCardContainerView.m */,
+				C6A0E11B1A237ADC008D518A /* CXCardView.h */,
+				C6A0E11C1A237ADC008D518A /* CXCardView.m */,
+			);
+			path = CXCardView;
 			sourceTree = "<group>";
 		};
 		C6AB468719AF0E6900F710B1 /* drdown */ = {
@@ -1010,6 +1063,7 @@
 				A0AABF2619A11A73008E3F99 /* Icon@2x.png in Resources */,
 				C6DB41911A1D189C00179803 /* menuWhite.png in Resources */,
 				C6AB469919AF0E6900F710B1 /* Business-Situations_05_04.png in Resources */,
+				C6C2A8481A24A504002FBF96 /* delete_sign-32.png in Resources */,
 				C6DB41931A1D189C00179803 /* settingsWhite.png in Resources */,
 				A0AABF0119A10D7B008E3F99 /* settings.png in Resources */,
 				A0AABF2519A11A73008E3F99 /* Icon.png in Resources */,
@@ -1047,6 +1101,7 @@
 				A0AABF0319A10E4C008E3F99 /* Doctor100.png in Resources */,
 				A0AABF1E19A11A73008E3F99 /* Icon-76@2x.png in Resources */,
 				A0AABF1C19A11A73008E3F99 /* Icon-72@2x.png in Resources */,
+				C6C2A8461A249C2F002FBF96 /* cancel-32.png in Resources */,
 				A0AABF0B19A11618008E3F99 /* borde100.png in Resources */,
 				A0A8429519AA016E002968A2 /* school-50.png in Resources */,
 				C6F22E5419B3B711003C79C4 /* drtuto3.png in Resources */,
@@ -1059,6 +1114,7 @@
 				C6467D8919B2467C0041CAE8 /* drtuto2.png in Resources */,
 				A0AABF1F19A11A73008E3F99 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				A0433BBD19A7BF25001FD407 /* AboutViewController.xib in Resources */,
+				C6C2A8421A249045002FBF96 /* EditProfileViewController.xib in Resources */,
 				C6AB469719AF0E6900F710B1 /* Business-Situations_05_02.png in Resources */,
 				C6C41ADF19AF3D95002F8876 /* tattoo.png in Resources */,
 				A0A717D719A8E5D2000C6527 /* x.png in Resources */,
@@ -1075,6 +1131,7 @@
 				A0AABF0519A110BC008E3F99 /* inclogo100.png in Resources */,
 				A0A8429319AA016E002968A2 /* data_in_both_directions-50.png in Resources */,
 				C6DB41951A1D198500179803 /* x24.png in Resources */,
+				C6C2A8441A249B86002FBF96 /* down-32.png in Resources */,
 				A0AABF0919A11229008E3F99 /* intercambio100.png in Resources */,
 				A0AABF2219A11A73008E3F99 /* Icon-Small@2x.png in Resources */,
 				A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */,
@@ -1105,12 +1162,14 @@
 				C6DB41791A1D13D300179803 /* PKLog.m in Sources */,
 				A012F1AB199E35EF00320C3B /* Teacher.m in Sources */,
 				C6A2AB251A1F7937000AB7A9 /* ProfileViewController.m in Sources */,
+				C6A0E1171A234088008D518A /* AFPopupView.m in Sources */,
 				C6DB41771A1D13D300179803 /* PKLayerAnimator.m in Sources */,
 				A060C1F81997CE3300C4C876 /* AppDelegate.m in Sources */,
 				C6DB41711A1D13D300179803 /* CAAnimation+PKIdentifier.m in Sources */,
 				A060C20B1997D0FA00C4C876 /* UIColor+RGB.m in Sources */,
 				C642AA3F19B4C3C6007EFA13 /* LoginViewController.m in Sources */,
 				C62BFCF21A1E092E00D84ED5 /* Home2ViewController.m in Sources */,
+				C6C2A8411A249045002FBF96 /* EditProfileViewController.m in Sources */,
 				C6DB417A1A1D13D300179803 /* PKRevealController.m in Sources */,
 				A0A717D419A8B581000C6527 /* MenuItemCell.m in Sources */,
 				C6D1EB711A1F53FA003AF7A5 /* NSString+Morphing.m in Sources */,
@@ -1121,6 +1180,7 @@
 				A012F19F199E35EE00320C3B /* Subject.m in Sources */,
 				A0A423CF19A2506200F3D1E0 /* CBZSplashView.m in Sources */,
 				A0433BBC19A7BF25001FD407 /* AboutViewController.m in Sources */,
+				C6A0E11E1A237ADC008D518A /* CXCardView.m in Sources */,
 				C6DB41781A1D13D300179803 /* PKSequentialAnimation.m in Sources */,
 				A012F1A5199E35EF00320C3B /* Login.m in Sources */,
 				A060C20C1997D0FA00C4C876 /* Utils.m in Sources */,
@@ -1133,8 +1193,10 @@
 				A060C2141997DA2100C4C876 /* HomeViewController.m in Sources */,
 				C6DB41761A1D13D300179803 /* PKAnimation.m in Sources */,
 				C6D1EB721A1F53FA003AF7A5 /* TOMSMorphingLabel.m in Sources */,
+				C6A0E1121A233F04008D518A /* AlertViewController.m in Sources */,
 				C6DB41741A1D13D300179803 /* UIViewController+PKRevealController.m in Sources */,
 				A0A2B2E5199FA915001734AF /* MenuViewController.m in Sources */,
+				C6A0E11D1A237ADC008D518A /* CXCardContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
