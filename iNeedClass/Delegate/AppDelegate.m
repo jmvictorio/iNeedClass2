@@ -14,8 +14,15 @@
 #import "LoginViewController.h"
 #import "ProfileViewController.h"
 #import "UIColor+RGB.h"
+#import "SITCoreDataManager.h"
+#import "SITUtils.h"
+
+NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNotification";
 
 @interface AppDelegate()
+{
+    
+}
 
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 
@@ -37,6 +44,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [SITCoreDataManager sharedInstance];
+    self.coreDataDAO = [[CoreDataDAO alloc] init];
     
     [self appearance];
     
@@ -170,6 +180,9 @@
     Class requestedViewController;
     UIViewController *viewController = nil;
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
+    
+    BOOL login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
+    
     switch (indexMenuItem) {
             
         case 0:
@@ -199,7 +212,7 @@
             break;
         case 4:
             
-            if([[NSUserDefaults standardUserDefaults] boolForKey:@"login"]){
+            if(login == false){
                 requestedViewController = [LoginViewController class];
                 viewController = [LoginViewController new];
                 [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];

@@ -8,19 +8,24 @@
 
 #import "AlertViewController.h"
 
-@interface AlertViewController ()
+@interface AlertViewController () <FBLoginViewDelegate>
 {
     UIView *_backgroundView;
     UIButton *_dismissButton;
     UIButton *_addOption1;
     UIButton *_addOption2;
     UILabel *_description;
+    
+    NSInteger optionPress;
 }
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) FBLoginView *loginView;
 
 - (void)setup1;
 - (void)setup2;
 - (void)setup3;
+- (void)setup4;
+- (void)setup5;
 - (void)dismissButtonPressed:(UIButton *)button;
 @end
 
@@ -49,6 +54,24 @@
     self = [super init];
     if (self) {
         [self setup3];
+    }
+    return self;
+}
+
+- (id)init4
+{
+    self = [super init];
+    if (self) {
+        [self setup4];
+    }
+    return self;
+}
+
+- (id)init5
+{
+    self = [super init];
+    if (self) {
+        [self setup5];
     }
     return self;
 }
@@ -83,7 +106,19 @@
             view.frame = CGRectMake( 0, 0, 300, 150);
             break;
         case 2:
+            view = [[AlertViewController alloc] init2];
+            view.frame = CGRectMake( 0, 0, 300, 150);
+            break;
+        case 3:
             view = [[AlertViewController alloc] init3];
+            view.frame = CGRectMake( 0, 0, 300, 89);
+            break;
+        case 4:
+            view = [[AlertViewController alloc] init4];
+            view.frame = CGRectMake( 0, 0, 300, 89);
+            break;
+        case 5:
+            view = [[AlertViewController alloc] init5];
             view.frame = CGRectMake( 0, 0, 300, 150);
             break;
         default:
@@ -96,6 +131,8 @@
 #pragma mark -
 - (void)setup1
 {
+    optionPress = 1;
+    
     self.backgroundColor = [UIColor clearColor];
     
     self.layer.cornerRadius = 10.0f;
@@ -143,6 +180,8 @@
 
 - (void)setup2
 {
+    optionPress = 2;
+    
     self.backgroundColor = [UIColor clearColor];
     
     self.layer.cornerRadius = 10.0f;
@@ -170,6 +209,8 @@
 
 - (void)setup3
 {
+    optionPress = 3;
+    
     self.backgroundColor = [UIColor clearColor];
     
     self.layer.cornerRadius = 10.0f;
@@ -184,11 +225,98 @@
     _backgroundView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_backgroundView];
     
+    self.loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(-5, -1, 320, 5)];
+    self.loginView.delegate = self;
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
+    [self addSubview:self.loginView];
+    
+    _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _dismissButton.frame = CGRectMake(0, 89 - 45, 300, 45);
+    _dismissButton.backgroundColor = [UIColor colorINC];
+    [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_dismissButton setTitle:@"Cancelar" forState:UIControlStateNormal];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [self addSubview:_dismissButton];
+}
+
+- (void)setup4
+{
+    optionPress = 4;
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.layer.cornerRadius = 10.0f;
+    self.layer.masksToBounds = YES;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowOffset = CGSizeMake(0.0, 1.);
+    self.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.layer.shadowRadius = 2.;
+    
+    _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+    _backgroundView.alpha = 0.8;
+    _backgroundView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_backgroundView];
+    
+    UIButton *loginOut = [UIButton buttonWithType:UIButtonTypeCustom];
+    loginOut.frame = CGRectMake(0, 0, 300, 45);
+    loginOut.backgroundColor = [UIColor redColor];
+    [loginOut addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [loginOut setTitle:@"Cerrar Sesión" forState:UIControlStateNormal];
+    [loginOut.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [loginOut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [loginOut setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [self addSubview:loginOut];
+    
+    _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _dismissButton.frame = CGRectMake(0, 89 - 45, 300, 45);
+    _dismissButton.backgroundColor = [UIColor colorINC];
+    [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_dismissButton setTitle:@"Cancelar" forState:UIControlStateNormal];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [self addSubview:_dismissButton];
+}
+
+- (void)setup5
+{
+    optionPress = 5;
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.layer.cornerRadius = 10.0f;
+    self.layer.masksToBounds = YES;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowOffset = CGSizeMake(0.0, 1.);
+    self.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.layer.shadowRadius = 2.;
+    
+    _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+    _backgroundView.alpha = 1;
+    _backgroundView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_backgroundView];
+    
+    UILabel *passLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 280, 40)];
+    [passLabel setText:@"Contraseña"];
+    [passLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [passLabel setTextColor:[UIColor darkGrayColor]];
+    [self addSubview:passLabel];
+    
+    UITextField *pass = [[UITextField alloc] initWithFrame:CGRectMake(10, 50, 280, 45)];
+    //pass.layer.cornerRadius = 5.0f;
+    [pass setBorderStyle:UITextBorderStyleLine];
+    [pass setSecureTextEntry:YES];
+    [pass setBackgroundColor:[UIColor whiteColor]];
+    [pass setDelegate:self];
+    [self addSubview:pass];
+    
     _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _dismissButton.frame = CGRectMake(0, 150 - 44, 300, 44);
     _dismissButton.backgroundColor = [UIColor colorINC];
     [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_dismissButton setTitle:@"Añadir" forState:UIControlStateNormal];
+    [_dismissButton setTitle:@"Aceptar" forState:UIControlStateNormal];
     [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
@@ -198,8 +326,19 @@
 //Actions
 - (void)dismissButtonPressed:(UIButton *)button
 {
+    if(optionPress == 5){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"passNotification" object:@""];
+    }
+    
     if (self.dismissHandler) {
         self.dismissHandler(self);
     }
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"passNotification" object:textField.text];
+    
+}
+
 @end

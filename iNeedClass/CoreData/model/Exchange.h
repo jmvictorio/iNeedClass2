@@ -2,7 +2,7 @@
 //  Exchange.h
 //  iNeedClass
 //
-//  Created by Jesus Victorio on 15/08/14.
+//  Created by injevm on 6/12/14.
 //  Copyright (c) 2014 Jesus Victorio. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * comments;
 @property (nonatomic, retain) NSString * country;
+@property (nonatomic, retain) NSString * id_exchange;
 @property (nonatomic, retain) NSString * id_subject1;
 @property (nonatomic, retain) NSString * id_subject2;
 @property (nonatomic, retain) NSString * id_user;

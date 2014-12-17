@@ -41,7 +41,7 @@
     
     self.loginView.delegate = self;
     
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
     
     [self.navigationItem setTitle:@"Perfil"];
     

@@ -12,7 +12,7 @@
 
 typedef void(^ActionHandler)(AlertViewController *view);
 
-@interface AlertViewController : UIView
+@interface AlertViewController : UIView <UITextFieldDelegate>
 
 @property (nonatomic, copy) ActionHandler dismissHandler;
 

@@ -2,7 +2,7 @@
 //  User.m
 //  iNeedClass
 //
-//  Created by Jesus Victorio on 15/08/14.
+//  Created by injevm on 6/12/14.
 //  Copyright (c) 2014 Jesus Victorio. All rights reserved.
 //
 
@@ -16,13 +16,15 @@
 
 @dynamic age;
 @dynamic genre;
+@dynamic id_login;
+@dynamic id_user;
 @dynamic lastName;
 @dynamic name;
 @dynamic picture;
 @dynamic tel;
-@dynamic id_login;
+@dynamic valoration;
 @dynamic exchange_user;
-@dynamic teacher_user;
 @dynamic login_user;
+@dynamic teacher_user;
 
 @end

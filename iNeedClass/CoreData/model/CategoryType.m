@@ -2,7 +2,7 @@
 //  Category.m
 //  iNeedClass
 //
-//  Created by Jesus Victorio on 16/08/14.
+//  Created by injevm on 6/12/14.
 //  Copyright (c) 2014 Jesus Victorio. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 
 @dynamic id_category;
 @dynamic id_subcategory;
+@dynamic level;
 @dynamic name;
 @dynamic subcategory;
 @dynamic subject_category;

@@ -17,4 +17,5 @@
     #import "PKRevealController.h"
     #import "UIColor+RGB.h"
     #import "AppDelegate.h"
+    #import <CoreData/CoreData.h>
 #endif

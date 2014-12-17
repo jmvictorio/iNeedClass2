@@ -151,6 +151,8 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     self.profilePic.profileID = nil;
     [self.profilePic setHidden:YES];
     self.labelName.text = @"Dr Mustache";
+    
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {

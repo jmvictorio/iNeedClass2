@@ -2,7 +2,7 @@
 //  Login.m
 //  iNeedClass
 //
-//  Created by Jesus Victorio on 15/08/14.
+//  Created by injevm on 6/12/14.
 //  Copyright (c) 2014 Jesus Victorio. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 
 @implementation Login
 
+@dynamic id_login;
 @dynamic id_user;
 @dynamic mail;
 @dynamic pass;

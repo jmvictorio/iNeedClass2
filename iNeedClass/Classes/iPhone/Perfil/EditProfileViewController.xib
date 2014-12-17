@@ -10,6 +10,7 @@
                 <outlet property="controlSex" destination="bmE-g5-OpJ" id="fu5-X7-glz"/>
                 <outlet property="exitButton" destination="Iyb-Wc-eoT" id="LFN-NW-oDK"/>
                 <outlet property="fnacLabel" destination="gns-nh-qTb" id="JSm-mr-KEr"/>
+                <outlet property="imageFB" destination="xMG-Uy-mey" id="FbJ-he-kaN"/>
                 <outlet property="noSaveButton" destination="CAO-wj-EwU" id="Myg-gj-LYR"/>
                 <outlet property="saveButton" destination="BO3-HY-7Yk" id="8un-Bd-919"/>
                 <outlet property="switchNotification" destination="MtZ-Qq-IzL" id="Ux7-0P-f4O"/>
@@ -25,13 +26,22 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obr-9o-1JZ">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMG-Uy-mey" customClass="FBProfilePictureView">
                     <rect key="frame" x="15" y="80" width="100" height="101"/>
-                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obr-9o-1JZ">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="101"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="changePicture:" destination="-1" eventType="touchUpInside" id="WLX-mr-LSc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bmE-g5-OpJ">
                     <rect key="frame" x="15" y="225" width="297" height="29"/>
                     <segments>
@@ -70,8 +80,8 @@
                     <subviews>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtZ-Qq-IzL">
                             <rect key="frame" x="244" y="4" width="51" height="31"/>
-                            <color key="onTintColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
-                            <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="onTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="thumbTintColor" red="0.29411764709999999" green="0.75686274509999996" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notificaciones por email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTw-vr-fus">
                             <rect key="frame" x="8" y="4" width="228" height="31"/>
@@ -89,6 +99,9 @@
                         <color key="titleColor" red="1" green="0.085639658280000003" blue="0.01543758602" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="closeSession:" destination="-1" eventType="touchUpInside" id="jMg-cg-mMQ"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uA-wk-cOn">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
@@ -127,13 +140,19 @@
                             <rect key="frame" x="8" y="0.0" width="172" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="igK-m0-CMj"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Apellidos" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kk6-bW-9Up">
+                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Apellidos" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kk6-bW-9Up">
                             <rect key="frame" x="8" y="51" width="172" height="49"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="5qN-yd-w1h"/>
+                            </connections>
                         </textField>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fH-fL-uet">
                             <rect key="frame" x="0.0" y="51" width="180" height="1"/>
@@ -145,17 +164,20 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNp-tr-buM">
                     <rect key="frame" x="11" y="376" width="301" height="40"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cLe-Aq-Yan">
+                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cLe-Aq-Yan">
                             <rect key="frame" x="8" y="0.0" width="293" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="AFE-Tr-16I"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.95141782407407405" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.96906828700000003" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="364" y="474"/>
         </view>

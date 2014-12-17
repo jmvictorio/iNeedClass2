@@ -2,7 +2,7 @@
 //  Subject.m
 //  iNeedClass
 //
-//  Created by Jesus Victorio on 15/08/14.
+//  Created by injevm on 6/12/14.
 //  Copyright (c) 2014 Jesus Victorio. All rights reserved.
 //
 
@@ -19,8 +19,8 @@
 @dynamic country;
 @dynamic id_subject;
 @dynamic name;
+@dynamic category_subject;
 @dynamic exchange_subject;
 @dynamic teacher_subject;
-@dynamic category_subject;
 
 @end

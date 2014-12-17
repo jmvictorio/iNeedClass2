@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuViewController.h"
+#import "CoreDataDAO.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, MenuDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) CoreDataDAO *coreDataDAO;
 
 // Devuelve el delegado de la instancia singleton de la aplicacion
 + (AppDelegate *)sharedInstance;

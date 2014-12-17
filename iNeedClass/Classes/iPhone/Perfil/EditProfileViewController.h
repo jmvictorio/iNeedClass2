@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditProfileViewController : UIViewController
+@interface EditProfileViewController : UIViewController <UITextFieldDelegate, FBLoginViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textName;
 @property (weak, nonatomic) IBOutlet UITextField *textLastName;
@@ -23,9 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *exitButton;
 @property (weak, nonatomic) IBOutlet UIView *viewSwitch;
 
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *imageFB;
+
 @property (weak, nonatomic) IBOutlet UIButton *noSaveButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)save:(id)sender;
 - (IBAction)dismiss:(id)sender;
+- (IBAction)changePicture:(id)sender;
+- (IBAction)closeSession:(id)sender;
 
 @end

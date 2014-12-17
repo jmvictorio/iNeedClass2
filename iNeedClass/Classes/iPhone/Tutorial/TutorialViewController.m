@@ -271,7 +271,7 @@
     
     self.loginView.delegate = self;
     
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
     
     tuto4 = [[UIView alloc]initWithFrame:CGRectMake(960, 0, 320, 488)];
     

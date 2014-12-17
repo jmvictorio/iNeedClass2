@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6251" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CategoryType" representedClassName="Category" syncable="YES">
         <attribute name="id_category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_subcategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subcategory" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="subject_category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="category_subject" inverseEntity="Subject" syncable="YES"/>
     </entity>
+    <entity name="City" syncable="YES">
+        <attribute name="id_city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="state_city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="city_state" inverseEntity="State" syncable="YES"/>
+    </entity>
+    <entity name="Country" syncable="YES">
+        <attribute name="id_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="state_country" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="State" inverseName="country_state" inverseEntity="State" syncable="YES"/>
+    </entity>
     <entity name="Exchange" representedClassName="Exchange" syncable="YES">
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_exchange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_subject1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_subject2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_user" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,16 +33,22 @@
         <relationship name="user_exchange" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="exchange_user" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Login" representedClassName="Login" syncable="YES">
+        <attribute name="id_login" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_user" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user_login" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="login_user" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="State" syncable="YES">
+        <attribute name="id_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="city_state" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="state_city" inverseEntity="City" syncable="YES"/>
+        <relationship name="country_state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="state_country" inverseEntity="Country" syncable="YES"/>
+    </entity>
     <entity name="Subject" representedClassName="Subject" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_subject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category_subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryType" inverseName="subject_category" inverseEntity="CategoryType" syncable="YES"/>
@@ -40,6 +60,7 @@
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_teacher" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_user" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,22 +69,29 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="genre" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id_login" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_user" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFacebook" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="picture" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="exchange_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exchange" inverseName="user_exchange" inverseEntity="Exchange" syncable="YES"/>
+        <attribute name="valoration" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="exchange_user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exchange" inverseName="user_exchange" inverseEntity="Exchange" syncable="YES"/>
         <relationship name="login_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Login" inverseName="user_login" inverseEntity="Login" syncable="YES"/>
-        <relationship name="teacher_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="user_teacher" inverseEntity="Teacher" syncable="YES"/>
+        <relationship name="teacher_user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Teacher" inverseName="user_teacher" inverseEntity="Teacher" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exchange" positionX="-495" positionY="-207" width="128" height="178"/>
-        <element name="Login" positionX="-2" positionY="-144" width="128" height="118"/>
-        <element name="Subject" positionX="-713" positionY="-144" width="128" height="163"/>
-        <element name="Teacher" positionX="-495" positionY="18" width="128" height="178"/>
-        <element name="User" positionX="-198" positionY="-153" width="128" height="193"/>
-        <element name="CategoryType" positionX="-711" positionY="90" width="128" height="118"/>
+        <element name="CategoryType" positionX="-711" positionY="90" width="128" height="133"/>
+        <element name="Exchange" positionX="-495" positionY="-207" width="128" height="208"/>
+        <element name="Login" positionX="-2" positionY="-144" width="128" height="135"/>
+        <element name="Subject" positionX="-713" positionY="-144" width="128" height="135"/>
+        <element name="Teacher" positionX="-495" positionY="18" width="128" height="193"/>
+        <element name="User" positionX="-198" positionY="-153" width="128" height="253"/>
+        <element name="City" positionX="115" positionY="137" width="128" height="103"/>
+        <element name="State" positionX="-65" positionY="146" width="128" height="118"/>
+        <element name="Country" positionX="-245" positionY="150" width="128" height="88"/>
     </elements>
 </model>

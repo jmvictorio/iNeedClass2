@@ -65,7 +65,7 @@
     
     self.loginView.delegate = self;
     
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
     
     [self.viewButtons addSubview:self.loginView];
 }
@@ -78,6 +78,10 @@
     [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"login"];
     [[NSUserDefaults standardUserDefaults]synchronize];
     [self.buttonPassOK setHidden:NO];
+    
+    ProfileViewController *profile = [[ProfileViewController alloc]init];
+    
+    [self.navigationController pushViewController:profile animated:YES];
     /* self.buttonPostPhoto.enabled = YES;
      self.buttonPostStatus.enabled = YES;
      self.buttonPickFriends.enabled = YES;
@@ -108,6 +112,7 @@
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
     [self.buttonPassOK setHidden:YES];
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
     //BOOL canShareFB = [FBDialogs canPresentShareDialogWithParams:p];
     //BOOL canShareiOS6 = [FBDialogs canPresentOSIntegratedShareDialogWithSession:nil];
     //BOOL canShareFBPhoto = [FBDialogs canPresentShareDialogWithPhotos];
