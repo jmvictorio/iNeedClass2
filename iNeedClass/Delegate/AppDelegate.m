@@ -20,9 +20,6 @@
 NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNotification";
 
 @interface AppDelegate()
-{
-    
-}
 
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 
@@ -137,13 +134,12 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
 
 - (void)appearance
 {
-    NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
-                                      [UIColor colorINC], NSForegroundColorAttributeName, nil];
+   /* NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIColor whiteColor], NSForegroundColorAttributeName,
+                                      [UIFont fontWithName:@"Montserrat-Regular" size:15.0], NSFontAttributeName,nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:navBarTextAttrs];
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor colorINC]];
-    
+    */
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
@@ -179,7 +175,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     Class requestedViewController;
     UIViewController *viewController = nil;
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
+    //[[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     
     BOOL login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
     
@@ -215,7 +211,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
             if(login == false){
                 requestedViewController = [LoginViewController class];
                 viewController = [LoginViewController new];
-                [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+                //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
             }else{
                 requestedViewController = [ProfileViewController class];
                 viewController = [ProfileViewController new];
@@ -272,6 +268,42 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
 - (UINavigationController *)getNavigationController
 {
     return _navController;
+}
+
+- (void)doOverlay
+{
+    //HACER OVERLAY DE UN NAVIGATIONBAR
+    [self.navController.navigationBar setBackgroundImage:[UIImage new]
+                                           forBarMetrics:UIBarMetricsDefault];
+    self.navController.navigationBar.shadowImage = [UIImage new];
+    self.navController.navigationBar.translucent = YES;
+    //-----------------
+    [self.navController.navigationBar setHidden:YES];
+
+    NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIColor colorINC], NSForegroundColorAttributeName,
+                                      [UIFont fontWithName:@"Montserrat-Regular" size:15.0], NSFontAttributeName,nil];
+    
+    [self.navController.navigationBar setTitleTextAttributes:navBarTextAttrs];
+
+}
+
+- (void)dontOverlay
+{
+    //HACER OVERLAY DE UN NAVIGATIONBAR
+    self.navController.navigationBar.translucent = NO;
+    [self.navController.navigationBar setBarTintColor:[UIColor colorINC]];
+    //self.navController.navigationBar.shadowImage = [UIImage new];
+    [self.navController.navigationBar setTintColor:[UIColor whiteColor]];
+    //-----------------
+    [self.navController.navigationBar setHidden:NO];
+    
+    NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIColor whiteColor], NSForegroundColorAttributeName,
+                                      [UIFont fontWithName:@"Montserrat-Regular" size:15.0], NSFontAttributeName,nil];
+    
+    [self.navController.navigationBar setTitleTextAttributes:navBarTextAttrs];
+    
 }
 
 @end

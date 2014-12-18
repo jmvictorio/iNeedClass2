@@ -25,4 +25,8 @@
 
 - (UINavigationController *)getNavigationController;
 
+- (void)dontOverlay;
+
+- (void)doOverlay;
+
 @end

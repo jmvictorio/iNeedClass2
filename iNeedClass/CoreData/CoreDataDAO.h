@@ -72,4 +72,18 @@
 - (NSArray *)findAllSubjects:(NSString *)categoryId;
 
 
+
+/**
+ Persiste los cambios sobre el contexto asociado.
+ 
+ @return YES si los cambios han sido almacenados correctamente en la BD. NO e.o.c.
+ */
+- (BOOL)commitChanges;
+
+
+// Guarda los cambios en el contexto pasado como parametro
+- (BOOL)saveChangesInContext:(NSManagedObjectContext *)context;
+
+- (NSPersistentStoreCoordinator *)resetPersistentStore;
+
 @end

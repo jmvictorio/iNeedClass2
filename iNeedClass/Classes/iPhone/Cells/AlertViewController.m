@@ -341,4 +341,16 @@
     
 }
 
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    // test to see if we can use the share dialog built into the Facebook application
+    FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
+    p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
+    if (self.dismissHandler) {
+        self.dismissHandler(self);
+    }
+    
+}
+
+
 @end

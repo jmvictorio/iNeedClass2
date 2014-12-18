@@ -10,6 +10,8 @@
 #import "AboutViewController.h"
 #import "TutorialViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ClassShowViewController.h"
+#import "ExchangeShowViewController.h"
 
 @interface HomeViewController (){
     // Botones de 'Edicion'
@@ -46,9 +48,9 @@
 {
     [super viewDidLoad];
     
-    [self preferredStatusBarStyle];
+    [delegate doOverlay];
     
-    delegate = [AppDelegate sharedInstance];
+    [self preferredStatusBarStyle];
     
     [self setUpAnimations];
     
@@ -82,6 +84,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    delegate = [AppDelegate sharedInstance];
+    [delegate doOverlay];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *firstTime = [defaults objectForKey:@"firstTime"];
     
@@ -96,9 +100,10 @@
         
         [self.navigationController.view addSubview:mustache];
         
-        [self.navigationController.navigationBar setTintColor:[UIColor colorWithHexString:@"4bc1d2"]];
+        [self.navigationController.navigationBar setTintColor:[UIColor colorINC]];
     }
-    
+    [self.navigationController updateViewConstraints];
+    [self.navigationController.navigationBar updateConstraints];
 }
 
 - (void)loadFonts
@@ -316,9 +321,15 @@
 
 - (IBAction)actionClass:(id)sender {
     [self animation2];
+    ClassShowViewController *class = [[ClassShowViewController alloc] init];
+    [class setTitle:@"Profesores"];
+    [self.navigationController pushViewController:class animated:YES];
 }
 
 - (IBAction)actionExchange:(id)sender {
     [self animation3];
+    ExchangeShowViewController *class = [[ExchangeShowViewController alloc] init];
+    [class setTitle:@"Intercambios"];
+    [self.navigationController pushViewController:class animated:YES];
 }
 @end

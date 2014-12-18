@@ -34,9 +34,9 @@
 {
     [super viewDidLoad];
     
-    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     [self.buttonLogin.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:17]];
     [self.buttonRegister.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:17]];

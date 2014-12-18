@@ -30,6 +30,7 @@
 - (void)setUp
 {
     [self.saveButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Bold" size:14]];
+    [self.noSaveButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Bold" size:14]];
     
     [self.exitButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     
@@ -43,6 +44,8 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"passNotification"
                                                object:nil];
+    
+    [self.switchNotification addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - NSNotificationCenter
@@ -62,12 +65,23 @@
     }
 }
 
+- (void)setState:(id)sender
+{
+    BOOL state = [sender isOn];
+    NSString *res = state == YES ? @"YES" : @"NO";
+    NSLog(@"%@",res);
+}
+
 #pragma mark - FBLoginViewDelegate
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // first get the buttons set for login mode
     [self.imageFB setHidden:NO];
     loginOK = true;
+    [self.textPass setEnabled:NO];
+    [self.textName setEnabled:NO];
+    [self.textLastName setEnabled:NO];
+    [self.controlSex setEnabled:NO];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -98,6 +112,7 @@
     
     [self.fnacLabel setText:[self getDateFromString:[user objectForKey:@"birthday"]]];
     
+    [self.textPass setEnabled:NO];
 }
 
 -(NSString *)getDateFromString:(NSString *)string
@@ -123,6 +138,9 @@
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
     loginOK = false;
+    [self.textPass setEnabled:YES];
+    [[AppDelegate sharedInstance] didMenuItemSelected:0];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

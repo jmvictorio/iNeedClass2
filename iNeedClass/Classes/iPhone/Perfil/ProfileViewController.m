@@ -33,7 +33,7 @@
     
     delegate = [AppDelegate sharedInstance];
 
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
+    [self.navigationController.navigationBar setTintColor:[UIColor colorINC]];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.navigationController.navigationBar setHidden:NO];
     

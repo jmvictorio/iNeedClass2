@@ -17,6 +17,7 @@
 #import "Exchange.h"
 #import "Subject.h"
 #import "CategoryType.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation CoreDataDAO
 
@@ -594,7 +595,7 @@
 /**
  Persiste los cambios sobre el contexto asociado.
  
- @return YES si los cambios han sido almacenados correctamente en la BD
+ @return YES si los cambios han sido almacenados correctamente en la BD. NO e.o.c.
  */
 - (BOOL)commitChanges
 {
@@ -602,7 +603,7 @@
     __block BOOL recordSaved = NO;
     
     if ( ![_context save:&error] ) {
-        //[SitLog error:@"Ocurrio el siguiente fallo al persistir cambios en la BD: %@", [error localizedDescription]];
+         NSLog(@"Ocurrio el siguiente fallo al persistir cambios en la BD: %@", [error localizedDescription]);
     }
     
     // Si la solicitud se hizo desde un hilo de trabajo, persistir cambios en el contexto principal de aplicacion
@@ -617,12 +618,12 @@
             
             if (error) {
                 
-               /* NSString *errorMsg = [NSString stringWithFormat:
+                NSString *errorMsg = [NSString stringWithFormat:
                                       @"Error on EntityManager.createRecordForEntity:withValues:inContext:\n"
                                       @"Descripción: %@\n",
                                       [error description]];
-                */
-                //[SitLog error:errorMsg];
+                
+                NSLog(@"ERROR: %@",errorMsg);
             }
             
         });
@@ -630,6 +631,113 @@
     
     return error == nil ? YES : NO;
 }
+
+#pragma mark - Metodos privados
+
+// Guarda los cambios en el contexto pasado como parametro
+- (BOOL)saveChangesInContext:(NSManagedObjectContext *)context
+{
+    if (![NSThread isMainThread]) {
+        
+        [context performBlockAndWait: ^{
+            
+            NSError *error = nil;
+            
+            [_context save:&error];
+            
+            if (error) {
+                NSLog(@"Error almacenando contexto: %@", error.description);
+            }
+        }];
+    }
+    
+    
+    __block BOOL changesSaved = NO;
+    
+    dispatch_block_t saveParentContextBlock = ^{
+        
+        NSError *error = nil;
+        NSString *failureMsg = nil;
+        NSManagedObjectContext *mainContext = [[SITCoreDataManager sharedInstance] mainContext];
+        
+        @try {
+            
+            changesSaved = [mainContext save: &error];
+            
+        }
+        @catch (NSException *exception) {
+            
+            failureMsg = [NSString stringWithFormat:
+                          @"Exception on EntityManager.saveChangesInContext:\n"
+                          @"Descripción: %@\n"
+                          @"Cambios almacenados: %@\n",
+                          [exception description], (changesSaved ? @"SI" : @"NO")];
+        }
+        
+        if (error != nil) {
+            
+            failureMsg = [NSString stringWithFormat:
+                          @"Error on CoreDataManager.saveChangesInContext:\n"
+                          @"Descripción: %@\n"
+                          @"Cambios almacenados: %@\n",
+                          [error description], (changesSaved ? @"SI" : @"NO")];
+        }
+        
+        if (failureMsg) {
+            NSLog(@"EROOR: %@", failureMsg);
+        }
+    };
+    
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    //dispatch_get_current_queue() == mainQueue
+    if ([NSThread isMainThread]) {
+        
+        saveParentContextBlock();
+    }
+    else {
+        
+        dispatch_sync(mainQueue, saveParentContextBlock);
+    }
+    
+    return changesSaved;
+}
+
+
+- (NSPersistentStoreCoordinator *)resetPersistentStore {
+    NSError *error = nil;
+    
+    [self.context reset];
+    [self.context lock];
+    
+    // FIXME: dirty. If there are many stores...
+    NSPersistentStore *store = [[[[SITCoreDataManager sharedInstance] persistentStoreCoordinator]persistentStores] lastObject];
+    
+    [[[SITCoreDataManager sharedInstance] persistentStoreCoordinator] removePersistentStore:store error:&error];
+    
+    if (error) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    // Delete file
+    if ([[NSFileManager defaultManager] fileExistsAtPath:store.URL.path]) {
+        
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:&error];
+        
+        if (error) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+    
+    // Delete the reference to non-existing store
+    
+    NSPersistentStoreCoordinator *r = [[SITCoreDataManager sharedInstance] persistentStoreCoordinator];
+    [self.context unlock];
+    
+    return r;
+}
+
 
 
 @end

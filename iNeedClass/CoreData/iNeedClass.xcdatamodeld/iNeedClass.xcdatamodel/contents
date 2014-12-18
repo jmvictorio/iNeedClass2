@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6251" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6735" systemVersion="14C81f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CategoryType" representedClassName="Category" syncable="YES">
         <attribute name="id_category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_subcategory" optional="YES" attributeType="String" syncable="YES"/>
@@ -85,13 +85,13 @@
     </entity>
     <elements>
         <element name="CategoryType" positionX="-711" positionY="90" width="128" height="133"/>
+        <element name="City" positionX="115" positionY="137" width="128" height="103"/>
+        <element name="Country" positionX="-245" positionY="150" width="128" height="88"/>
         <element name="Exchange" positionX="-495" positionY="-207" width="128" height="208"/>
         <element name="Login" positionX="-2" positionY="-144" width="128" height="135"/>
+        <element name="State" positionX="-65" positionY="146" width="128" height="118"/>
         <element name="Subject" positionX="-713" positionY="-144" width="128" height="135"/>
         <element name="Teacher" positionX="-495" positionY="18" width="128" height="193"/>
         <element name="User" positionX="-198" positionY="-153" width="128" height="253"/>
-        <element name="City" positionX="115" positionY="137" width="128" height="103"/>
-        <element name="State" positionX="-65" positionY="146" width="128" height="118"/>
-        <element name="Country" positionX="-245" positionY="150" width="128" height="88"/>
     </elements>
 </model>

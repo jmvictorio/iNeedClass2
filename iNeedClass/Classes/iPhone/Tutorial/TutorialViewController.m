@@ -344,8 +344,6 @@
         [self.dismissButton setHidden:NO];
     }
     
-    
-    
     [UIView commitAnimations];
     
     loginOK = true;
