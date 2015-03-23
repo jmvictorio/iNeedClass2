@@ -114,6 +114,7 @@
 		C68790C31A335C7000E83B47 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = C68790C21A335C7000E83B47 /* Teacher.m */; };
 		C68790C61A335C7000E83B47 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C68790C51A335C7000E83B47 /* User.m */; };
 		C68790C91A335C7000E83B47 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = C68790C81A335C7000E83B47 /* Login.m */; };
+		C68D29EB1A5E85E60021B4AF /* UIFont+Montserrat.m in Sources */ = {isa = PBXBuildFile; fileRef = C68D29EA1A5E85E60021B4AF /* UIFont+Montserrat.m */; };
 		C695316719B77E9400886DD0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C695316619B77E9400886DD0 /* FacebookSDK.framework */; };
 		C6A0E1121A233F04008D518A /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E1101A233F04008D518A /* AlertViewController.m */; };
 		C6A0E1171A234088008D518A /* AFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E1161A234088008D518A /* AFPopupView.m */; };
@@ -136,6 +137,11 @@
 		C6AB46A119AF0E6900F710B1 /* Business-Situations_05_12.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AB469319AF0E6900F710B1 /* Business-Situations_05_12.png */; };
 		C6AB46A219AF0E6900F710B1 /* Business-Situations_05_13.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AB469419AF0E6900F710B1 /* Business-Situations_05_13.png */; };
 		C6AB46A319AF0E6900F710B1 /* Business-Situations_05_14.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AB469519AF0E6900F710B1 /* Business-Situations_05_14.png */; };
+		C6ABC97E1A68272C00DBE18E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6ABC97D1A68272C00DBE18E /* MessageUI.framework */; };
+		C6B416CD1A4818A0008F605F /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B416CB1A4818A0008F605F /* TeacherViewController.m */; };
+		C6B416CE1A4818A0008F605F /* TeacherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6B416CC1A4818A0008F605F /* TeacherViewController.xib */; };
+		C6B416D31A4818BA008F605F /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B416D11A4818BA008F605F /* ExchangeViewController.m */; };
+		C6B416D41A4818BA008F605F /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6B416D21A4818BA008F605F /* ExchangeViewController.xib */; };
 		C6C2A8411A249045002FBF96 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */; };
 		C6C2A8421A249045002FBF96 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */; };
 		C6C2A8441A249B86002FBF96 /* down-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8431A249B86002FBF96 /* down-32.png */; };
@@ -145,6 +151,8 @@
 		C6C2FFE51A39B7EE001EB7C2 /* SITCoreDataManager.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6C2FFDD1A39B7EE001EB7C2 /* SITCoreDataManager.plist */; };
 		C6C41ADF19AF3D95002F8876 /* tattoo.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C41ADE19AF3D95002F8876 /* tattoo.png */; };
 		C6C41AE119AF5748002F8876 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C41AE019AF5748002F8876 /* QuartzCore.framework */; };
+		C6C88B941A543A380093CEBF /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C88B911A543A380093CEBF /* HTAutocompleteManager.m */; };
+		C6C88B951A543A380093CEBF /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C88B931A543A380093CEBF /* HTAutocompleteTextField.m */; };
 		C6D1EB711A1F53FA003AF7A5 /* NSString+Morphing.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D1EB6E1A1F53FA003AF7A5 /* NSString+Morphing.m */; };
 		C6D1EB721A1F53FA003AF7A5 /* TOMSMorphingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D1EB701A1F53FA003AF7A5 /* TOMSMorphingLabel.m */; };
 		C6DB27301A2F564F000C4B6D /* CoreDataDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB272F1A2F564F000C4B6D /* CoreDataDAO.m */; };
@@ -167,6 +175,15 @@
 		C6DB41921A1D189C00179803 /* school-50White.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DB418A1A1D189C00179803 /* school-50White.png */; };
 		C6DB41931A1D189C00179803 /* settingsWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DB418B1A1D189C00179803 /* settingsWhite.png */; };
 		C6DB41951A1D198500179803 /* x24.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DB41941A1D198500179803 /* x24.png */; };
+		C6DD31151ABC1B8300B325A9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DD31141ABC1B8300B325A9 /* AddressBookUI.framework */; };
+		C6DD311B1ABC64A300B325A9 /* AddClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DD31191ABC64A300B325A9 /* AddClassViewController.m */; };
+		C6DD311C1ABC64A300B325A9 /* AddClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6DD311A1ABC64A300B325A9 /* AddClassViewController.xib */; };
+		C6DD31211ABC7D1700B325A9 /* AddClassTeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DD311F1ABC7D1700B325A9 /* AddClassTeachViewController.m */; };
+		C6DD31221ABC7D1700B325A9 /* AddClassTeachViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6DD31201ABC7D1700B325A9 /* AddClassTeachViewController.xib */; };
+		C6DD31261ABC7D3600B325A9 /* AddClassAlumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DD31241ABC7D3600B325A9 /* AddClassAlumnViewController.m */; };
+		C6DD31271ABC7D3600B325A9 /* AddClassAlumnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6DD31251ABC7D3600B325A9 /* AddClassAlumnViewController.xib */; };
+		C6EE619F1A7A9AB90054254D /* View-List-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EE619D1A7A9AB90054254D /* View-List-32.png */; };
+		C6EE61A01A7A9AB90054254D /* View-List-48.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EE619E1A7A9AB90054254D /* View-List-48.png */; };
 		C6F22E5419B3B711003C79C4 /* drtuto3.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F22E5319B3B711003C79C4 /* drtuto3.png */; };
 /* End PBXBuildFile section */
 
@@ -337,6 +354,8 @@
 		C68790C51A335C7000E83B47 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		C68790C71A335C7000E83B47 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
 		C68790C81A335C7000E83B47 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
+		C68D29E91A5E85E60021B4AF /* UIFont+Montserrat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Montserrat.h"; sourceTree = "<group>"; };
+		C68D29EA1A5E85E60021B4AF /* UIFont+Montserrat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Montserrat.m"; sourceTree = "<group>"; };
 		C695316619B77E9400886DD0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C6A0E10F1A233F04008D518A /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		C6A0E1101A233F04008D518A /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
@@ -364,6 +383,13 @@
 		C6AB469319AF0E6900F710B1 /* Business-Situations_05_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Business-Situations_05_12.png"; sourceTree = "<group>"; };
 		C6AB469419AF0E6900F710B1 /* Business-Situations_05_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Business-Situations_05_13.png"; sourceTree = "<group>"; };
 		C6AB469519AF0E6900F710B1 /* Business-Situations_05_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Business-Situations_05_14.png"; sourceTree = "<group>"; };
+		C6ABC97D1A68272C00DBE18E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C6B416CA1A4818A0008F605F /* TeacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherViewController.h; sourceTree = "<group>"; };
+		C6B416CB1A4818A0008F605F /* TeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
+		C6B416CC1A4818A0008F605F /* TeacherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherViewController.xib; sourceTree = "<group>"; };
+		C6B416D01A4818BA008F605F /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
+		C6B416D11A4818BA008F605F /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
+		C6B416D21A4818BA008F605F /* ExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
 		C6C2A83E1A249045002FBF96 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -383,6 +409,10 @@
 		C6C2FFE31A39B7EE001EB7C2 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		C6C41ADE19AF3D95002F8876 /* tattoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tattoo.png; sourceTree = "<group>"; };
 		C6C41AE019AF5748002F8876 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C6C88B901A543A380093CEBF /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteManager.h; sourceTree = "<group>"; };
+		C6C88B911A543A380093CEBF /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteManager.m; sourceTree = "<group>"; };
+		C6C88B921A543A380093CEBF /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
+		C6C88B931A543A380093CEBF /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
 		C6D1EB6D1A1F53FA003AF7A5 /* NSString+Morphing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Morphing.h"; sourceTree = "<group>"; };
 		C6D1EB6E1A1F53FA003AF7A5 /* NSString+Morphing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Morphing.m"; sourceTree = "<group>"; };
 		C6D1EB6F1A1F53FA003AF7A5 /* TOMSMorphingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOMSMorphingLabel.h; sourceTree = "<group>"; };
@@ -421,6 +451,19 @@
 		C6DB418A1A1D189C00179803 /* school-50White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-50White.png"; sourceTree = "<group>"; };
 		C6DB418B1A1D189C00179803 /* settingsWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsWhite.png; sourceTree = "<group>"; };
 		C6DB41941A1D198500179803 /* x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x24.png; sourceTree = "<group>"; };
+		C6DD31111ABC0C7A00B325A9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C6DD31141ABC1B8300B325A9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		C6DD31181ABC64A300B325A9 /* AddClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClassViewController.h; sourceTree = "<group>"; };
+		C6DD31191ABC64A300B325A9 /* AddClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClassViewController.m; sourceTree = "<group>"; };
+		C6DD311A1ABC64A300B325A9 /* AddClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClassViewController.xib; sourceTree = "<group>"; };
+		C6DD311E1ABC7D1700B325A9 /* AddClassTeachViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClassTeachViewController.h; sourceTree = "<group>"; };
+		C6DD311F1ABC7D1700B325A9 /* AddClassTeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClassTeachViewController.m; sourceTree = "<group>"; };
+		C6DD31201ABC7D1700B325A9 /* AddClassTeachViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClassTeachViewController.xib; sourceTree = "<group>"; };
+		C6DD31231ABC7D3600B325A9 /* AddClassAlumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClassAlumnViewController.h; sourceTree = "<group>"; };
+		C6DD31241ABC7D3600B325A9 /* AddClassAlumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClassAlumnViewController.m; sourceTree = "<group>"; };
+		C6DD31251ABC7D3600B325A9 /* AddClassAlumnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClassAlumnViewController.xib; sourceTree = "<group>"; };
+		C6EE619D1A7A9AB90054254D /* View-List-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View-List-32.png"; sourceTree = "<group>"; };
+		C6EE619E1A7A9AB90054254D /* View-List-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View-List-48.png"; sourceTree = "<group>"; };
 		C6F22E5319B3B711003C79C4 /* drtuto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,6 +472,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DD31151ABC1B8300B325A9 /* AddressBookUI.framework in Frameworks */,
+				C6ABC97E1A68272C00DBE18E /* MessageUI.framework in Frameworks */,
 				C68579501A42E82900839FE9 /* CoreLocation.framework in Frameworks */,
 				C616A0991A39C3EF00B534E7 /* SystemConfiguration.framework in Frameworks */,
 				C616A0961A39C3AE00B534E7 /* CoreData.framework in Frameworks */,
@@ -526,6 +571,9 @@
 		A060C1B71997CCD700C4C876 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6DD31141ABC1B8300B325A9 /* AddressBookUI.framework */,
+				C6DD31111ABC0C7A00B325A9 /* AddressBook.framework */,
+				C6ABC97D1A68272C00DBE18E /* MessageUI.framework */,
 				C685795A1A42E87100839FE9 /* libsqlite3.dylib */,
 				C68579571A42E85900839FE9 /* Security.framework */,
 				C68579551A42E84800839FE9 /* CFNetwork.framework */,
@@ -621,6 +669,8 @@
 		A060C1F51997CE3300C4C876 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C6EE619D1A7A9AB90054254D /* View-List-32.png */,
+				C6EE619E1A7A9AB90054254D /* View-List-48.png */,
 				C685796C1A430B7D00839FE9 /* previous-32.png */,
 				C685796D1A430B7D00839FE9 /* previous-24.png */,
 				C62BC9471A418C1E00C45DB6 /* polyline-24.png */,
@@ -703,6 +753,8 @@
 				A060C2061997D0FA00C4C876 /* UIColor+RGB.m */,
 				A060C2071997D0FA00C4C876 /* Utils.h */,
 				A060C2081997D0FA00C4C876 /* Utils.m */,
+				C68D29E91A5E85E60021B4AF /* UIFont+Montserrat.h */,
+				C68D29EA1A5E85E60021B4AF /* UIFont+Montserrat.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -766,6 +818,7 @@
 		A0A2B2C5199FA85B001734AF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C6C88B8F1A543A380093CEBF /* AutoCompleteTextField */,
 				C6C2FFD81A39B7EE001EB7C2 /* SITUtils */,
 				C6A0E1181A237ADC008D518A /* CXCardView */,
 				C6A0E1141A234088008D518A /* AFPopup */,
@@ -811,6 +864,15 @@
 		A0A717CD19A8AD35000C6527 /* BackEnd */ = {
 			isa = PBXGroup;
 			children = (
+				C6DD31181ABC64A300B325A9 /* AddClassViewController.h */,
+				C6DD31191ABC64A300B325A9 /* AddClassViewController.m */,
+				C6DD311A1ABC64A300B325A9 /* AddClassViewController.xib */,
+				C6DD311E1ABC7D1700B325A9 /* AddClassTeachViewController.h */,
+				C6DD311F1ABC7D1700B325A9 /* AddClassTeachViewController.m */,
+				C6DD31201ABC7D1700B325A9 /* AddClassTeachViewController.xib */,
+				C6DD31231ABC7D3600B325A9 /* AddClassAlumnViewController.h */,
+				C6DD31241ABC7D3600B325A9 /* AddClassAlumnViewController.m */,
+				C6DD31251ABC7D3600B325A9 /* AddClassAlumnViewController.xib */,
 			);
 			name = BackEnd;
 			path = iPhone/BackEnd;
@@ -901,6 +963,12 @@
 				C6C2A83E1A249045002FBF96 /* EditProfileViewController.h */,
 				C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */,
 				C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */,
+				C6B416CA1A4818A0008F605F /* TeacherViewController.h */,
+				C6B416CB1A4818A0008F605F /* TeacherViewController.m */,
+				C6B416CC1A4818A0008F605F /* TeacherViewController.xib */,
+				C6B416D01A4818BA008F605F /* ExchangeViewController.h */,
+				C6B416D11A4818BA008F605F /* ExchangeViewController.m */,
+				C6B416D21A4818BA008F605F /* ExchangeViewController.xib */,
 			);
 			name = Perfil;
 			path = iPhone/Perfil;
@@ -1014,6 +1082,17 @@
 				C6C2FFE31A39B7EE001EB7C2 /* UIView+Toast.h */,
 			);
 			path = SITUtils;
+			sourceTree = "<group>";
+		};
+		C6C88B8F1A543A380093CEBF /* AutoCompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				C6C88B901A543A380093CEBF /* HTAutocompleteManager.h */,
+				C6C88B911A543A380093CEBF /* HTAutocompleteManager.m */,
+				C6C88B921A543A380093CEBF /* HTAutocompleteTextField.h */,
+				C6C88B931A543A380093CEBF /* HTAutocompleteTextField.m */,
+			);
+			path = AutoCompleteTextField;
 			sourceTree = "<group>";
 		};
 		C6D1EB6C1A1F53FA003AF7A5 /* MorphLabel */ = {
@@ -1156,7 +1235,7 @@
 		A060C1AD1997CCD600C4C876 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Jesus Victorio";
 				TargetAttributes = {
 					A060C1B41997CCD700C4C876 = {
@@ -1214,6 +1293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0AABF1A19A11A73008E3F99 /* Icon-120.png in Resources */,
+				C6DD31221ABC7D1700B325A9 /* AddClassTeachViewController.xib in Resources */,
 				C6AB469B19AF0E6900F710B1 /* Business-Situations_05_06.png in Resources */,
 				A045777919A3B7EA00143159 /* arrow.png in Resources */,
 				A0AABF2619A11A73008E3F99 /* Icon@2x.png in Resources */,
@@ -1254,6 +1334,8 @@
 				A0AABF2119A11A73008E3F99 /* Icon-Small.png in Resources */,
 				C642AA4019B4C3C6007EFA13 /* LoginViewController.xib in Resources */,
 				C68579741A43216F00839FE9 /* ExchangeShowViewCell.xib in Resources */,
+				C6EE619F1A7A9AB90054254D /* View-List-32.png in Resources */,
+				C6DD31271ABC7D3600B325A9 /* AddClassAlumnViewController.xib in Resources */,
 				C62BC94A1A418C1E00C45DB6 /* polyline-32.png in Resources */,
 				A060C1C31997CCD700C4C876 /* InfoPlist.strings in Resources */,
 				C6AB469819AF0E6900F710B1 /* Business-Situations_05_03.png in Resources */,
@@ -1267,6 +1349,7 @@
 				A0AABF1C19A11A73008E3F99 /* Icon-72@2x.png in Resources */,
 				C6C2A8461A249C2F002FBF96 /* cancel-32.png in Resources */,
 				A0AABF0B19A11618008E3F99 /* borde100.png in Resources */,
+				C6DD311C1ABC64A300B325A9 /* AddClassViewController.xib in Resources */,
 				A0A8429519AA016E002968A2 /* school-50.png in Resources */,
 				C6F22E5419B3B711003C79C4 /* drtuto3.png in Resources */,
 				C6AB46A319AF0E6900F710B1 /* Business-Situations_05_14.png in Resources */,
@@ -1287,6 +1370,7 @@
 				C6AB469F19AF0E6900F710B1 /* Business-Situations_05_10.png in Resources */,
 				A0AABF1B19A11A73008E3F99 /* Icon-72.png in Resources */,
 				C685796E1A430B7D00839FE9 /* previous-32.png in Resources */,
+				C6B416D41A4818BA008F605F /* ExchangeViewController.xib in Resources */,
 				A036D38919ADDE8F00CD9850 /* Montserrat-Regular.ttf in Resources */,
 				C61D2ED61A2110B700EF8023 /* data_in_both_directions-32White.png in Resources */,
 				C673E74C1A252D610008B5BE /* ClassViewCell.xib in Resources */,
@@ -1295,6 +1379,7 @@
 				A060C2151997DA2100C4C876 /* HomeViewController.xib in Resources */,
 				C6A2AB261A1F7937000AB7A9 /* ProfileViewController.xib in Resources */,
 				A0AABF2019A11A73008E3F99 /* Icon-Small-50.png in Resources */,
+				C6EE61A01A7A9AB90054254D /* View-List-48.png in Resources */,
 				A0AABF0519A110BC008E3F99 /* inclogo100.png in Resources */,
 				C62BC9411A4188AB00C45DB6 /* polyline-50.png in Resources */,
 				A0A8429319AA016E002968A2 /* data_in_both_directions-50.png in Resources */,
@@ -1308,6 +1393,7 @@
 				A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */,
 				A0A8429619AA016E002968A2 /* home-50.png in Resources */,
 				C6A24A4919BA2CCD00175981 /* bocadillo-white.png in Resources */,
+				C6B416CE1A4818A0008F605F /* TeacherViewController.xib in Resources */,
 				A0A27B9319A11D6B00E376D5 /* 960iPhone.png in Resources */,
 				A0A27B9219A11D6B00E376D5 /* 1136iPhone.png in Resources */,
 			);
@@ -1342,6 +1428,8 @@
 				A060C20B1997D0FA00C4C876 /* UIColor+RGB.m in Sources */,
 				C68790C61A335C7000E83B47 /* User.m in Sources */,
 				C642AA3F19B4C3C6007EFA13 /* LoginViewController.m in Sources */,
+				C6C88B941A543A380093CEBF /* HTAutocompleteManager.m in Sources */,
+				C6B416CD1A4818A0008F605F /* TeacherViewController.m in Sources */,
 				C62BFCF21A1E092E00D84ED5 /* Home2ViewController.m in Sources */,
 				C6C2A8411A249045002FBF96 /* EditProfileViewController.m in Sources */,
 				C6DB417A1A1D13D300179803 /* PKRevealController.m in Sources */,
@@ -1351,11 +1439,15 @@
 				A060C2091997D0FA00C4C876 /* ConfigHelper.m in Sources */,
 				C68790BD1A335C7000E83B47 /* Exchange.m in Sources */,
 				A0433BB619A7B9F2001FD407 /* TutorialViewController.m in Sources */,
+				C6DD311B1ABC64A300B325A9 /* AddClassViewController.m in Sources */,
 				C6DB41751A1D13D300179803 /* PKRevealControllerView.m in Sources */,
+				C6B416D31A4818BA008F605F /* ExchangeViewController.m in Sources */,
 				A0A423CF19A2506200F3D1E0 /* CBZSplashView.m in Sources */,
 				A0433BBC19A7BF25001FD407 /* AboutViewController.m in Sources */,
 				C6A0E11E1A237ADC008D518A /* CXCardView.m in Sources */,
+				C6DD31261ABC7D3600B325A9 /* AddClassAlumnViewController.m in Sources */,
 				C68790C91A335C7000E83B47 /* Login.m in Sources */,
+				C6C88B951A543A380093CEBF /* HTAutocompleteTextField.m in Sources */,
 				C673E7501A2535E60008B5BE /* ExchangeViewCell.m in Sources */,
 				C6DB41781A1D13D300179803 /* PKSequentialAnimation.m in Sources */,
 				A060C20C1997D0FA00C4C876 /* Utils.m in Sources */,
@@ -1364,6 +1456,7 @@
 				A0A717C719A8A61D000C6527 /* IntroViewController.m in Sources */,
 				A060C21A1997DAE500C4C876 /* iNeedClass.xcdatamodeld in Sources */,
 				C673E7451A2526D80008B5BE /* ClassViewController.m in Sources */,
+				C6DD31211ABC7D1700B325A9 /* AddClassTeachViewController.m in Sources */,
 				C6DB41721A1D13D300179803 /* CALayer+PKConvenienceAnimations.m in Sources */,
 				A060C2141997DA2100C4C876 /* HomeViewController.m in Sources */,
 				C673E74B1A252D610008B5BE /* ClassViewCell.m in Sources */,
@@ -1377,6 +1470,7 @@
 				A0A2B2E5199FA915001734AF /* MenuViewController.m in Sources */,
 				C6DB27301A2F564F000C4B6D /* CoreDataDAO.m in Sources */,
 				C68790BA1A335C6F00E83B47 /* CategoryType.m in Sources */,
+				C68D29EB1A5E85E60021B4AF /* UIFont+Montserrat.m in Sources */,
 				C6A0E11D1A237ADC008D518A /* CXCardContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1496,7 +1590,6 @@
 		A060C1EB1997CCD700C4C876 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1510,7 +1603,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"$(SRCROOT)/Resources/Libraries/SITUtils",
+					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/SITUtils",
 				);
 				INFOPLIST_FILE = "iNeedClass/iNeedClass-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -1521,7 +1614,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1529,7 +1623,6 @@
 		A060C1EC1997CCD700C4C876 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1543,7 +1636,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"$(SRCROOT)/Resources/Libraries/SITUtils",
+					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/SITUtils",
 				);
 				INFOPLIST_FILE = "iNeedClass/iNeedClass-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -1554,7 +1647,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

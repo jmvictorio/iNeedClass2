@@ -39,14 +39,5 @@
                            alpha: 1.0];
 }
 
-+ (UIFont *)fontMontseRegular:(CGFloat)size
-{
-    return [UIFont fontWithName:@"Montserrat-Regular" size:size];
-}
-
-+ (UIFont *)fontMontseBold:(CGFloat)size
-{
-    return [UIFont fontWithName:@"Montserrat-Bold" size:size];
-}
 
 @end

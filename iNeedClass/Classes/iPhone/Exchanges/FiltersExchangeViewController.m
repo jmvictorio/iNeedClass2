@@ -23,6 +23,7 @@
 
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -34,6 +35,13 @@
 
 - (IBAction)noSaveAction:(id)sender {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"hideFilters2" object:nil];
+}
+
+- (IBAction)selecPoblacion:(id)sender {
+    
+}
+
+- (IBAction)selecMateriaBusco:(id)sender {
 }
 
 @end

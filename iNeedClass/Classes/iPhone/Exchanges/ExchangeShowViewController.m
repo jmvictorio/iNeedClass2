@@ -10,6 +10,7 @@
 #import "AFPopupView.h"
 #import "ExchangeShowViewCell.h"
 #import "FiltersExchangeViewController.h"
+#import "ExchangeViewController.h"
 
 @interface ExchangeShowViewController ()
 {
@@ -36,7 +37,7 @@
     [flowlayout setItemSize:CGSizeMake(300, 50)];
     [self.collectionViewController registerNib:[ExchangeShowViewCell nib] forCellWithReuseIdentifier:@"exchangeShowCell"];
     
-    filterButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"polyline-24"] style:UIBarButtonItemStylePlain target:self action:@selector(openFilters)];
+    filterButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"View-List-48"] style:UIBarButtonItemStylePlain target:self action:@selector(openFilters)];
     
     backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"previous-24"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     
@@ -69,7 +70,6 @@
 
 -(void)hideFilters
 {
-    
     [_popup hide];
 }
 
@@ -98,6 +98,16 @@
     [cell.layer setCornerRadius:10];
     
     return cell;
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ExchangeViewController *exchange = [[ExchangeViewController alloc]init];
+    //meter datos en la clase
+    [self.navigationController pushViewController:exchange animated:YES];
+    
 }
 
 @end

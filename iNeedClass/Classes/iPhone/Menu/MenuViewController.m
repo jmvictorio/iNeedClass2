@@ -33,7 +33,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 {
     if ( self = [super init] ) {
         _delegate = delegate;
-        [self.view setBackgroundColor:[UIColor colorWithHexString:@"4bc1d2"]];
+        [self.view setBackgroundColor:[UIColor colorINC]];
     }
     
     return self;
@@ -50,16 +50,16 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     
     [self.labelName setTextAlignment:NSTextAlignmentCenter];
     [self.labelName setTextColor:[UIColor whiteColor]];
-    self.labelName.backgroundColor = [UIColor colorWithHexString:@"4bc1d2"];
+    self.labelName.backgroundColor = [UIColor colorINC];
     self.labelName.layer.cornerRadius = 15;
-    [self.labelName setFont:[UIFont fontWithName:@"Montserrat-Bold" size:17]];
+    [self.labelName setFont:[UIFont fontMontseBold:17]];
     [self.labelName setText:@"Dr Mustache"];
     
     self.loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
     
     self.loginView.delegate = self;
     
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
     
     //self.labelName.layer.borderColor = [UIColor redColor].CGColor;
     //originaltagLbl.layer.borderWidth = 1;
@@ -92,7 +92,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
             break;
             
         case 1:
-            menuItemLabel = @"Añadir Asignatura";
+            menuItemLabel = @"Añadir Materia";
             menuItemIcon = [UIImage imageNamed:@"iconoTeacher"];
             break;
             
@@ -113,7 +113,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     
     [cell.iconImage setImage:menuItemIcon];
     [cell.descriptionLabel setText:menuItemLabel];
-    [cell.descriptionLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:18]];
+    [cell.descriptionLabel setFont:[UIFont fontMontseRegular:18]];
     
     return cell;
 }

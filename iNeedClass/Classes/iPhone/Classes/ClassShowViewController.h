@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClassShowViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ClassShowViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewClass;
+@property (strong, nonatomic) UISearchBar *searchbar;
 
 @end

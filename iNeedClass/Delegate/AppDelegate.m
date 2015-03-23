@@ -16,6 +16,8 @@
 #import "UIColor+RGB.h"
 #import "SITCoreDataManager.h"
 #import "SITUtils.h"
+#import "AddClassViewController.h"
+#import <AddressBookUI/AddressBookUI.h>
 
 NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNotification";
 
@@ -29,7 +31,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
 @property (nonatomic, strong) IntroViewController       *introViewController;
 @property (nonatomic, strong) MenuViewController        *menuViewController;
 @property (nonatomic, strong) HomeViewController        *homeViewController;
-@property (nonatomic, strong) Home2ViewController       *home2ViewController;
+@property (nonatomic, strong) AddClassViewController    *addClassViewController;
 @property (nonatomic, strong) UISplitViewController     *splitController;
 
 - (void)appearance;
@@ -47,10 +49,10 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     [self appearance];
     
-    self.introViewController   = [IntroViewController new];
-    self.menuViewController    = [MenuViewController new];
-    self.homeViewController    = [HomeViewController new];
-    self.home2ViewController   = [Home2ViewController new];
+    self.introViewController    = [IntroViewController new];
+    self.menuViewController     = [MenuViewController new];
+    self.homeViewController     = [HomeViewController new];
+    self.addClassViewController = [AddClassViewController new];
     
     if([Utils is_iPhoneDevice])
     {
@@ -142,9 +144,9 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     */
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
+    [[UILabel appearance] setFont:[UIFont fontMontseRegular:14.0]];
     
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Montserrat-Regular" size:10.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontMontseRegular:10.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
     
     UIFont *font = [UIFont boldSystemFontOfSize:12.0f];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
@@ -153,7 +155,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     [[UISegmentedControl appearance] setTitleTextAttributes:attributes
                                     forState:UIControlStateNormal];
     
-    [[UITextField appearance] setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
+    [[UITextField appearance] setFont:[UIFont fontMontseRegular:14.0]];
 }
 
 #pragma mark - Helpers
@@ -194,8 +196,15 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
             break;
             
         case 1:
-            requestedViewController = [HomeViewController class];
-            viewController = self.homeViewController;
+            if(login == false){
+                requestedViewController = [LoginViewController class];
+                viewController = [LoginViewController new];
+                //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+            }else{
+                requestedViewController = [AddClassViewController class];
+                viewController = self.addClassViewController;
+            }
+            
             break;
         case 2:
             requestedViewController = [HomeViewController class];
@@ -203,7 +212,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
             break;
         case 3:
             requestedViewController = [Home2ViewController class];
-            viewController = self.home2ViewController;
+            viewController = self.homeViewController;
             
             break;
         case 4:
@@ -282,7 +291,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
 
     NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
                                       [UIColor colorINC], NSForegroundColorAttributeName,
-                                      [UIFont fontWithName:@"Montserrat-Regular" size:15.0], NSFontAttributeName,nil];
+                                      [UIFont fontMontseRegular:15.0], NSFontAttributeName,nil];
     
     [self.navController.navigationBar setTitleTextAttributes:navBarTextAttrs];
 
@@ -300,10 +309,45 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
                                       [UIColor whiteColor], NSForegroundColorAttributeName,
-                                      [UIFont fontWithName:@"Montserrat-Regular" size:15.0], NSFontAttributeName,nil];
+                                      [UIFont fontMontseRegular:15.0], NSFontAttributeName,nil];
     
     [self.navController.navigationBar setTitleTextAttributes:navBarTextAttrs];
     
+}
+
+- (void)shareOnWhatsApp {
+    /*ABAddressBookRef addressBook = ABAddressBookCreateWithOptions (NULL, nil);
+    ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
+        if (!granted){
+            //4
+            NSLog(@"Just denied");
+            return;
+        }
+        //5
+        NSLog(@"Just authorized");
+    });
+    ABRecordID ABID = 0;
+    int len = (int)ABAddressBookGetPersonCount(addressBook);
+    for(int i = 1; i < (len + 1); i++) {
+        ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressBook, (ABRecordID)i);
+        NSString *first;
+        if (!person) {
+            continue;
+        }
+        CFStringRef firstc = (CFStringRef)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        if (firstc) {
+                first = [NSString stringWithFormat:@"%@",firstc];
+        
+        }
+        ABID = ABRecordGetRecordID(person);
+        NSLog(@"PERSON: %d - %@", ABID, first);
+        
+    }
+    */
+    NSURL *whatsappURL = [NSURL URLWithString:@"whatsapp://send?text=PRUEBA%20TEXTO&abid=511"];
+    if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
+        [[UIApplication sharedApplication] openURL: whatsappURL];
+    }
 }
 
 @end

@@ -14,6 +14,4 @@
 
 + (UIColor *)colorINC;
 
-+ (UIFont *)fontMontseRegular:(NSInteger)size;
-+ (UIFont *)fontMontseBold:(CGFloat)size;
 @end

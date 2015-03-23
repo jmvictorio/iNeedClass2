@@ -388,7 +388,7 @@
         
         if (changesDone)
         {
-            //[SitLog debug:@"La asignatura %@ ha sido almacenada.", [subjectData objectForKey:@"id_subject"]];
+            NSLog(@"La asignatura %@ ha sido almacenada.", [subjectData objectForKey:@"id_subject"]);
         }
         
     }];

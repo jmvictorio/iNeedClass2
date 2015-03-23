@@ -15,5 +15,7 @@
 
 - (IBAction)saveAction:(id)sender;
 - (IBAction)noSaveAction:(id)sender;
+- (IBAction)selecPoblacion:(id)sender;
+- (IBAction)selecMateriaBusco:(id)sender;
 
 @end

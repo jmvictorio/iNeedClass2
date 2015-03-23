@@ -42,10 +42,6 @@
 		<string>Montserrat-Bold.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
 	</array>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UIStatusBarHidden</key>
 	<false/>
 	<key>UISupportedInterfaceOrientations</key>
