@@ -100,6 +100,7 @@
     [newComment1 setValue:@"Introducción a las matemáticas discretas" forKey:@"materia"];
     [newComment1 setValue:date1 forKey:@"creationDate"];
     [newComment1 setValue:@"8.5" forKey:@"precio"];
+    [newComment1 setValue:@"Mañana" forKey:@"horario"];
     [newComment1 setValue:@"1630846377" forKey:@"pictureFB"];
     
     NSMutableDictionary *newComment2 = [[NSMutableDictionary alloc]init];
@@ -109,6 +110,7 @@
     [newComment2 setValue:@"Inglés" forKey:@"materia"];
     [newComment2 setValue:date2 forKey:@"creationDate"];
     [newComment2 setValue:@"10.0" forKey:@"precio"];
+    [newComment2 setValue:@"Todos" forKey:@"horario"];
     [newComment2 setValue:@"1571869276" forKey:@"pictureFB"];
     
     NSMutableDictionary *newComment3 = [[NSMutableDictionary alloc]init];
@@ -118,6 +120,7 @@
     [newComment3 setValue:@"Programación iOS" forKey:@"materia"];
     [newComment3 setValue:date3 forKey:@"creationDate"];
     [newComment3 setValue:@"14.0" forKey:@"precio"];
+    [newComment3 setValue:@"Tarde" forKey:@"horario"];
     [newComment3 setValue:@"1156597762" forKey:@"pictureFB"];
     
     NSMutableDictionary *newComment4 = [[NSMutableDictionary alloc]init];
@@ -126,6 +129,7 @@
     [newComment4 setValue:@"Javier" forKey:@"name"];
     [newComment4 setValue:@"Francés" forKey:@"materia"];
     [newComment4 setValue:date4 forKey:@"creationDate"];
+    [newComment4 setValue:@"Tarde" forKey:@"horario"];
     [newComment4 setValue:@"7.0" forKey:@"precio"];
     [newComment4 setValue:@"1286514520" forKey:@"pictureFB"];
     
@@ -136,6 +140,7 @@
     [newComment5 setValue:@"Programación Android" forKey:@"materia"];
     [newComment5 setValue:date5 forKey:@"creationDate"];
     [newComment5 setValue:@"9.5" forKey:@"precio"];
+    [newComment5 setValue:@"Todos" forKey:@"horario"];
     [newComment5 setValue:@"795901925" forKey:@"pictureFB"];
     
     NSMutableDictionary *newComment6 = [[NSMutableDictionary alloc]init];
@@ -145,6 +150,7 @@
     [newComment6 setValue:@"Bachata Avanzado" forKey:@"materia"];
     [newComment6 setValue:date6 forKey:@"creationDate"];
     [newComment6 setValue:@"5.5" forKey:@"precio"];
+    [newComment6 setValue:@"Mañana" forKey:@"horario"];
     [newComment6 setValue:@"1552524127" forKey:@"pictureFB"];
     
     NSMutableDictionary *newComment7 = [[NSMutableDictionary alloc]init];
@@ -154,6 +160,7 @@
     [newComment7 setValue:@"Inglés" forKey:@"materia"];
     [newComment7 setValue:date7 forKey:@"creationDate"];
     [newComment7 setValue:@"11.0" forKey:@"precio"];
+    [newComment7 setValue:@"Mañana" forKey:@"horario"];
     [newComment7 setValue:@"100005013097267" forKey:@"pictureFB"];
     
     inboxTeacher = [[NSArray alloc] initWithObjects:newComment1, newComment2, newComment3, newComment4, newComment5, newComment6, newComment7, nil];
@@ -203,7 +210,10 @@
     [cell.profileFB setProfileID:nil];
     [cell.profileFB setProfileID:[datos valueForKey:@"pictureFB"]];
     [cell.subjectLabel setText:[datos valueForKey:@"materia"]];
+    [cell.subjectLabel setFont:[UIFont fontMontseRegular:13]];
     [cell.priceLabel setText:[NSString stringWithFormat:@"%@ €/h",[datos valueForKey:@"precio"]]];
+    [cell.timeTableLabel setText:[datos valueForKey:@"horario"]];
+    [cell.timeTableLabel setFont:[UIFont fontMontseRegular:13]];
     
     [cell setBackgroundColor:[UIColor whiteColor]];
     

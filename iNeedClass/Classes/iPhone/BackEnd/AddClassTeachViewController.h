@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddClassTeachViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AddClassTeachViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
@@ -19,7 +19,18 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonSelectTime;
 
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerHorario;
+
 @property (weak, nonatomic) IBOutlet UIButton *buttonNoMatery;
+@property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
+
+//TABLAS
+@property (weak, nonatomic) IBOutlet UITableView *tableViewMaterias;
+@property (weak, nonatomic) IBOutlet UITableView *tableViewCiudades;
+
+
+
+
 
 - (IBAction)actionShow:(id)sender;
 - (IBAction)actionSave:(id)sender;

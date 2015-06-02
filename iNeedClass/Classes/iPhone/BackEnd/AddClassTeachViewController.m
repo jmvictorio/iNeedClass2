@@ -26,6 +26,8 @@
     
     delegate = [AppDelegate sharedInstance];
     
+    [self.buttonMenu setImage:[UIImage imageNamed:@"previous-24"] forState:UIControlStateNormal];
+    
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+20)];
     
     [self.labelTitle setFont:[UIFont fontMontseBold:22]];
@@ -53,7 +55,7 @@
 
 - (IBAction)menuAction:(id)sender
 {
-    [delegate switchLateralPanelState];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)actionShow:(id)sender {
@@ -69,6 +71,10 @@
 
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return [textField resignFirstResponder];
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     
@@ -80,14 +86,47 @@
     else if (textField.tag == 2)
     {
         //[self.tableSearchMaterias setHidden:NO];
-        [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y-40) animated:YES];
+        //[self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y-40) animated:YES];
+        //[self.okButton setHidden:YES];
+    }else if (textField.tag == 3)
+    {
+        //[self.tableSearchMaterias setHidden:NO];
+        [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y-150) animated:YES];
         //[self.okButton setHidden:YES];
     }
-    else if (textField.tag == 3 || textField.tag == 4)
+    else if (textField.tag == 4)
     {
-        [self.scrollView setContentOffset:CGPointMake(0, 20) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y-150) animated:YES];
         //[self.okButton setHidden:NO];
     }
+    
     return YES;
 }
+
+#pragma mark - TableView Delegate
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return nil;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
+}
+
+#pragma mark - UIPickerView Delegate
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return 3;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return @"PRUEBA";
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
 @end

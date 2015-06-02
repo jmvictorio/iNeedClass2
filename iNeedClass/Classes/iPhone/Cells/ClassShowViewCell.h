@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *materiaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *precioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeTableLabel;
 
 + (UINib *)nib;
 

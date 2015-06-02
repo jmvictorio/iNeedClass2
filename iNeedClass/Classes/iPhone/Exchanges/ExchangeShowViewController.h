@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExchangeShowViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ExchangeShowViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewController;
+@property (strong, nonatomic) UISearchBar *searchbar;
 
 @end

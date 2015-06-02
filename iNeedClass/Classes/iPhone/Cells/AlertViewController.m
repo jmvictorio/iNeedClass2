@@ -27,6 +27,7 @@
 - (void)setup4;
 - (void)setup5;
 - (void)setup6;
+- (void)setup7;
 - (void)dismissButtonPressed:(UIButton *)button;
 @end
 
@@ -86,6 +87,15 @@
     return self;
 }
 
+- (id)init7
+{
+    self = [super init];
+    if (self) {
+        [self setup7];
+    }
+    return self;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -133,6 +143,10 @@
             break;
         case 6:
             view = [[AlertViewController alloc] init6];
+            view.frame = CGRectMake( 0, 0, 300, 250);
+            break;
+        case 7:
+            view = [[AlertViewController alloc] init7];
             view.frame = CGRectMake( 0, 0, 300, 250);
             break;
         default:
@@ -352,7 +366,7 @@
     
     _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     _backgroundView.alpha = 1;
-    _backgroundView.backgroundColor = [UIColor whiteColor];
+    _backgroundView.backgroundColor = [UIColor colorWithHexString:@"eaeaea"];
     [self addSubview:_backgroundView];
     
     UIView *fondoView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, 300, 100)];
@@ -386,11 +400,15 @@
     [imagePerfil.layer setBorderWidth:1];
     [imagePerfil.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     
+    FBProfilePictureView *profileFB = [[FBProfilePictureView alloc] initWithProfileID:@"10203663735067174" pictureCropping:FBProfilePictureCroppingOriginal];
+    [profileFB setFrame:CGRectMake(200, 0, 100, 100)];
+    
     [fondoView addSubview:texto1Label];
     [fondoView addSubview:texto2Label];
     [fondoView addSubview:texto3Label];
     [fondoView addSubview:texto4Label];
     [fondoView addSubview:imagePerfil];
+    [fondoView addSubview:profileFB];
     
     [self addSubview:fondoView];
     
@@ -404,6 +422,79 @@
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self addSubview:_dismissButton];
 }
+
+- (void)setup7
+{
+    optionPress = 7;
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.layer.cornerRadius = 10.0f;
+    self.layer.masksToBounds = YES;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowOffset = CGSizeMake(0.0, 1.);
+    self.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.layer.shadowRadius = 2.;
+    
+    _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+    _backgroundView.alpha = 1;
+    _backgroundView.backgroundColor = [UIColor colorWithHexString:@"eaeaea"];
+    [self addSubview:_backgroundView];
+    
+    UIView *fondoView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, 300, 100)];
+    [fondoView setBackgroundColor:[UIColor whiteColor]];
+    [fondoView.layer setBorderWidth:1];
+    [fondoView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    
+    UILabel *texto1Label = [[UILabel alloc] initWithFrame:CGRectMake(8, 5, 184, 21)];
+    [texto1Label setText:@"Materia"];
+    [texto1Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto1Label setTextColor:[UIColor blackColor]];
+    
+    UILabel *texto2Label = [[UILabel alloc] initWithFrame:CGRectMake(18, 21, 174, 41)];
+    [texto2Label setText:@"Introducción a la bachata sensual"];
+    [texto2Label setNumberOfLines:0];
+    [texto2Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto2Label setTextColor:[UIColor blackColor]];
+    
+    UILabel *texto3Label = [[UILabel alloc] initWithFrame:CGRectMake(8, 58, 49, 21)];
+    [texto3Label setText:@"Precio"];
+    [texto3Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto3Label setTextColor:[UIColor blackColor]];
+    
+    UILabel *texto4Label = [[UILabel alloc] initWithFrame:CGRectMake(18, 74, 174, 21)];
+    [texto4Label setText:@"8.5 €/h"];
+    [texto4Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto4Label setTextColor:[UIColor blackColor]];
+    
+    UIImageView *imagePerfil = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"perfilMustache.png"]];
+    [imagePerfil setFrame:CGRectMake(200, 0, 100, 100)];
+    [imagePerfil.layer setBorderWidth:1];
+    [imagePerfil.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    
+    FBProfilePictureView *profileFB = [[FBProfilePictureView alloc] initWithProfileID:@"10203663735067174" pictureCropping:FBProfilePictureCroppingOriginal];
+    [profileFB setFrame:CGRectMake(200, 0, 100, 100)];
+    
+    [fondoView addSubview:texto1Label];
+    [fondoView addSubview:texto2Label];
+    [fondoView addSubview:texto3Label];
+    [fondoView addSubview:texto4Label];
+    [fondoView addSubview:imagePerfil];
+    [fondoView addSubview:profileFB];
+    
+    [self addSubview:fondoView];
+    
+    _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _dismissButton.frame = CGRectMake(0, 230 - 44, 300, 44);
+    _dismissButton.backgroundColor = [UIColor colorINC];
+    [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_dismissButton setTitle:@"Aceptar" forState:UIControlStateNormal];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [self addSubview:_dismissButton];
+}
+
 
 //Actions
 - (void)dismissButtonPressed:(UIButton *)button

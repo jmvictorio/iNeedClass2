@@ -60,10 +60,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     self.loginView.delegate = self;
     
     self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
-    
-    //self.labelName.layer.borderColor = [UIColor redColor].CGColor;
-    //originaltagLbl.layer.borderWidth = 1;
-    //[scrollView addSubview:originaltagLbl];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,8 +103,13 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
             menuItemIcon = [UIImage imageNamed:@"settingsWhite"];
             break;
         case 4:
-            menuItemLabel = @"Login";
-            menuItemIcon = [UIImage imageNamed:@"enter-50White"];
+            if([[NSUserDefaults standardUserDefaults] boolForKey:@"login"]){
+                menuItemLabel = @"Perfil";
+                menuItemIcon = [UIImage imageNamed:@"enter-50White"];
+            }else{
+                menuItemLabel = @"Login";
+                menuItemIcon = [UIImage imageNamed:@"enter-50White"];
+            }
             break;
     }
     

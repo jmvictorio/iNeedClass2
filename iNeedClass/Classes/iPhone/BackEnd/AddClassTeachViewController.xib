@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddClassTeachViewController">
             <connections>
+                <outlet property="buttonMenu" destination="r7d-o3-nt4" id="L2n-2F-mVR"/>
                 <outlet property="buttonNoMatery" destination="8PZ-US-iS8" id="dKI-3y-OQw"/>
                 <outlet property="buttonSave" destination="klj-4j-4yw" id="3zF-Rs-bwq"/>
                 <outlet property="buttonSelectTime" destination="wuz-Oc-Nvf" id="j0N-lj-bQi"/>
                 <outlet property="buttonShow" destination="PPX-LN-zrE" id="I3y-6e-tBW"/>
                 <outlet property="labelTitle" destination="r6t-gu-rcA" id="Qwn-gh-zPY"/>
+                <outlet property="pickerHorario" destination="qmf-LW-sRI" id="u3e-3C-14x"/>
                 <outlet property="scrollView" destination="OYE-fk-Qyz" id="zdp-Dn-zkp"/>
+                <outlet property="tableViewCiudades" destination="kjE-Bw-Vqe" id="s8O-g8-Gc9"/>
+                <outlet property="tableViewMaterias" destination="5Jz-8g-rKF" id="4ar-Lt-c9Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,7 +44,10 @@
                             <rect key="frame" x="14" y="186" width="290" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="YhT-BC-vZk"/>
+                            </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Precio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfu-kG-aeC">
                             <rect key="frame" x="18" y="230" width="286" height="30"/>
@@ -48,12 +55,6 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" X.X €/h" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-L6-eoG">
-                            <rect key="frame" x="14" y="258" width="129" height="40"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horario:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f27-36-v1m">
                             <rect key="frame" x="18" y="301" width="77" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -103,14 +104,14 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Impartir Clases" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6t-gu-rcA">
-                            <rect key="frame" x="42" y="24" width="234" height="30"/>
+                            <rect key="frame" x="42" y="20" width="234" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7d-o3-nt4">
-                            <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
-                            <state key="normal" image="menuWhite.png"/>
+                            <rect key="frame" x="0.0" y="8" width="54" height="54"/>
+                            <state key="normal" image="previous-24.png"/>
                             <connections>
                                 <action selector="menuAction:" destination="-1" eventType="touchUpInside" id="bmv-8E-3eq"/>
                             </connections>
@@ -119,7 +120,10 @@
                             <rect key="frame" x="14" y="94" width="290" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="pCt-xg-3Ns"/>
+                            </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="€/h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oS-yc-N9X">
                             <rect key="frame" x="153" y="261" width="41" height="34"/>
@@ -131,8 +135,43 @@
                             <rect key="frame" x="14" y="363" width="290" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Cem-A7-oB2"/>
+                            </connections>
                         </textField>
+                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" X.X €/h" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-L6-eoG">
+                            <rect key="frame" x="14" y="258" width="129" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="qST-ZH-FMB"/>
+                            </connections>
+                        </textField>
+                        <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qmf-LW-sRI">
+                            <rect key="frame" x="-1" y="398" width="320" height="162"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="5Oe-oj-Cjv"/>
+                                <outlet property="delegate" destination="-1" id="1dz-ba-EmU"/>
+                            </connections>
+                        </pickerView>
+                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-Bw-Vqe">
+                            <rect key="frame" x="14" y="398" width="290" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="m9r-Q1-fDo"/>
+                                <outlet property="delegate" destination="-1" id="CRI-GR-BAQ"/>
+                            </connections>
+                        </tableView>
+                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Jz-8g-rKF">
+                            <rect key="frame" x="14" y="131" width="290" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="ieq-ii-Ty2"/>
+                                <outlet property="delegate" destination="-1" id="yva-Nm-h8C"/>
+                            </connections>
+                        </tableView>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -141,6 +180,6 @@
         </view>
     </objects>
     <resources>
-        <image name="menuWhite.png" width="32" height="32"/>
+        <image name="previous-24.png" width="24" height="24"/>
     </resources>
 </document>

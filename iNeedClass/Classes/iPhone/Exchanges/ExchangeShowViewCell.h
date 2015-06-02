@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *profileFB;
 @property (weak, nonatomic) IBOutlet UIImageView *profileIMG;
+@property (weak, nonatomic) IBOutlet UILabel *subjectMeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subjectYouLabel;
 
 + (UINib *)nib;
 
