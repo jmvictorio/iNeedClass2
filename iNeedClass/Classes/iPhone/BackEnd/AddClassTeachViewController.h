@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddClassTeachViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AddClassTeachViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
@@ -31,7 +31,7 @@
 
 
 
-
+- (IBAction)selectTime:(id)sender;
 - (IBAction)actionShow:(id)sender;
 - (IBAction)actionSave:(id)sender;
 - (IBAction)menuAction:(id)sender;

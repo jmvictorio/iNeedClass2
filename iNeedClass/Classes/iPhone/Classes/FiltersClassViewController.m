@@ -260,12 +260,12 @@
     
     NSString *strippedStr = [textField text];
     // break up the search terms (separated by spaces)
-    NSArray *searchItems = nil;
+    /*NSArray *searchItems = nil;
     if (strippedStr.length > 0)
     {
         searchItems = [strippedStr componentsSeparatedByString:@" "];
     }
-    
+    */
     if([textField.text length] == 0 && textField.tag == 1)
     {
         _dataPoblacionesTable = [[NSMutableArray alloc]initWithArray:_dataPoblaciones];

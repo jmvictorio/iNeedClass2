@@ -56,6 +56,7 @@
     
     [splashView startAnimation];
     
+    [super viewDidAppear:animated];
 }
 
 - (void)quitarWaitBlue

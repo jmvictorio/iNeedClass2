@@ -166,6 +166,8 @@
     inboxTeacher = [[NSArray alloc] initWithObjects:newComment1, newComment2, newComment3, newComment4, newComment5, newComment6, newComment7, nil];
     
     fetchedArray = [[NSMutableArray alloc]initWithArray:inboxTeacher];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -273,11 +275,11 @@
     NSString *strippedStr = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     // break up the search terms (separated by spaces)
-    NSArray *searchItems = nil;
+   /* NSArray *searchItems = nil;
     if (strippedStr.length > 0)
     {
         searchItems = [strippedStr componentsSeparatedByString:@" "];
-    }
+    }*/
     NSLog(@"TEXTO: %@", searchText);
     
     if([searchText length] == 0)

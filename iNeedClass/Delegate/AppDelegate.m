@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
-#import "Home2ViewController.h"
 #import "Utils.h"
 #import "IntroViewController.h"
 #import "LoginViewController.h"
@@ -175,7 +174,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     // Cerrar el panel lateral (util solo para iPhone)
     //
     
-    Class requestedViewController;
+    //Class requestedViewController;
     UIViewController *viewController = nil;
     //[[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     
@@ -184,7 +183,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     switch (indexMenuItem) {
             
         case 0:
-            requestedViewController = [HomeViewController class];
+            //requestedViewController = [HomeViewController class];
             viewController = self.homeViewController;
             /*if(![Utils is_iPhoneDevice]){
                 
@@ -196,39 +195,39 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
             break;
             
         case 1:
-            if(login == false){
-                requestedViewController = [LoginViewController class];
+            if(!login){
+                //requestedViewController = [LoginViewController class];
                 viewController = [LoginViewController new];
                 //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
             }else{
-                requestedViewController = [AddClassViewController class];
+                //requestedViewController = [AddClassViewController class];
                 viewController = self.addClassViewController;
             }
             
             break;
         case 2:
-            requestedViewController = [HomeViewController class];
+            //requestedViewController = [HomeViewController class];
             viewController = self.homeViewController;
             break;
         case 3:
-            requestedViewController = [Home2ViewController class];
+            //requestedViewController = [Home2ViewController class];
             viewController = self.homeViewController;
             
             break;
         case 4:
             
-            if(login == false){
-                requestedViewController = [LoginViewController class];
+            if(!login){
+                //requestedViewController = [LoginViewController class];
                 viewController = [LoginViewController new];
                 //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
             }else{
-                requestedViewController = [ProfileViewController class];
+                //requestedViewController = [ProfileViewController class];
                 viewController = [ProfileViewController new];
             }
             
             break;
         case 5:
-            requestedViewController = [ProfileViewController class];
+            //requestedViewController = [ProfileViewController class];
             viewController = [ProfileViewController new];
             break;
     }

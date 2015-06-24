@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassShowViewCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *profileFB;
 @property (weak, nonatomic) IBOutlet UIImageView *profileIMG;
 

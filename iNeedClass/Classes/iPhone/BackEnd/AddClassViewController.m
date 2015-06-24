@@ -27,6 +27,8 @@
     delegate = [AppDelegate sharedInstance];
     
     [delegate doOverlay];
+
+    [self.navigationController.navigationBar setHidden:YES];
     
     [self.addTitleLabel setFont:[UIFont fontMontseBold:20]];
     

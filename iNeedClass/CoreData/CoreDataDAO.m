@@ -393,7 +393,7 @@
         
     }];
     
-    return changesDone ? subject : nil;
+    return changesDone;
     
 }
 
@@ -420,7 +420,7 @@
         
     }];
     
-    return changesDone ? category : nil;
+    return changesDone;
     
 }
 

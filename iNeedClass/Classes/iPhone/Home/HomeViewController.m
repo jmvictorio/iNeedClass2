@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 #import "AboutViewController.h"
-#import "TutorialViewController.h"
+#import "Tutorial2ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ClassShowViewController.h"
 #import "ExchangeShowViewController.h"
@@ -42,6 +42,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [mustache removeFromSuperview];
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
@@ -104,6 +106,8 @@
     }
     [self.navigationController updateViewConstraints];
     [self.navigationController.navigationBar updateConstraints];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)loadFonts
@@ -306,8 +310,8 @@
 
 - (IBAction)actionHelp{
     [mustache removeFromSuperview];
-    TutorialViewController *tuto = [[TutorialViewController alloc]init];
-    [self.navigationController pushViewController:tuto animated:YES];
+    Tutorial2ViewController *tuto = [[Tutorial2ViewController alloc]init];
+    [self presentViewController:tuto animated:YES completion:nil];
     
 }
 

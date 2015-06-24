@@ -14,11 +14,13 @@
 @interface AddClassTeachViewController ()
 {
     AppDelegate *delegate;
+    NSArray *_pickerData;
 }
 
 @end
 
 @implementation AddClassTeachViewController
+@synthesize pickerHorario;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,13 +28,20 @@
     
     delegate = [AppDelegate sharedInstance];
     
+    [delegate doOverlay];
+    
+    _pickerData = @[ @"Todo el día", @"Mañana", @"Tarde"];
+    
     [self.buttonMenu setImage:[UIImage imageNamed:@"previous-24"] forState:UIControlStateNormal];
     
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+20)];
     
     [self.labelTitle setFont:[UIFont fontMontseBold:22]];
     
+    [pickerHorario setHidden:YES];
+    
     [self.buttonSelectTime.titleLabel setFont:[UIFont fontMontseRegular:13]];
+    [self.buttonSelectTime.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.buttonNoMatery.titleLabel setFont:[UIFont fontMontseRegular:13]];
     
     [self.buttonShow.titleLabel setFont:[UIFont fontMontseBold:15]];
@@ -58,6 +67,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)selectTime:(id)sender {
+    [pickerHorario setHidden:NO];
+}
+
 - (IBAction)actionShow:(id)sender {
     AlertViewController *alert = [AlertViewController defaultView:6];
     [alert setDismissHandler:^(AlertViewController *view) {
@@ -68,7 +81,7 @@
 }
 
 - (IBAction)actionSave:(id)sender {
-
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -106,9 +119,7 @@
 #pragma mark - TableView Delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     return nil;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -118,15 +129,26 @@
 #pragma mark - UIPickerView Delegate
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 3;
+    return [_pickerData count];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    [self.buttonSelectTime.titleLabel setText:[_pickerData objectAtIndex:row]];
+    [pickerView setHidden:YES];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return @"PRUEBA";
+    return [_pickerData objectAtIndex:row];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"PRUEBA");
+    [self.pickerHorario setHidden:YES];
+    
 }
 
 @end

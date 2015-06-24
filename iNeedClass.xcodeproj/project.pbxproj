@@ -99,6 +99,11 @@
 		C673E74C1A252D610008B5BE /* ClassViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C673E74A1A252D610008B5BE /* ClassViewCell.xib */; };
 		C673E7501A2535E60008B5BE /* ExchangeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C673E74E1A2535E60008B5BE /* ExchangeViewCell.m */; };
 		C673E7511A2535E60008B5BE /* ExchangeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C673E74F1A2535E60008B5BE /* ExchangeViewCell.xib */; };
+		C676429B1B3A269C00B9309A /* drtuto1tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C676429A1B3A269C00B9309A /* drtuto1tuto2.png */; };
+		C67642A11B3A2AAA00B9309A /* drtuto5tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C676429D1B3A2AAA00B9309A /* drtuto5tuto2.png */; };
+		C67642A21B3A2AAA00B9309A /* drtuto4tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C676429E1B3A2AAA00B9309A /* drtuto4tuto2.png */; };
+		C67642A31B3A2AAA00B9309A /* drtuto3tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C676429F1B3A2AAA00B9309A /* drtuto3tuto2.png */; };
+		C67642A41B3A2AAA00B9309A /* drtuto2tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C67642A01B3A2AAA00B9309A /* drtuto2tuto2.png */; };
 		C68579501A42E82900839FE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C685794F1A42E82900839FE9 /* CoreLocation.framework */; };
 		C685796A1A42F46800839FE9 /* ClassShowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C68579681A42F46800839FE9 /* ClassShowViewCell.m */; };
 		C685796B1A42F46800839FE9 /* ClassShowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68579691A42F46800839FE9 /* ClassShowViewCell.xib */; };
@@ -115,7 +120,6 @@
 		C68790C61A335C7000E83B47 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C68790C51A335C7000E83B47 /* User.m */; };
 		C68790C91A335C7000E83B47 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = C68790C81A335C7000E83B47 /* Login.m */; };
 		C68D29EB1A5E85E60021B4AF /* UIFont+Montserrat.m in Sources */ = {isa = PBXBuildFile; fileRef = C68D29EA1A5E85E60021B4AF /* UIFont+Montserrat.m */; };
-		C695316719B77E9400886DD0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C695316619B77E9400886DD0 /* FacebookSDK.framework */; };
 		C6A0E1121A233F04008D518A /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E1101A233F04008D518A /* AlertViewController.m */; };
 		C6A0E1171A234088008D518A /* AFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E1161A234088008D518A /* AFPopupView.m */; };
 		C6A0E11D1A237ADC008D518A /* CXCardContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E11A1A237ADC008D518A /* CXCardContainerView.m */; };
@@ -185,6 +189,11 @@
 		C6EE619F1A7A9AB90054254D /* View-List-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EE619D1A7A9AB90054254D /* View-List-32.png */; };
 		C6EE61A01A7A9AB90054254D /* View-List-48.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EE619E1A7A9AB90054254D /* View-List-48.png */; };
 		C6F22E5419B3B711003C79C4 /* drtuto3.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F22E5319B3B711003C79C4 /* drtuto3.png */; };
+		C6F463801B3AEEF900567DC9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F4637F1B3AEEF900567DC9 /* FacebookSDK.framework */; };
+		C6FE5AAD1B33120B00BAF55E /* MYBlurIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE5AAA1B33120B00BAF55E /* MYBlurIntroductionView.m */; };
+		C6FE5AAE1B33120B00BAF55E /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE5AAC1B33120B00BAF55E /* MYIntroductionPanel.m */; };
+		C6FE5AB81B33138900BAF55E /* Tutorial2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE5AB61B33138900BAF55E /* Tutorial2ViewController.m */; };
+		C6FE5AB91B33138900BAF55E /* Tutorial2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6FE5AB71B33138900BAF55E /* Tutorial2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -324,6 +333,11 @@
 		C673E74D1A2535E60008B5BE /* ExchangeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewCell.h; sourceTree = "<group>"; };
 		C673E74E1A2535E60008B5BE /* ExchangeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewCell.m; sourceTree = "<group>"; };
 		C673E74F1A2535E60008B5BE /* ExchangeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeViewCell.xib; sourceTree = "<group>"; };
+		C676429A1B3A269C00B9309A /* drtuto1tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto1tuto2.png; sourceTree = "<group>"; };
+		C676429D1B3A2AAA00B9309A /* drtuto5tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto5tuto2.png; sourceTree = "<group>"; };
+		C676429E1B3A2AAA00B9309A /* drtuto4tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto4tuto2.png; sourceTree = "<group>"; };
+		C676429F1B3A2AAA00B9309A /* drtuto3tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto3tuto2.png; sourceTree = "<group>"; };
+		C67642A01B3A2AAA00B9309A /* drtuto2tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto2tuto2.png; sourceTree = "<group>"; };
 		C685794D1A42E82200839FE9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C685794F1A42E82900839FE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C68579511A42E83700839FE9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -356,7 +370,6 @@
 		C68790C81A335C7000E83B47 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
 		C68D29E91A5E85E60021B4AF /* UIFont+Montserrat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Montserrat.h"; sourceTree = "<group>"; };
 		C68D29EA1A5E85E60021B4AF /* UIFont+Montserrat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Montserrat.m"; sourceTree = "<group>"; };
-		C695316619B77E9400886DD0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C6A0E10F1A233F04008D518A /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		C6A0E1101A233F04008D518A /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		C6A0E1151A234088008D518A /* AFPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPopupView.h; sourceTree = "<group>"; };
@@ -465,6 +478,14 @@
 		C6EE619D1A7A9AB90054254D /* View-List-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View-List-32.png"; sourceTree = "<group>"; };
 		C6EE619E1A7A9AB90054254D /* View-List-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View-List-48.png"; sourceTree = "<group>"; };
 		C6F22E5319B3B711003C79C4 /* drtuto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto3.png; sourceTree = "<group>"; };
+		C6F4637F1B3AEEF900567DC9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		C6FE5AA91B33120B00BAF55E /* MYBlurIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYBlurIntroductionView.h; path = MYBlurIntroductionView/MYBlurIntroductionView.h; sourceTree = "<group>"; };
+		C6FE5AAA1B33120B00BAF55E /* MYBlurIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MYBlurIntroductionView.m; path = MYBlurIntroductionView/MYBlurIntroductionView.m; sourceTree = "<group>"; };
+		C6FE5AAB1B33120B00BAF55E /* MYIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYIntroductionPanel.h; path = MYBlurIntroductionView/MYIntroductionPanel.h; sourceTree = "<group>"; };
+		C6FE5AAC1B33120B00BAF55E /* MYIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MYIntroductionPanel.m; path = MYBlurIntroductionView/MYIntroductionPanel.m; sourceTree = "<group>"; };
+		C6FE5AB51B33138900BAF55E /* Tutorial2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial2ViewController.h; path = iPhone/Tutorial2/Tutorial2ViewController.h; sourceTree = "<group>"; };
+		C6FE5AB61B33138900BAF55E /* Tutorial2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial2ViewController.m; path = iPhone/Tutorial2/Tutorial2ViewController.m; sourceTree = "<group>"; };
+		C6FE5AB71B33138900BAF55E /* Tutorial2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tutorial2ViewController.xib; path = iPhone/Tutorial2/Tutorial2ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,9 +501,9 @@
 				C6C41AE119AF5748002F8876 /* QuartzCore.framework in Frameworks */,
 				A060C1BB1997CCD700C4C876 /* CoreGraphics.framework in Frameworks */,
 				A060C1BD1997CCD700C4C876 /* UIKit.framework in Frameworks */,
+				C6F463801B3AEEF900567DC9 /* FacebookSDK.framework in Frameworks */,
 				A060C1B91997CCD700C4C876 /* Foundation.framework in Frameworks */,
 				C6C2FFE41A39B7EE001EB7C2 /* libSITUtils.a in Frameworks */,
-				C695316719B77E9400886DD0 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +798,7 @@
 		A060C20F1997D97200C4C876 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				C6FE5AAF1B33131400BAF55E /* Tutorial2 */,
 				C62BFCEC1A1E091100D84ED5 /* Perfil */,
 				C62BFCED1A1E091100D84ED5 /* Pruebas */,
 				C642AA3B19B4C150007EFA13 /* Login */,
@@ -818,6 +840,8 @@
 		A0A2B2C5199FA85B001734AF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C6F463701B3AED1500567DC9 /* FacebookSDK */,
+				C6FE5AA81B3311FD00BAF55E /* Tutorial */,
 				C6C88B8F1A543A380093CEBF /* AutoCompleteTextField */,
 				C6C2FFD81A39B7EE001EB7C2 /* SITUtils */,
 				C6A0E1181A237ADC008D518A /* CXCardView */,
@@ -825,7 +849,6 @@
 				C6D1EB6C1A1F53FA003AF7A5 /* MorphLabel */,
 				C62BFCF81A1E0B7E00D84ED5 /* PKReveal */,
 				C62BFCF41A1E0B6A00D84ED5 /* BFTabBar */,
-				C695316619B77E9400886DD0 /* FacebookSDK.framework */,
 				A0A423CC19A2506200F3D1E0 /* CBZSplashView */,
 			);
 			path = Libraries;
@@ -1017,6 +1040,11 @@
 		C6467D8319B2467C0041CAE8 /* tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				C676429D1B3A2AAA00B9309A /* drtuto5tuto2.png */,
+				C676429E1B3A2AAA00B9309A /* drtuto4tuto2.png */,
+				C676429F1B3A2AAA00B9309A /* drtuto3tuto2.png */,
+				C67642A01B3A2AAA00B9309A /* drtuto2tuto2.png */,
+				C676429A1B3A269C00B9309A /* drtuto1tuto2.png */,
 				C6F22E5319B3B711003C79C4 /* drtuto3.png */,
 				C6467D8419B2467C0041CAE8 /* drtuto1.png */,
 				C6467D8519B2467C0041CAE8 /* drtuto2.png */,
@@ -1191,6 +1219,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C6F463701B3AED1500567DC9 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				C6F4637F1B3AEEF900567DC9 /* FacebookSDK.framework */,
+			);
+			name = FacebookSDK;
+			sourceTree = "<group>";
+		};
+		C6FE5AA81B3311FD00BAF55E /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				C6FE5AA91B33120B00BAF55E /* MYBlurIntroductionView.h */,
+				C6FE5AAA1B33120B00BAF55E /* MYBlurIntroductionView.m */,
+				C6FE5AAB1B33120B00BAF55E /* MYIntroductionPanel.h */,
+				C6FE5AAC1B33120B00BAF55E /* MYIntroductionPanel.m */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		C6FE5AAF1B33131400BAF55E /* Tutorial2 */ = {
+			isa = PBXGroup;
+			children = (
+				C6FE5AB51B33138900BAF55E /* Tutorial2ViewController.h */,
+				C6FE5AB61B33138900BAF55E /* Tutorial2ViewController.m */,
+				C6FE5AB71B33138900BAF55E /* Tutorial2ViewController.xib */,
+			);
+			name = Tutorial2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1295,17 +1352,20 @@
 				A0AABF1A19A11A73008E3F99 /* Icon-120.png in Resources */,
 				C6DD31221ABC7D1700B325A9 /* AddClassTeachViewController.xib in Resources */,
 				C6AB469B19AF0E6900F710B1 /* Business-Situations_05_06.png in Resources */,
+				C67642A41B3A2AAA00B9309A /* drtuto2tuto2.png in Resources */,
 				A045777919A3B7EA00143159 /* arrow.png in Resources */,
 				A0AABF2619A11A73008E3F99 /* Icon@2x.png in Resources */,
 				C6DB41911A1D189C00179803 /* menuWhite.png in Resources */,
 				C6AB469919AF0E6900F710B1 /* Business-Situations_05_04.png in Resources */,
 				C6C2A8481A24A504002FBF96 /* delete_sign-32.png in Resources */,
+				C67642A31B3A2AAA00B9309A /* drtuto3tuto2.png in Resources */,
 				C62BC9461A418A0000C45DB6 /* FiltersClassViewController.xib in Resources */,
 				C6DB41931A1D189C00179803 /* settingsWhite.png in Resources */,
 				A0AABF0119A10D7B008E3F99 /* settings.png in Resources */,
 				A0AABF2519A11A73008E3F99 /* Icon.png in Resources */,
 				C6DB41921A1D189C00179803 /* school-50White.png in Resources */,
 				A0AABF2419A11A73008E3F99 /* Icon-Spotlight-iOS7@2x.png in Resources */,
+				C6FE5AB91B33138900BAF55E /* Tutorial2ViewController.xib in Resources */,
 				C61D2ED11A210FE200EF8023 /* iconoTeacher.png in Resources */,
 				A0AABEFF19A10C44008E3F99 /* menu.png in Resources */,
 				A0A8429219AA016E002968A2 /* edit-50.png in Resources */,
@@ -1314,6 +1374,7 @@
 				C6DB418E1A1D189C00179803 /* edit-50White.png in Resources */,
 				C6DB418C1A1D189C00179803 /* courses-50White.png in Resources */,
 				A036D38819ADDE8F00CD9850 /* Montserrat-Bold.ttf in Resources */,
+				C67642A21B3A2AAA00B9309A /* drtuto4tuto2.png in Resources */,
 				A060C1D41997CCD700C4C876 /* Images.xcassets in Resources */,
 				A0A302A419A2755600947E72 /* 1136iPhone2.png in Resources */,
 				C6AB469C19AF0E6900F710B1 /* Business-Situations_05_07.png in Resources */,
@@ -1333,6 +1394,7 @@
 				C6AB46A119AF0E6900F710B1 /* Business-Situations_05_12.png in Resources */,
 				A0AABF2119A11A73008E3F99 /* Icon-Small.png in Resources */,
 				C642AA4019B4C3C6007EFA13 /* LoginViewController.xib in Resources */,
+				C67642A11B3A2AAA00B9309A /* drtuto5tuto2.png in Resources */,
 				C68579741A43216F00839FE9 /* ExchangeShowViewCell.xib in Resources */,
 				C6EE619F1A7A9AB90054254D /* View-List-32.png in Resources */,
 				C6DD31271ABC7D3600B325A9 /* AddClassAlumnViewController.xib in Resources */,
@@ -1367,6 +1429,7 @@
 				C6C41ADF19AF3D95002F8876 /* tattoo.png in Resources */,
 				A0A717D719A8E5D2000C6527 /* x.png in Resources */,
 				A0AABF1D19A11A73008E3F99 /* Icon-76.png in Resources */,
+				C676429B1B3A269C00B9309A /* drtuto1tuto2.png in Resources */,
 				C6AB469F19AF0E6900F710B1 /* Business-Situations_05_10.png in Resources */,
 				A0AABF1B19A11A73008E3F99 /* Icon-72.png in Resources */,
 				C685796E1A430B7D00839FE9 /* previous-32.png in Resources */,
@@ -1421,6 +1484,7 @@
 				C6A2AB251A1F7937000AB7A9 /* ProfileViewController.m in Sources */,
 				C62BC93E1A41818000C45DB6 /* ExchangeShowViewController.m in Sources */,
 				C6A0E1171A234088008D518A /* AFPopupView.m in Sources */,
+				C6FE5AB81B33138900BAF55E /* Tutorial2ViewController.m in Sources */,
 				C6DB41771A1D13D300179803 /* PKLayerAnimator.m in Sources */,
 				C68579731A43216F00839FE9 /* ExchangeShowViewCell.m in Sources */,
 				A060C1F81997CE3300C4C876 /* AppDelegate.m in Sources */,
@@ -1438,8 +1502,10 @@
 				A060C1C51997CCD700C4C876 /* main.m in Sources */,
 				A060C2091997D0FA00C4C876 /* ConfigHelper.m in Sources */,
 				C68790BD1A335C7000E83B47 /* Exchange.m in Sources */,
+				C6FE5AAE1B33120B00BAF55E /* MYIntroductionPanel.m in Sources */,
 				A0433BB619A7B9F2001FD407 /* TutorialViewController.m in Sources */,
 				C6DD311B1ABC64A300B325A9 /* AddClassViewController.m in Sources */,
+				C6FE5AAD1B33120B00BAF55E /* MYBlurIntroductionView.m in Sources */,
 				C6DB41751A1D13D300179803 /* PKRevealControllerView.m in Sources */,
 				C6B416D31A4818BA008F605F /* ExchangeViewController.m in Sources */,
 				A0A423CF19A2506200F3D1E0 /* CBZSplashView.m in Sources */,
@@ -1597,6 +1663,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries",
+					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iNeedClass/iNeedClass-Prefix.pch";
@@ -1610,12 +1677,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/SITUtils",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1630,6 +1697,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries",
+					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iNeedClass/iNeedClass-Prefix.pch";
@@ -1643,12 +1711,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iNeedClass/Resources/Libraries/SITUtils",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
