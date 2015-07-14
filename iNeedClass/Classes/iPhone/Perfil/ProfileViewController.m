@@ -36,6 +36,7 @@
     [self.navigationController.navigationBar setTintColor:[UIColor colorINC]];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.navigationController.navigationBar setHidden:NO];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     
     self.loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
     

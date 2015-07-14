@@ -14,7 +14,9 @@
 static NSString * const MenuCellIdentifier = @"MenuItemCell";
 
 
-@interface MenuViewController ()
+@interface MenuViewController (){
+    BOOL login;
+}
 
 @property (weak, nonatomic) id<MenuDelegate>delegate;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePic;
@@ -47,6 +49,10 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     [self.tableView setRowHeight:62.0];
     
     [self.tableView registerNib:[MenuItemCell nib] forCellReuseIdentifier:MenuCellIdentifier];
+    
+    login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeStatusLogin) name:@"actualizaMenu" object:nil];
     
     [self.labelName setTextAlignment:NSTextAlignmentCenter];
     [self.labelName setTextColor:[UIColor whiteColor]];
@@ -81,6 +87,8 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     NSString *menuItemLabel = nil;
     UIImage *menuItemIcon = nil;
     
+    login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
+    
     switch (indexPath.row)
     {
         case 0:
@@ -103,7 +111,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
             menuItemIcon = [UIImage imageNamed:@"settingsWhite"];
             break;
         case 4:
-            if([[NSUserDefaults standardUserDefaults] boolForKey:@"login"]){
+            if(login){
                 menuItemLabel = @"Perfil";
                 menuItemIcon = [UIImage imageNamed:@"enter-50White"];
             }else{
@@ -155,12 +163,22 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     self.labelName.text = @"Dr Mustache";
     
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
     // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
     // our policy here is to let the login view handle errors, but to log the results
     NSLog(@"FBLoginView encountered an error=%@", error);
+}
+
+- (void)changeStatusLogin{
+    BOOL loginNew = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
+    
+    if(login != loginNew){
+        login = loginNew;
+        [self.tableView reloadData];
+    }
 }
 
 

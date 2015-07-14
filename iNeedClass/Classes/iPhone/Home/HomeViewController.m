@@ -88,6 +88,7 @@
 {
     delegate = [AppDelegate sharedInstance];
     [delegate doOverlay];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *firstTime = [defaults objectForKey:@"firstTime"];
     

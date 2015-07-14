@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddClassAlumnViewController : UIViewController
+@interface AddClassAlumnViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
@@ -19,8 +19,25 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonSelectTime;
 
-@property (weak, nonatomic) IBOutlet UIButton *buttonNoMatery;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerHorario;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonNoMatery;
+@property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
+
+@property (weak, nonatomic) IBOutlet UIButton *buttonOKPrice;
+
+@property (weak, nonatomic) IBOutlet UITextField *textPrice;
+@property (weak, nonatomic) IBOutlet UITextField *textMaterias;
+@property (weak, nonatomic) IBOutlet UITextField *textCiudad;
+
+//TABLAS
+@property (weak, nonatomic) IBOutlet UITableView *tableViewMaterias;
+@property (weak, nonatomic) IBOutlet UITableView *tableViewCiudades;
+
+
+
+- (IBAction)downKeyBoard:(id)sender;
+- (IBAction)selectTime:(id)sender;
 - (IBAction)actionShow:(id)sender;
 - (IBAction)actionSave:(id)sender;
 - (IBAction)menuAction:(id)sender;

@@ -23,8 +23,6 @@
 - (IBAction)actionBuscar:(id)sender;
 - (IBAction)actionImpartir:(id)sender;
 
-- (IBAction)menuAction:(id)sender;
-
 
 
 @end

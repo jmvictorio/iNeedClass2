@@ -29,6 +29,8 @@
     
     [self.navigationController.navigationBar setHidden:YES];
     
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    
     [self loadFont];
     
     [self.PrincipalView.layer setShadowOffset:CGSizeMake(5, 5)];

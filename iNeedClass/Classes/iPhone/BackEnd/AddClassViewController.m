@@ -14,6 +14,7 @@
 {
     UIBarButtonItem *menuButton;
     AppDelegate *delegate;
+    
 }
 
 @end
@@ -23,12 +24,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    delegate = [AppDelegate sharedInstance];
-    
-    [delegate doOverlay];
 
-    [self.navigationController.navigationBar setHidden:YES];
+    menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuWhite.png"]
+                                                  style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(menuAction)];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+
+    [self.navigationItem setLeftBarButtonItem:menuButton];
+    
+    [menuButton setEnabled:YES];
     
     [self.addTitleLabel setFont:[UIFont fontMontseBold:20]];
     
@@ -48,7 +54,20 @@
     
 }
 
-- (IBAction)menuAction:(id)sender
+- (void)viewWillAppear:(BOOL)animated{
+    
+    delegate = [AppDelegate sharedInstance];
+    
+    [delegate doOverlay];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setHidden:NO];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UIButton appearance] setTintColor:[UIColor whiteColor]];
+}
+
+- (IBAction)menuAction
 {
     [delegate switchLateralPanelState];
 }

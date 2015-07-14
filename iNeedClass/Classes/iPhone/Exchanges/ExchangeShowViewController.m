@@ -35,6 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
     [flowlayout setSectionInset:UIEdgeInsetsMake(20, 5, 10, 5)];
     [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];

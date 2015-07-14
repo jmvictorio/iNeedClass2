@@ -128,7 +128,7 @@
     self.fbProfile.profileID = user.objectID;
     
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
-    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     self.fbProfile.layer.cornerRadius = self.fbProfile.frame.size.width / 2;
     self.fbProfile.clipsToBounds = YES;
     self.fbProfile.layer.borderWidth = 3.0f;

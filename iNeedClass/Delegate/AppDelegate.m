@@ -16,6 +16,7 @@
 #import "SITCoreDataManager.h"
 #import "SITUtils.h"
 #import "AddClassViewController.h"
+#import "AddExchangeViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 
 NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNotification";
@@ -31,6 +32,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
 @property (nonatomic, strong) MenuViewController        *menuViewController;
 @property (nonatomic, strong) HomeViewController        *homeViewController;
 @property (nonatomic, strong) AddClassViewController    *addClassViewController;
+@property (nonatomic, strong) AddExchangeViewController *addExchangeViewController;
 @property (nonatomic, strong) UISplitViewController     *splitController;
 
 - (void)appearance;
@@ -48,14 +50,15 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     [self appearance];
     
-    self.introViewController    = [IntroViewController new];
-    self.menuViewController     = [MenuViewController new];
-    self.homeViewController     = [HomeViewController new];
-    self.addClassViewController = [AddClassViewController new];
+    self.introViewController        = [IntroViewController new];
+    self.menuViewController         = [MenuViewController new];
+    self.homeViewController         = [HomeViewController new];
+    self.addClassViewController     = [AddClassViewController new];
+    self.addExchangeViewController  = [AddExchangeViewController new];
     
     if([Utils is_iPhoneDevice])
     {
-        self.navController = [[UINavigationController alloc] initWithRootViewController:self.introViewController];
+        self.navController = [[UINavigationController alloc] initWithRootViewController:self.homeViewController];
     
         //HACER OVERLAY DE UN NAVIGATIONBAR
         [self.navController.navigationBar setBackgroundImage:[UIImage new]
@@ -180,6 +183,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     BOOL login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
     
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     switch (indexMenuItem) {
             
         case 0:
@@ -195,19 +199,11 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
             break;
             
         case 1:
-            if(!login){
-                //requestedViewController = [LoginViewController class];
-                viewController = [LoginViewController new];
-                //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-            }else{
-                //requestedViewController = [AddClassViewController class];
-                viewController = self.addClassViewController;
-            }
-            
+            viewController = self.addClassViewController;
             break;
         case 2:
             //requestedViewController = [HomeViewController class];
-            viewController = self.homeViewController;
+            viewController = self.addExchangeViewController;
             break;
         case 3:
             //requestedViewController = [Home2ViewController class];

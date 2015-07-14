@@ -96,7 +96,7 @@
     self.imageFB.profileID = user.objectID;
     
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
-    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSString *gender = [user objectForKey:@"gender"];
     
     if([gender isEqualToString:@"male"]){
@@ -140,6 +140,9 @@
     loginOK = false;
     [self.textPass setEnabled:YES];
     [[AppDelegate sharedInstance] didMenuItemSelected:0];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"actualizaMenu" object:@""];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

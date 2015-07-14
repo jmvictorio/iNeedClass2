@@ -1,18 +1,17 @@
 //
-//  AddClassTeachViewController.m
+//  AddExchangeViewController.m
 //  iNeedClass
 //
-//  Created by injevm on 20/3/15.
+//  Created by injevm on 14/7/15.
 //  Copyright (c) 2015 Jesus Victorio. All rights reserved.
 //
 
-#import "AddClassTeachViewController.h"
+#import "AddExchangeViewController.h"
 #import "AppDelegate.h"
 #import "AlertViewController.h"
 #import "CXCardView.h"
 
-@interface AddClassTeachViewController ()
-{
+@interface AddExchangeViewController (){
     AppDelegate *delegate;
     NSArray *_pickerData;
     
@@ -21,28 +20,32 @@
     
     NSMutableArray *_dataPoblaciones;
     NSMutableArray *_dataPoblacionesTable;
+    
+    UIBarButtonItem *menuButton;
 }
 
 @end
 
-@implementation AddClassTeachViewController
+@implementation AddExchangeViewController
 @synthesize pickerHorario;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
-    delegate = [AppDelegate sharedInstance];
+    menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuWhite.png"]
+                                                  style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(menuAction:)];
     
-    [delegate doOverlay];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     
-    [self.buttonOKPrice setHidden:YES];
+    [self.navigationItem setLeftBarButtonItem:menuButton];
     
+    [menuButton setEnabled:YES];
+
     _pickerData = @[ @"Todo el día", @"Mañana", @"Tarde"];
-    
-    [self.buttonMenu setImage:[UIImage imageNamed:@"previous-24"] forState:UIControlStateNormal];
     
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+20)];
     
@@ -73,6 +76,19 @@
     
     _dataPoblacionesTable = [[NSMutableArray alloc] initWithArray:_dataPoblaciones];
     _dataMateriasTable = [[NSMutableArray alloc] initWithArray:_dataMaterias];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    delegate = [AppDelegate sharedInstance];
+    
+    [delegate doOverlay];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setHidden:NO];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UIButton appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)setUp
@@ -179,6 +195,7 @@
     
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -186,18 +203,11 @@
 
 - (IBAction)menuAction:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)downKeyBoard:(id)sender {
-    [self.textPrice resignFirstResponder];
-    [self.buttonOKPrice setHidden:YES];
-
+    [delegate switchLateralPanelState];
 }
 
 - (IBAction)selectTime:(id)sender {
     [pickerHorario setHidden:NO];
-    [self.textPrice resignFirstResponder];
 }
 
 - (IBAction)actionShow:(id)sender {
@@ -221,21 +231,17 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     
-    if(textField.tag == 1)
+    if(textField.tag == 2)
     {
-        [self.tableViewMaterias setHidden:NO];
-        //[self.okButton setHidden:YES];
+        [self.tableViewMateriasBusco setHidden:NO];
+        [self.tableViewMateriasOfrezco setHidden:YES];
         [self.tableViewCiudades setHidden:YES];
     }
-    else if (textField.tag == 3)
+    else if (textField.tag == 1)
     {
-        //[self.tableSearchMaterias setHidden:NO];
-        [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y-150) animated:YES];
-        [self.buttonOKPrice setHidden:NO];
-        
+        [self.tableViewMateriasBusco setHidden:YES];
+        [self.tableViewMateriasOfrezco setHidden:NO];
         [self.tableViewCiudades setHidden:YES];
-        [self.tableViewMaterias setHidden:YES];
-        //[self.okButton setHidden:YES];
     }
     else if (textField.tag == 4)
     {
@@ -243,7 +249,8 @@
         [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y-150) animated:YES];
         [self.scrollView setFrame:CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height+150)];
         //[self.okButton setHidden:NO];
-        [self.tableViewMaterias setHidden:YES];
+        [self.tableViewMateriasBusco setHidden:YES];
+        [self.tableViewMateriasOfrezco setHidden:YES];
     }
     
     return YES;
@@ -261,7 +268,7 @@
     }
     
     NSDictionary *dataCell = nil;
-    if(tableView.tag == 1)
+    if((tableView.tag == 1)||(tableView.tag == 2))
     {
         dataCell = [_dataMateriasTable objectAtIndex:indexPath.row];
         [cell.textLabel setText:[dataCell valueForKey:@"materia"]];
@@ -279,7 +286,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(tableView.tag == 1)
+    if((tableView.tag == 1)||(tableView.tag == 2))
     {
         return [_dataMateriasTable count];
     }
@@ -292,12 +299,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dataCell = nil;
-    if(tableView.tag == 1)
+    if(tableView.tag == 2)
     {
         dataCell = [_dataMateriasTable objectAtIndex:indexPath.row];
-        [self.textMaterias setText:[dataCell valueForKey:@"materia"]];
-        [self.textMaterias resignFirstResponder];
+        [self.textMateriasBusco setText:[dataCell valueForKey:@"materia"]];
+        [self.textMateriasBusco resignFirstResponder];
         
+    }
+    else if (tableView.tag == 1){
+        dataCell = [_dataMateriasTable objectAtIndex:indexPath.row];
+        [self.textMateriasOfrezco setText:[dataCell valueForKey:@"materia"]];
+        [self.textMateriasOfrezco resignFirstResponder];
     }
     else if (tableView.tag == 4)
     {
@@ -333,5 +345,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.pickerHorario setHidden:YES];
 }
+
 
 @end

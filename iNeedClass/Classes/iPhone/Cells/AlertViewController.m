@@ -395,6 +395,16 @@
     [texto4Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto4Label setTextColor:[UIColor blackColor]];
     
+    UILabel *texto5Label = [[UILabel alloc] initWithFrame:CGRectMake(104, 59, 88, 19)];
+    [texto5Label setText:@"Horario"];
+    [texto5Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto5Label setTextColor:[UIColor blackColor]];
+    
+    UILabel *texto6Label = [[UILabel alloc] initWithFrame:CGRectMake(109, 74, 83, 21)];
+    [texto6Label setText:@"Todo el dia"];
+    [texto6Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto6Label setTextColor:[UIColor blackColor]];
+    
     UIImageView *imagePerfil = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"perfilMustache.png"]];
     [imagePerfil setFrame:CGRectMake(200, 0, 100, 100)];
     [imagePerfil.layer setBorderWidth:1];
@@ -407,6 +417,8 @@
     [fondoView addSubview:texto2Label];
     [fondoView addSubview:texto3Label];
     [fondoView addSubview:texto4Label];
+    [fondoView addSubview:texto5Label];
+    [fondoView addSubview:texto6Label];
     [fondoView addSubview:imagePerfil];
     [fondoView addSubview:profileFB];
     
@@ -467,6 +479,16 @@
     [texto4Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto4Label setTextColor:[UIColor blackColor]];
     
+    UILabel *texto5Label = [[UILabel alloc] initWithFrame:CGRectMake(104, 59, 88, 19)];
+    [texto5Label setText:@"Horario"];
+    [texto5Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto5Label setTextColor:[UIColor blackColor]];
+    
+    UILabel *texto6Label = [[UILabel alloc] initWithFrame:CGRectMake(109, 74, 83, 21)];
+    [texto6Label setText:@"Todo el dia"];
+    [texto6Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [texto6Label setTextColor:[UIColor blackColor]];
+    
     UIImageView *imagePerfil = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"perfilMustache.png"]];
     [imagePerfil setFrame:CGRectMake(200, 0, 100, 100)];
     [imagePerfil.layer setBorderWidth:1];
@@ -479,6 +501,8 @@
     [fondoView addSubview:texto2Label];
     [fondoView addSubview:texto3Label];
     [fondoView addSubview:texto4Label];
+    [fondoView addSubview:texto5Label];
+    [fondoView addSubview:texto6Label];
     [fondoView addSubview:imagePerfil];
     [fondoView addSubview:profileFB];
     
@@ -519,6 +543,7 @@
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     if (self.dismissHandler) {
         self.dismissHandler(self);
     }

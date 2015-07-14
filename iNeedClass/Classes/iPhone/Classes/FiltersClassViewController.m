@@ -50,9 +50,6 @@
     
     [self.pickerOrder selectRow:2 inComponent:0 animated:YES];
     
-    // Dismiss the keyboard when the user taps outside of a text field
-    //UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    //[self.view addGestureRecognizer:singleTap];
 }
 - (void)setUp
 {
@@ -242,6 +239,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if([string isEqualToString:@"\n"]){
+        [textField setText:@""];
         [textField resignFirstResponder];
         if(textField.tag == 1)
         {
@@ -258,7 +256,7 @@
         return YES;
     }
     
-    NSString *strippedStr = [textField text];
+    NSString *strippedStr = [NSString stringWithFormat:@"%@%@",[textField text], string];;
     // break up the search terms (separated by spaces)
     /*NSArray *searchItems = nil;
     if (strippedStr.length > 0)

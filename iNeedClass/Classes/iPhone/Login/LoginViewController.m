@@ -37,6 +37,7 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.navigationController.navigationBar setHidden:NO];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     
     [self.buttonLogin.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:17]];
     [self.buttonRegister.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:17]];
@@ -76,9 +77,9 @@
     // first get the buttons set for login mode
     NSLog(@"LOGADO, DEBE DE IR DIRECTAMENTE A PERFIL");
     [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"login"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self.buttonPassOK setHidden:NO];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"actualizaMenu" object:@""];
     ProfileViewController *profile = [[ProfileViewController alloc]init];
     
     [self.navigationController pushViewController:profile animated:YES];
@@ -113,6 +114,7 @@
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
     [self.buttonPassOK setHidden:YES];
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     //BOOL canShareFB = [FBDialogs canPresentShareDialogWithParams:p];
     //BOOL canShareiOS6 = [FBDialogs canPresentOSIntegratedShareDialogWithSession:nil];
     //BOOL canShareFBPhoto = [FBDialogs canPresentShareDialogWithPhotos];
