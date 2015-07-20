@@ -177,9 +177,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     // Cerrar el panel lateral (util solo para iPhone)
     //
     
-    //Class requestedViewController;
     UIViewController *viewController = nil;
-    //[[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     
     BOOL login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
     
@@ -187,44 +185,21 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     switch (indexMenuItem) {
             
         case 0:
-            //requestedViewController = [HomeViewController class];
             viewController = self.homeViewController;
-            /*if(![Utils is_iPhoneDevice]){
-                
-                [_detailViewController removeViews];
-                
-                [_navControllerMenu pushViewController:viewController animated:YES];
-                
-            }*/
             break;
             
         case 1:
             viewController = self.addClassViewController;
             break;
         case 2:
-            //requestedViewController = [HomeViewController class];
             viewController = self.addExchangeViewController;
             break;
         case 3:
-            //requestedViewController = [Home2ViewController class];
-            viewController = self.homeViewController;
-            
-            break;
-        case 4:
-            
             if(!login){
-                //requestedViewController = [LoginViewController class];
                 viewController = [LoginViewController new];
-                //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
             }else{
-                //requestedViewController = [ProfileViewController class];
                 viewController = [ProfileViewController new];
             }
-            
-            break;
-        case 5:
-            //requestedViewController = [ProfileViewController class];
-            viewController = [ProfileViewController new];
             break;
     }
     
@@ -311,7 +286,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
 }
 
 - (void)shareOnWhatsApp {
-    /*ABAddressBookRef addressBook = ABAddressBookCreateWithOptions (NULL, nil);
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions (NULL, nil);
     ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
         if (!granted){
             //4
@@ -322,9 +297,15 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
         NSLog(@"Just authorized");
     });
     ABRecordID ABID = 0;
-    int len = (int)ABAddressBookGetPersonCount(addressBook);
-    for(int i = 1; i < (len + 1); i++) {
-        ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressBook, (ABRecordID)i);
+    
+    NSArray *allPeople = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
+    CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
+    NSLog(@"num people to send: %ld", nPeople);
+    //NSLog(@"num people in array: %ld", CFArrayGetCount(allPeople));
+    for(int i = 0; i < (nPeople); i++) {
+        //ABRecordID num = i;
+        ABRecordRef person = (__bridge ABRecordRef)([allPeople objectAtIndex:i]);
+        //ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressBook, num);
         NSString *first;
         if (!person) {
             continue;
@@ -338,8 +319,8 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
         NSLog(@"PERSON: %d - %@", ABID, first);
         
     }
-    */
-    NSURL *whatsappURL = [NSURL URLWithString:@"whatsapp://send?text=PRUEBA%20TEXTO&abid=511"];
+    NSString *QR_whatsapp_string = [NSString stringWithFormat:@"whatsapp://send?abid=1265&text=%@;", @""];
+    NSURL *whatsappURL = [NSURL URLWithString:QR_whatsapp_string];
     if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
         [[UIApplication sharedApplication] openURL: whatsappURL];
     }

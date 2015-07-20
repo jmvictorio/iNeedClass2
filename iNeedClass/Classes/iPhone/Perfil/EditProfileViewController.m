@@ -169,11 +169,11 @@
     AlertViewController *alert;
     if(loginOK)
     {
-        alert = [AlertViewController defaultView:3];
+        alert = [AlertViewController defaultView:3 valores:nil];
     }
     else
     {
-        alert = [AlertViewController defaultView:4];
+        alert = [AlertViewController defaultView:4 valores:nil];
     }
     
     [alert setDismissHandler:^(AlertViewController *view) {
@@ -188,7 +188,7 @@
     if(textField.tag == 2)
     {
         [self.textPass resignFirstResponder];
-        AlertViewController *alert= [AlertViewController defaultView:5];
+        AlertViewController *alert= [AlertViewController defaultView:5 valores:nil];
         
         [alert setDismissHandler:^(AlertViewController *view) {
             // to dismiss current cardView. Also you could call the `dismiss` method.

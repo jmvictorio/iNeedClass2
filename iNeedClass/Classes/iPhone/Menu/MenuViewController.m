@@ -77,7 +77,7 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,18 +107,14 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
             break;
             
         case 3:
-            menuItemLabel = @"Configuración";
-            menuItemIcon = [UIImage imageNamed:@"settingsWhite"];
-            break;
-        case 4:
             if(login){
                 menuItemLabel = @"Perfil";
-                menuItemIcon = [UIImage imageNamed:@"enter-50White"];
             }else{
                 menuItemLabel = @"Login";
-                menuItemIcon = [UIImage imageNamed:@"enter-50White"];
             }
+            menuItemIcon = [UIImage imageNamed:@"enter-50White"];
             break;
+            
     }
     
     [cell.iconImage setImage:menuItemIcon];

@@ -26,8 +26,9 @@
 - (void)setup3;
 - (void)setup4;
 - (void)setup5;
-- (void)setup6;
-- (void)setup7;
+- (void)setup6:(NSDictionary *)valores;
+- (void)setup7:(NSDictionary *)valores;
+- (void)setup8;
 - (void)dismissButtonPressed:(UIButton *)button;
 @end
 
@@ -78,20 +79,29 @@
     return self;
 }
 
-- (id)init6
+- (id)init6:(NSDictionary *)valores
 {
     self = [super init];
     if (self) {
-        [self setup6];
+        [self setup6:valores];
     }
     return self;
 }
 
-- (id)init7
+- (id)init7:(NSDictionary *)valores
 {
     self = [super init];
     if (self) {
-        [self setup7];
+        [self setup7:valores];
+    }
+    return self;
+}
+
+- (id)init8
+{
+    self = [super init];
+    if (self) {
+        [self setup8];
     }
     return self;
 }
@@ -112,10 +122,9 @@
     _backgroundView.frame = self.bounds;
 }
 #pragma mark -
-+ (AlertViewController *)defaultView:(NSInteger)option
++ (AlertViewController *)defaultView:(NSInteger)option valores:(NSDictionary *)valorestmp
 {
     AlertViewController *view;
-    
     switch (option) {
         case 0:
             view = [[AlertViewController alloc] init];
@@ -142,17 +151,20 @@
             view.frame = CGRectMake( 0, 0, 300, 150);
             break;
         case 6:
-            view = [[AlertViewController alloc] init6];
+            view = [[AlertViewController alloc] init6:valorestmp];
             view.frame = CGRectMake( 0, 0, 300, 250);
             break;
         case 7:
-            view = [[AlertViewController alloc] init7];
+            view = [[AlertViewController alloc] init7:valorestmp];
             view.frame = CGRectMake( 0, 0, 300, 250);
+            break;
+        case 8:
+            view = [[AlertViewController alloc] init8];
+            view.frame = CGRectMake( 0, 0, 300, 150);
             break;
         default:
             break;
     }
-    
     return view;
 }
 
@@ -351,7 +363,7 @@
     [self addSubview:_dismissButton];
 }
 
-- (void)setup6
+- (void)setup6:(NSDictionary *)valores
 {
     optionPress = 6;
     
@@ -364,6 +376,10 @@
     self.layer.shadowColor = [UIColor whiteColor].CGColor;
     self.layer.shadowRadius = 2.;
     
+    NSString *materia = [valores valueForKey:@"materia"];
+    NSString *precio = [NSString stringWithFormat:@"%@ €/h",[valores valueForKey:@"precio"]];
+    NSString *Horario = [valores valueForKey:@"horario"];
+    
     _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     _backgroundView.alpha = 1;
     _backgroundView.backgroundColor = [UIColor colorWithHexString:@"eaeaea"];
@@ -380,7 +396,7 @@
     [texto1Label setTextColor:[UIColor blackColor]];
     
     UILabel *texto2Label = [[UILabel alloc] initWithFrame:CGRectMake(18, 21, 174, 41)];
-    [texto2Label setText:@"Introducción a la bachata sensual"];
+    [texto2Label setText:materia];
     [texto2Label setNumberOfLines:0];
     [texto2Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto2Label setTextColor:[UIColor blackColor]];
@@ -391,7 +407,7 @@
     [texto3Label setTextColor:[UIColor blackColor]];
     
     UILabel *texto4Label = [[UILabel alloc] initWithFrame:CGRectMake(18, 74, 174, 21)];
-    [texto4Label setText:@"8.5 €/h"];
+    [texto4Label setText:precio];
     [texto4Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto4Label setTextColor:[UIColor blackColor]];
     
@@ -401,7 +417,7 @@
     [texto5Label setTextColor:[UIColor blackColor]];
     
     UILabel *texto6Label = [[UILabel alloc] initWithFrame:CGRectMake(109, 74, 83, 21)];
-    [texto6Label setText:@"Todo el dia"];
+    [texto6Label setText:Horario];
     [texto6Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto6Label setTextColor:[UIColor blackColor]];
     
@@ -428,14 +444,14 @@
     _dismissButton.frame = CGRectMake(0, 230 - 44, 300, 44);
     _dismissButton.backgroundColor = [UIColor colorINC];
     [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_dismissButton setTitle:@"Aceptar" forState:UIControlStateNormal];
+    [_dismissButton setTitle:@"Volver" forState:UIControlStateNormal];
     [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self addSubview:_dismissButton];
 }
 
-- (void)setup7
+- (void)setup7:(NSDictionary *)valores
 {
     optionPress = 7;
     
@@ -448,6 +464,9 @@
     self.layer.shadowColor = [UIColor whiteColor].CGColor;
     self.layer.shadowRadius = 2.;
     
+    NSString *materia1 = [valores valueForKey:@"materia1"];
+    NSString *materia2 = [valores valueForKey:@"materia2"];
+    
     _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     _backgroundView.alpha = 1;
     _backgroundView.backgroundColor = [UIColor colorWithHexString:@"eaeaea"];
@@ -459,35 +478,26 @@
     [fondoView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     
     UILabel *texto1Label = [[UILabel alloc] initWithFrame:CGRectMake(8, 5, 184, 21)];
-    [texto1Label setText:@"Materia"];
+    [texto1Label setText:@"Ofrezco"];
     [texto1Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto1Label setTextColor:[UIColor blackColor]];
     
-    UILabel *texto2Label = [[UILabel alloc] initWithFrame:CGRectMake(18, 21, 174, 41)];
-    [texto2Label setText:@"Introducción a la bachata sensual"];
+    UILabel *texto2Label = [[UILabel alloc] initWithFrame:CGRectMake(16, 21, 176, 37)];
+    [texto2Label setText:materia1];
     [texto2Label setNumberOfLines:0];
     [texto2Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto2Label setTextColor:[UIColor blackColor]];
     
-    UILabel *texto3Label = [[UILabel alloc] initWithFrame:CGRectMake(8, 58, 49, 21)];
-    [texto3Label setText:@"Precio"];
+    UILabel *texto3Label = [[UILabel alloc] initWithFrame:CGRectMake(8, 50, 184, 21)];
+    [texto3Label setText:@"Busco"];
     [texto3Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto3Label setTextColor:[UIColor blackColor]];
     
-    UILabel *texto4Label = [[UILabel alloc] initWithFrame:CGRectMake(18, 74, 174, 21)];
-    [texto4Label setText:@"8.5 €/h"];
+    UILabel *texto4Label = [[UILabel alloc] initWithFrame:CGRectMake(16, 64, 176, 37)];
+    [texto4Label setText:materia2];
+    [texto4Label setNumberOfLines:0];
     [texto4Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [texto4Label setTextColor:[UIColor blackColor]];
-    
-    UILabel *texto5Label = [[UILabel alloc] initWithFrame:CGRectMake(104, 59, 88, 19)];
-    [texto5Label setText:@"Horario"];
-    [texto5Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
-    [texto5Label setTextColor:[UIColor blackColor]];
-    
-    UILabel *texto6Label = [[UILabel alloc] initWithFrame:CGRectMake(109, 74, 83, 21)];
-    [texto6Label setText:@"Todo el dia"];
-    [texto6Label setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
-    [texto6Label setTextColor:[UIColor blackColor]];
     
     UIImageView *imagePerfil = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"perfilMustache.png"]];
     [imagePerfil setFrame:CGRectMake(200, 0, 100, 100)];
@@ -501,8 +511,6 @@
     [fondoView addSubview:texto2Label];
     [fondoView addSubview:texto3Label];
     [fondoView addSubview:texto4Label];
-    [fondoView addSubview:texto5Label];
-    [fondoView addSubview:texto6Label];
     [fondoView addSubview:imagePerfil];
     [fondoView addSubview:profileFB];
     
@@ -512,8 +520,37 @@
     _dismissButton.frame = CGRectMake(0, 230 - 44, 300, 44);
     _dismissButton.backgroundColor = [UIColor colorINC];
     [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_dismissButton setTitle:@"Aceptar" forState:UIControlStateNormal];
+    [_dismissButton setTitle:@"Volver" forState:UIControlStateNormal];
     [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
+    [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [self addSubview:_dismissButton];
+}
+
+- (void)setup8
+{
+    optionPress = 8;
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.layer.cornerRadius = 10.0f;
+    self.layer.masksToBounds = YES;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowOffset = CGSizeMake(0.0, 1.);
+    self.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.layer.shadowRadius = 2.;
+    
+    _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+    _backgroundView.alpha = 0.8;
+    _backgroundView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_backgroundView];
+    
+    _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _dismissButton.frame = CGRectMake(0, 34, 300, 88);
+    _dismissButton.backgroundColor = [UIColor colorINC];
+    [_dismissButton addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_dismissButton setTitle:@"Faltan datos por introducir" forState:UIControlStateNormal];
+    [_dismissButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:15.0f]];
     [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_dismissButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self addSubview:_dismissButton];

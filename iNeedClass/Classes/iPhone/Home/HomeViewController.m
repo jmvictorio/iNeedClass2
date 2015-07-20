@@ -318,13 +318,11 @@
 
 - (IBAction)actionAbout:(id)sender {
     [self animation1];
-    [delegate shareOnWhatsApp];
     
-    /*
     [mustache removeFromSuperview];
     AboutViewController *about = [[AboutViewController alloc]init];
     [self.navigationController pushViewController:about animated:YES];
-     */
+     
 }
 
 - (IBAction)actionClass:(id)sender {

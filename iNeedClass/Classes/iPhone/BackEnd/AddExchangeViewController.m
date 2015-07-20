@@ -33,7 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
     menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuWhite.png"]
                                                   style:UIBarButtonItemStyleBordered
                                                  target:self
@@ -89,6 +88,8 @@
     [self.navigationController.navigationBar setHidden:NO];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIButton appearance] setTintColor:[UIColor whiteColor]];
+    
+    [self.scrollView setContentOffset:CGPointMake(0, 58) animated:YES];
 }
 
 - (void)setUp
@@ -212,16 +213,51 @@
 
 - (IBAction)actionShow:(id)sender {
     
-    AlertViewController *alert = [AlertViewController defaultView:6];
-    [alert setDismissHandler:^(AlertViewController *view) {
-        // to dismiss current cardView. Also you could call the `dismiss` method.
-        [CXCardView dismissCurrent];
-    }];
-    [CXCardView showWithView:alert draggable:YES];
+    NSInteger countTextCiudad       = [self.textCiudad.text length];
+    NSInteger countTextMateriasB    = [self.textMateriasBusco.text length];
+    NSInteger countTextMateriasO    = [self.textMateriasOfrezco.text length];
+    
+    if(countTextCiudad != 0 && countTextMateriasB != 0 && countTextMateriasO != 0){
+        
+        NSMutableDictionary *valores = [[NSMutableDictionary alloc]init];
+        [valores setValue:self.textMateriasBusco.text forKey:@"materia1"];
+        [valores setValue:[_pickerData objectAtIndex:self.buttonSelectTime.tag] forKey:@"horario"];
+        [valores setValue:self.textMateriasOfrezco.text forKey:@"materia2"];
+        
+        AlertViewController *alert = [AlertViewController defaultView:7 valores:valores];
+        [alert setDismissHandler:^(AlertViewController *view) {
+            // to dismiss current cardView. Also you could call the `dismiss` method.
+            [CXCardView dismissCurrent];
+        }];
+        [CXCardView showWithView:alert draggable:YES];
+        
+    }else{
+        AlertViewController *alert = [AlertViewController defaultView:8 valores:nil];
+        [alert setDismissHandler:^(AlertViewController *view) {
+            // to dismiss current cardView. Also you could call the `dismiss` method.
+            [CXCardView dismissCurrent];
+        }];
+        [CXCardView showWithView:alert draggable:YES];
+    }
 }
 
 - (IBAction)actionSave:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    NSInteger countTextCiudad       = [self.textCiudad.text length];
+    NSInteger countTextMateriasB    = [self.textMateriasBusco.text length];
+    NSInteger countTextMateriasO    = [self.textMateriasOfrezco.text length];
+    
+    if(countTextCiudad != 0 && countTextMateriasB != 0 && countTextMateriasO != 0){
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        AlertViewController *alert = [AlertViewController defaultView:8 valores:nil];
+        [alert setDismissHandler:^(AlertViewController *view) {
+            // to dismiss current cardView. Also you could call the `dismiss` method.
+            [CXCardView dismissCurrent];
+        }];
+        [CXCardView showWithView:alert draggable:YES];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -255,6 +291,105 @@
     
     return YES;
 }
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if([string isEqualToString:@"\n"]){
+        [textField setText:@""];
+        [textField resignFirstResponder];
+        if(textField.tag == 4)
+        {
+            [self.tableViewCiudades setHidden:YES];
+            _dataPoblacionesTable = [[NSMutableArray alloc]initWithArray:_dataPoblaciones];
+            [self.tableViewCiudades reloadData];
+        }else if (textField.tag == 1)
+        {
+            [self.tableViewMateriasOfrezco setHidden:YES];
+            _dataMateriasTable = [[NSMutableArray alloc]initWithArray:_dataMaterias];
+            [self.tableViewMateriasOfrezco reloadData];
+            
+        }else if (textField.tag == 2)
+        {
+            [self.tableViewMateriasBusco setHidden:YES];
+            _dataMateriasTable = [[NSMutableArray alloc]initWithArray:_dataMaterias];
+            [self.tableViewMateriasBusco reloadData];
+        }
+        
+        return YES;
+    }
+    
+    NSString *strippedStr = [NSString stringWithFormat:@"%@%@",[textField text], string];;
+
+    if([textField.text length] == 0 && textField.tag == 4)
+    {
+        _dataPoblacionesTable = [[NSMutableArray alloc]initWithArray:_dataPoblaciones];
+        [self.tableViewCiudades reloadData];
+        return YES;
+    }
+    else if([textField.text length] == 0 && textField.tag == 1)
+    {
+        _dataMateriasTable = [[NSMutableArray alloc]initWithArray:_dataMaterias];
+        [self.tableViewMateriasOfrezco reloadData];
+        return YES;
+    }
+    else if([textField.text length] == 0 && textField.tag == 2)
+    {
+        _dataMateriasTable = [[NSMutableArray alloc]initWithArray:_dataMaterias];
+        [self.tableViewMateriasBusco reloadData];
+        return YES;
+    }
+    
+    if([textField tag] == 4)
+    {
+        NSString *attributeProvincia = @"provincia";
+        NSString *attributePoblacion = @"poblacion";
+        NSString *attributeValue = strippedStr;
+        
+        NSPredicate *predicatePoblacion = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributeProvincia, attributeValue];//keySelected is NSString itself
+        NSArray *poblaciones = [NSMutableArray arrayWithArray:[_dataPoblaciones filteredArrayUsingPredicate:predicatePoblacion]];
+        
+        NSPredicate *predicateProvincia = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributePoblacion, attributeValue];//keySelected is NSString itself
+        NSArray *provincias = [NSMutableArray arrayWithArray:[_dataPoblaciones filteredArrayUsingPredicate:predicateProvincia]];
+        
+        NSMutableSet *filtroRepetidos = [[NSMutableSet alloc] initWithArray:poblaciones];
+        [filtroRepetidos addObjectsFromArray:provincias];
+        
+        _dataPoblacionesTable = [[NSMutableArray alloc]initWithArray:[filtroRepetidos allObjects]];
+        
+        [self.tableViewCiudades reloadData];
+        
+        
+    }else if ([textField tag] == 2)
+    {
+        NSString *attributeMatery = @"materia";
+        NSString *attributeValue = strippedStr;
+        
+        NSPredicate *predicateMaterias = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributeMatery, attributeValue];//keySelected is NSString itself
+        NSArray *materias = [NSMutableArray arrayWithArray:[_dataMaterias filteredArrayUsingPredicate:predicateMaterias]];
+        
+        NSMutableSet *filtroRepetidos = [[NSMutableSet alloc] initWithArray:materias];
+        
+        _dataMateriasTable = [[NSMutableArray alloc]initWithArray:[filtroRepetidos allObjects]];
+        
+        [self.tableViewMateriasBusco reloadData];
+    }
+    else if ([textField tag] == 1)
+    {
+        NSString *attributeMatery = @"materia";
+        NSString *attributeValue = strippedStr;
+        
+        NSPredicate *predicateMaterias = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributeMatery, attributeValue];//keySelected is NSString itself
+        NSArray *materias = [NSMutableArray arrayWithArray:[_dataMaterias filteredArrayUsingPredicate:predicateMaterias]];
+        
+        NSMutableSet *filtroRepetidos = [[NSMutableSet alloc] initWithArray:materias];
+        
+        _dataMateriasTable = [[NSMutableArray alloc]initWithArray:[filtroRepetidos allObjects]];
+        
+        [self.tableViewMateriasOfrezco reloadData];
+    }
+    return YES;
+}
+
 
 #pragma mark - tableView methods
 

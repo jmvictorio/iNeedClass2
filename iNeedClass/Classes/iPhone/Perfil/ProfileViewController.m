@@ -171,7 +171,7 @@
 
 - (IBAction)actionAdd:(id)sender {
     AlertViewController *alert;
-    alert = [AlertViewController defaultView:0];
+    alert = [AlertViewController defaultView:0 valores:nil];
     
     UILabel *descriptionLabel = [[UILabel alloc] init];
     descriptionLabel.frame = CGRectMake(20, 0, 260, 75);

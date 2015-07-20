@@ -16,6 +16,6 @@ typedef void(^ActionHandler)(AlertViewController *view);
 
 @property (nonatomic, copy) ActionHandler dismissHandler;
 
-+ (AlertViewController *)defaultView:(NSInteger)option;
++ (AlertViewController *)defaultView:(NSInteger)option valores:(NSDictionary *)valores;
 
 @end

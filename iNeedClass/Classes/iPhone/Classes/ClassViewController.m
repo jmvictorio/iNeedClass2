@@ -152,12 +152,12 @@
     descriptionLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:14.0f];
     if(self.options == 0)
     {
-        alert = [AlertViewController defaultView:1];
+        alert = [AlertViewController defaultView:1 valores:nil];
         descriptionLabel.text = @"Desea añadir una nueva Materia?";
     }
     else
     {
-        alert = [AlertViewController defaultView:2];
+        alert = [AlertViewController defaultView:2 valores:nil];
         descriptionLabel.text = @"Desea añadir un nuevo Intercambio?";
         
     }

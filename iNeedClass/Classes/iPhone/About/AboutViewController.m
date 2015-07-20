@@ -46,8 +46,6 @@
     [self.tituloFreepik setFont:[UIFont fontWithName:@"Montserrat-Regular" size:10]];
     [self.byME setFont:[UIFont fontWithName:@"Montserrat-Regular" size:15]];
     [self.agrees setFont:[UIFont fontWithName:@"Montserrat-Regular" size:11]];
-    [self.appFriend setFont:[UIFont fontWithName:@"Montserrat-Bold" size:12]];
-    [self.appFriendDescription setFont:[UIFont fontWithName:@"Montserrat-Regular" size:12]];
 }
 
 - (void)didReceiveMemoryWarning

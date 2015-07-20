@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *tituloFreepik;
 @property (weak, nonatomic) IBOutlet UILabel *byME;
 @property (weak, nonatomic) IBOutlet UILabel *agrees;
-@property (weak, nonatomic) IBOutlet UILabel *appFriend;
-@property (weak, nonatomic) IBOutlet UILabel *appFriendDescription;
 
 - (IBAction)backToHome:(id)sender;
 

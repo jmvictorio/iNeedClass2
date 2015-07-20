@@ -202,16 +202,50 @@
 
 - (IBAction)actionShow:(id)sender {
     
-    AlertViewController *alert = [AlertViewController defaultView:6];
-    [alert setDismissHandler:^(AlertViewController *view) {
-        // to dismiss current cardView. Also you could call the `dismiss` method.
-        [CXCardView dismissCurrent];
-    }];
-    [CXCardView showWithView:alert draggable:YES];
+    NSInteger countTextCiudad   = [self.textCiudad.text length];
+    NSInteger countTextMaterias = [self.textMaterias.text length];
+    NSInteger countTextPrice    = [self.textPrice.text length];
+    
+    if(countTextCiudad != 0 && countTextMaterias != 0 && countTextPrice != 0){
+        
+        NSMutableDictionary *valores = [[NSMutableDictionary alloc]init];
+        [valores setValue:self.textMaterias.text forKey:@"materia"];
+        [valores setValue:[_pickerData objectAtIndex:self.buttonSelectTime.tag] forKey:@"horario"];
+        [valores setValue:self.textPrice.text forKey:@"precio"];
+        
+        AlertViewController *alert = [AlertViewController defaultView:6 valores:valores];
+        [alert setDismissHandler:^(AlertViewController *view) {
+            // to dismiss current cardView. Also you could call the `dismiss` method.
+            [CXCardView dismissCurrent];
+        }];
+        [CXCardView showWithView:alert draggable:YES];
+        
+    }else{
+        AlertViewController *alert = [AlertViewController defaultView:8 valores:nil];
+        [alert setDismissHandler:^(AlertViewController *view) {
+            // to dismiss current cardView. Also you could call the `dismiss` method.
+            [CXCardView dismissCurrent];
+        }];
+        [CXCardView showWithView:alert draggable:YES];
+        
+    }
 }
 
 - (IBAction)actionSave:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSInteger countTextCiudad   = [self.textCiudad.text length];
+    NSInteger countTextMaterias = [self.textMaterias.text length];
+    NSInteger countTextPrice    = [self.textPrice.text length];
+    if(countTextCiudad != 0 && countTextMaterias != 0 && countTextPrice != 0){
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        AlertViewController *alert = [AlertViewController defaultView:8 valores:nil];
+        [alert setDismissHandler:^(AlertViewController *view) {
+            // to dismiss current cardView. Also you could call the `dismiss` method.
+            [CXCardView dismissCurrent];
+        }];
+        [CXCardView showWithView:alert draggable:YES];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

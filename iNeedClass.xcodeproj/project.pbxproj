@@ -146,6 +146,7 @@
 		C6B416CE1A4818A0008F605F /* TeacherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6B416CC1A4818A0008F605F /* TeacherViewController.xib */; };
 		C6B416D31A4818BA008F605F /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B416D11A4818BA008F605F /* ExchangeViewController.m */; };
 		C6B416D41A4818BA008F605F /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6B416D21A4818BA008F605F /* ExchangeViewController.xib */; };
+		C6BB28521B5D327700B66AC5 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DD31111ABC0C7A00B325A9 /* AddressBook.framework */; };
 		C6C2A8411A249045002FBF96 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2A83F1A249045002FBF96 /* EditProfileViewController.m */; };
 		C6C2A8421A249045002FBF96 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8401A249045002FBF96 /* EditProfileViewController.xib */; };
 		C6C2A8441A249B86002FBF96 /* down-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C2A8431A249B86002FBF96 /* down-32.png */; };
@@ -493,6 +494,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BB28521B5D327700B66AC5 /* AddressBook.framework in Frameworks */,
 				C6DD31151ABC1B8300B325A9 /* AddressBookUI.framework in Frameworks */,
 				C6ABC97E1A68272C00DBE18E /* MessageUI.framework in Frameworks */,
 				C68579501A42E82900839FE9 /* CoreLocation.framework in Frameworks */,
