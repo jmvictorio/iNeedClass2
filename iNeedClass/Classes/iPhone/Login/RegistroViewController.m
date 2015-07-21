@@ -9,7 +9,9 @@
 #import "RegistroViewController.h"
 #import "ProfileViewController.h"
 
-@interface RegistroViewController ()
+@interface RegistroViewController (){
+    NSInteger index;
+}
 
 @end
 
@@ -30,8 +32,12 @@
     // Do any additional setup after loading the view from its nib.
     [labelTitle setFont:[UIFont fontMontseBold:20]];
     
+    index = -1;
+    
     //[buttonContinuarUsuario setEnabled:NO];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"previous-24"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     
     [self.navigationItem setLeftBarButtonItem:backButton animated:YES];
 
@@ -47,8 +53,7 @@
 }
 
 - (IBAction)actionNombre:(id)sender {
-    ProfileViewController *profile = [[ProfileViewController alloc] init];
-    [self.navigationController pushViewController:profile animated:YES];
+    [scrollview setContentOffset:CGPointMake(640, -62) animated:YES];
 }
 
 - (IBAction)actionUsuario:(id)sender {
@@ -57,6 +62,15 @@
 
 - (IBAction)pasoAtras:(id)sender {
     [scrollview setContentOffset:CGPointMake(0, -62) animated:YES];
+}
+
+- (IBAction)actionFinaliza:(id)sender {
+    ProfileViewController *profile = [[ProfileViewController alloc] init];
+    [self.navigationController pushViewController:profile animated:YES];
+}
+
+- (IBAction)pasoAtras2:(id)sender {
+    [scrollview setContentOffset:CGPointMake(320, -62) animated:YES];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -73,6 +87,40 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    
+    UIImageView *imagen = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld", (long)(indexPath.row+1)]]];
+    UIImageView *imagen2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld", (long)(indexPath.row+1)]]];
+    [imagen setFrame:CGRectMake(0, 0, 75, 75)];
+    [imagen2 setFrame:CGRectMake(0, 0, 75, 75)];
+    
+    imagen.layer.cornerRadius = 25.0f;
+    imagen.layer.borderWidth = 2.0f;
+    imagen.layer.borderColor = [UIColor whiteColor].CGColor;
+    imagen.layer.masksToBounds = YES;
+    
+    imagen2.layer.cornerRadius = 25.0f;
+    imagen2.layer.borderWidth = 2.0f;
+    imagen2.layer.borderColor = [UIColor redColor].CGColor;
+    imagen2.layer.masksToBounds = YES;
+    
+    [cell setBackgroundView: imagen];
+    
+    [cell setSelectedBackgroundView: imagen2];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    index = indexPath.row;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 9;
 }
 
 @end

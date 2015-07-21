@@ -71,6 +71,15 @@
 		A0AABF2619A11A73008E3F99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0AABF1919A11A73008E3F99 /* Icon@2x.png */; };
 		C600F70E1B55AA9200412901 /* AddExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C600F70C1B55AA9200412901 /* AddExchangeViewController.m */; };
 		C600F70F1B55AA9200412901 /* AddExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C600F70D1B55AA9200412901 /* AddExchangeViewController.xib */; };
+		C611703D1B5EBE6A007FE5F0 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170341B5EBE6A007FE5F0 /* 1.png */; };
+		C611703E1B5EBE6A007FE5F0 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170351B5EBE6A007FE5F0 /* 2.png */; };
+		C611703F1B5EBE6A007FE5F0 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170361B5EBE6A007FE5F0 /* 3.png */; };
+		C61170401B5EBE6A007FE5F0 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170371B5EBE6A007FE5F0 /* 4.png */; };
+		C61170411B5EBE6A007FE5F0 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170381B5EBE6A007FE5F0 /* 5.png */; };
+		C61170421B5EBE6A007FE5F0 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170391B5EBE6A007FE5F0 /* 6.png */; };
+		C61170431B5EBE6A007FE5F0 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = C611703A1B5EBE6A007FE5F0 /* 7.png */; };
+		C61170441B5EBE6A007FE5F0 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = C611703B1B5EBE6A007FE5F0 /* 8.png */; };
+		C61170451B5EBE6A007FE5F0 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = C611703C1B5EBE6A007FE5F0 /* 9.png */; };
 		C616A0961A39C3AE00B534E7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C616A0951A39C3AE00B534E7 /* CoreData.framework */; };
 		C616A0991A39C3EF00B534E7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C616A0981A39C3EF00B534E7 /* SystemConfiguration.framework */; };
 		C61D2ED11A210FE200EF8023 /* iconoTeacher.png in Resources */ = {isa = PBXBuildFile; fileRef = C61D2ED01A210FE200EF8023 /* iconoTeacher.png */; };
@@ -298,6 +307,15 @@
 		C600F70B1B55AA9200412901 /* AddExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExchangeViewController.h; sourceTree = "<group>"; };
 		C600F70C1B55AA9200412901 /* AddExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExchangeViewController.m; sourceTree = "<group>"; };
 		C600F70D1B55AA9200412901 /* AddExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddExchangeViewController.xib; sourceTree = "<group>"; };
+		C61170341B5EBE6A007FE5F0 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = animales/1.png; sourceTree = "<group>"; };
+		C61170351B5EBE6A007FE5F0 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = animales/2.png; sourceTree = "<group>"; };
+		C61170361B5EBE6A007FE5F0 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = animales/3.png; sourceTree = "<group>"; };
+		C61170371B5EBE6A007FE5F0 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4.png; path = animales/4.png; sourceTree = "<group>"; };
+		C61170381B5EBE6A007FE5F0 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5.png; path = animales/5.png; sourceTree = "<group>"; };
+		C61170391B5EBE6A007FE5F0 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = animales/6.png; sourceTree = "<group>"; };
+		C611703A1B5EBE6A007FE5F0 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 7.png; path = animales/7.png; sourceTree = "<group>"; };
+		C611703B1B5EBE6A007FE5F0 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 8.png; path = animales/8.png; sourceTree = "<group>"; };
+		C611703C1B5EBE6A007FE5F0 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 9.png; path = animales/9.png; sourceTree = "<group>"; };
 		C616A0951A39C3AE00B534E7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C616A0981A39C3EF00B534E7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C616A09A1A39C40500B534E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -725,6 +743,7 @@
 		A060C1F61997CE3300C4C876 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C61170321B5EBE06007FE5F0 /* animales */,
 				C6A24A4819BA2CCD00175981 /* bocadillo-white.png */,
 				C6467D8319B2467C0041CAE8 /* tutorial */,
 				C6C41ADE19AF3D95002F8876 /* tattoo.png */,
@@ -973,6 +992,22 @@
 				A0AABF1919A11A73008E3F99 /* Icon@2x.png */,
 			);
 			path = iconoLogo;
+			sourceTree = "<group>";
+		};
+		C61170321B5EBE06007FE5F0 /* animales */ = {
+			isa = PBXGroup;
+			children = (
+				C61170341B5EBE6A007FE5F0 /* 1.png */,
+				C61170351B5EBE6A007FE5F0 /* 2.png */,
+				C61170361B5EBE6A007FE5F0 /* 3.png */,
+				C61170371B5EBE6A007FE5F0 /* 4.png */,
+				C61170381B5EBE6A007FE5F0 /* 5.png */,
+				C61170391B5EBE6A007FE5F0 /* 6.png */,
+				C611703A1B5EBE6A007FE5F0 /* 7.png */,
+				C611703B1B5EBE6A007FE5F0 /* 8.png */,
+				C611703C1B5EBE6A007FE5F0 /* 9.png */,
+			);
+			name = animales;
 			sourceTree = "<group>";
 		};
 		C62BFCEC1A1E091100D84ED5 /* Perfil */ = {
@@ -1368,6 +1403,7 @@
 				A0AABF2419A11A73008E3F99 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				C6FE5AB91B33138900BAF55E /* Tutorial2ViewController.xib in Resources */,
 				C61D2ED11A210FE200EF8023 /* iconoTeacher.png in Resources */,
+				C61170401B5EBE6A007FE5F0 /* 4.png in Resources */,
 				A0AABEFF19A10C44008E3F99 /* menu.png in Resources */,
 				A0A8429219AA016E002968A2 /* edit-50.png in Resources */,
 				A0A717D519A8B581000C6527 /* MenuItemCell.xib in Resources */,
@@ -1378,9 +1414,11 @@
 				C67642A21B3A2AAA00B9309A /* drtuto4tuto2.png in Resources */,
 				A060C1D41997CCD700C4C876 /* Images.xcassets in Resources */,
 				A0A302A419A2755600947E72 /* 1136iPhone2.png in Resources */,
+				C61170411B5EBE6A007FE5F0 /* 5.png in Resources */,
 				C6AB469C19AF0E6900F710B1 /* Business-Situations_05_07.png in Resources */,
 				C673E7511A2535E60008B5BE /* ExchangeViewCell.xib in Resources */,
 				C673E7461A2526D80008B5BE /* ClassViewController.xib in Resources */,
+				C61170451B5EBE6A007FE5F0 /* 9.png in Resources */,
 				A0A8429419AA016E002968A2 /* courses-50.png in Resources */,
 				A0A302A319A2755600947E72 /* 960iPhone2.png in Resources */,
 				C6AB46A019AF0E6900F710B1 /* Business-Situations_05_11.png in Resources */,
@@ -1391,6 +1429,7 @@
 				A0AABF2319A11A73008E3F99 /* Icon-Spotlight-iOS7.png in Resources */,
 				C6C2FFE51A39B7EE001EB7C2 /* SITCoreDataManager.plist in Resources */,
 				C6DB418F1A1D189C00179803 /* enter-50White.png in Resources */,
+				C611703D1B5EBE6A007FE5F0 /* 1.png in Resources */,
 				C61D2ED41A21107100EF8023 /* iconoTeacher-32.png in Resources */,
 				C6AB469D19AF0E6900F710B1 /* Business-Situations_05_08.png in Resources */,
 				C6AB46A119AF0E6900F710B1 /* Business-Situations_05_12.png in Resources */,
@@ -1423,6 +1462,7 @@
 				A0A8429819AA2F61002968A2 /* enter-50.png in Resources */,
 				C6467D8919B2467C0041CAE8 /* drtuto2.png in Resources */,
 				A0AABF1F19A11A73008E3F99 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				C61170441B5EBE6A007FE5F0 /* 8.png in Resources */,
 				A0433BBD19A7BF25001FD407 /* AboutViewController.xib in Resources */,
 				C6C2A8421A249045002FBF96 /* EditProfileViewController.xib in Resources */,
 				C6AB469719AF0E6900F710B1 /* Business-Situations_05_02.png in Resources */,
@@ -1430,6 +1470,9 @@
 				C6C41ADF19AF3D95002F8876 /* tattoo.png in Resources */,
 				A0A717D719A8E5D2000C6527 /* x.png in Resources */,
 				A0AABF1D19A11A73008E3F99 /* Icon-76.png in Resources */,
+				C61170431B5EBE6A007FE5F0 /* 7.png in Resources */,
+				C611703F1B5EBE6A007FE5F0 /* 3.png in Resources */,
+				C61170421B5EBE6A007FE5F0 /* 6.png in Resources */,
 				C676429B1B3A269C00B9309A /* drtuto1tuto2.png in Resources */,
 				C6AB469F19AF0E6900F710B1 /* Business-Situations_05_10.png in Resources */,
 				A0AABF1B19A11A73008E3F99 /* Icon-72.png in Resources */,
@@ -1458,6 +1501,7 @@
 				A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */,
 				A0A8429619AA016E002968A2 /* home-50.png in Resources */,
 				C6A24A4919BA2CCD00175981 /* bocadillo-white.png in Resources */,
+				C611703E1B5EBE6A007FE5F0 /* 2.png in Resources */,
 				C6B416CE1A4818A0008F605F /* TeacherViewController.xib in Resources */,
 				A0A27B9319A11D6B00E376D5 /* 960iPhone.png in Resources */,
 				A0A27B9219A11D6B00E376D5 /* 1136iPhone.png in Resources */,

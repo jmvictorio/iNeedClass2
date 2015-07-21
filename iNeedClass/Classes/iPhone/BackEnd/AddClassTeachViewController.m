@@ -353,6 +353,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     [self.buttonSelectTime.titleLabel setText:[_pickerData objectAtIndex:row]];
+    [self.buttonSelectTime setTag:row];
     [pickerView setHidden:YES];
 }
 

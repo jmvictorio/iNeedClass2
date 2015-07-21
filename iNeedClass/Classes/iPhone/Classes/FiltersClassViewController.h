@@ -11,6 +11,7 @@
 #import "HTAutocompleteManager.h"
 
 @interface FiltersClassViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *noSaveButton;
 

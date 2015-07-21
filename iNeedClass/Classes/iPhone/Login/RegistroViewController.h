@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegistroViewController : UIViewController <UITextFieldDelegate>
+@interface RegistroViewController : UIViewController <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
@@ -25,8 +25,12 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 - (IBAction)actionNombre:(id)sender;
 - (IBAction)actionUsuario:(id)sender;
 - (IBAction)pasoAtras:(id)sender;
+- (IBAction)actionFinaliza:(id)sender;
+- (IBAction)pasoAtras2:(id)sender;
 
 @end
