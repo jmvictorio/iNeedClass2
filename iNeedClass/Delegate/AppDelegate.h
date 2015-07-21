@@ -29,5 +29,4 @@
 
 - (void)doOverlay;
 
-//- (void)shareOnWhatsApp;
 @end

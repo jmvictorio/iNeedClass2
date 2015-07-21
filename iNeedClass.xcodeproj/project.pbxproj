@@ -191,6 +191,8 @@
 		C6EE61A01A7A9AB90054254D /* View-List-48.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EE619E1A7A9AB90054254D /* View-List-48.png */; };
 		C6F22E5419B3B711003C79C4 /* drtuto3.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F22E5319B3B711003C79C4 /* drtuto3.png */; };
 		C6F463801B3AEEF900567DC9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F4637F1B3AEEF900567DC9 /* FacebookSDK.framework */; };
+		C6F9AF891B5E4D0600FAFECC /* RegistroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F9AF871B5E4D0600FAFECC /* RegistroViewController.m */; };
+		C6F9AF8A1B5E4D0600FAFECC /* RegistroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6F9AF881B5E4D0600FAFECC /* RegistroViewController.xib */; };
 		C6FE5AAD1B33120B00BAF55E /* MYBlurIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE5AAA1B33120B00BAF55E /* MYBlurIntroductionView.m */; };
 		C6FE5AAE1B33120B00BAF55E /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE5AAC1B33120B00BAF55E /* MYIntroductionPanel.m */; };
 		C6FE5AB81B33138900BAF55E /* Tutorial2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE5AB61B33138900BAF55E /* Tutorial2ViewController.m */; };
@@ -480,6 +482,9 @@
 		C6EE619E1A7A9AB90054254D /* View-List-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View-List-48.png"; sourceTree = "<group>"; };
 		C6F22E5319B3B711003C79C4 /* drtuto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto3.png; sourceTree = "<group>"; };
 		C6F4637F1B3AEEF900567DC9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		C6F9AF861B5E4D0600FAFECC /* RegistroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistroViewController.h; sourceTree = "<group>"; };
+		C6F9AF871B5E4D0600FAFECC /* RegistroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistroViewController.m; sourceTree = "<group>"; };
+		C6F9AF881B5E4D0600FAFECC /* RegistroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistroViewController.xib; sourceTree = "<group>"; };
 		C6FE5AA91B33120B00BAF55E /* MYBlurIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYBlurIntroductionView.h; path = MYBlurIntroductionView/MYBlurIntroductionView.h; sourceTree = "<group>"; };
 		C6FE5AAA1B33120B00BAF55E /* MYBlurIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MYBlurIntroductionView.m; path = MYBlurIntroductionView/MYBlurIntroductionView.m; sourceTree = "<group>"; };
 		C6FE5AAB1B33120B00BAF55E /* MYIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYIntroductionPanel.h; path = MYBlurIntroductionView/MYIntroductionPanel.h; sourceTree = "<group>"; };
@@ -1025,6 +1030,9 @@
 				C642AA3C19B4C3C6007EFA13 /* LoginViewController.h */,
 				C642AA3D19B4C3C6007EFA13 /* LoginViewController.m */,
 				C642AA3E19B4C3C6007EFA13 /* LoginViewController.xib */,
+				C6F9AF861B5E4D0600FAFECC /* RegistroViewController.h */,
+				C6F9AF871B5E4D0600FAFECC /* RegistroViewController.m */,
+				C6F9AF881B5E4D0600FAFECC /* RegistroViewController.xib */,
 			);
 			name = Login;
 			path = iPhone/Login;
@@ -1446,6 +1454,7 @@
 				A0AABF0919A11229008E3F99 /* intercambio100.png in Resources */,
 				A0AABF2219A11A73008E3F99 /* Icon-Small@2x.png in Resources */,
 				C62BC9491A418C1E00C45DB6 /* polyline-24.png in Resources */,
+				C6F9AF8A1B5E4D0600FAFECC /* RegistroViewController.xib in Resources */,
 				A0A717C819A8A61D000C6527 /* IntroViewController.xib in Resources */,
 				A0A8429619AA016E002968A2 /* home-50.png in Resources */,
 				C6A24A4919BA2CCD00175981 /* bocadillo-white.png in Resources */,
@@ -1485,6 +1494,7 @@
 				A060C20B1997D0FA00C4C876 /* UIColor+RGB.m in Sources */,
 				C68790C61A335C7000E83B47 /* User.m in Sources */,
 				C642AA3F19B4C3C6007EFA13 /* LoginViewController.m in Sources */,
+				C6F9AF891B5E4D0600FAFECC /* RegistroViewController.m in Sources */,
 				C6C88B941A543A380093CEBF /* HTAutocompleteManager.m in Sources */,
 				C6B416CD1A4818A0008F605F /* TeacherViewController.m in Sources */,
 				C62BFCF21A1E092E00D84ED5 /* Home2ViewController.m in Sources */,

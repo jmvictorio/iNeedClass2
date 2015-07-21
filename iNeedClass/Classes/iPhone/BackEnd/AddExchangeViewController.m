@@ -88,8 +88,6 @@
     [self.navigationController.navigationBar setHidden:NO];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIButton appearance] setTintColor:[UIColor whiteColor]];
-    
-    [self.scrollView setContentOffset:CGPointMake(0, 58) animated:YES];
 }
 
 - (void)setUp

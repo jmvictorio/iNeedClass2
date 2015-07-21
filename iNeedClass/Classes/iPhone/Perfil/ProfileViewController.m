@@ -112,6 +112,7 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // first get the buttons set for login mode
     [self.imageFB setHidden:NO];
+    NSLog(@"ESTOY LOGADO CON FB");
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -130,6 +131,7 @@
     // test to see if we can use the share dialog built into the Facebook application
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
+    NSLog(@"NO ESTOY LOGADO CON FB");
     
 }
 
@@ -187,7 +189,6 @@
         // to dismiss current cardView. Also you could call the `dismiss` method.
         [CXCardView dismissCurrent];
     }];
-    
     
     [CXCardView showWithView:alert draggable:YES];
 

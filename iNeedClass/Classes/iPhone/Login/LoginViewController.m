@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "ProfileViewController.h"
+#import "RegistroViewController.h"
 
 
 @interface LoginViewController ()
@@ -150,7 +151,8 @@
 }
 
 - (IBAction)RegisterUser:(id)sender {
-    NSLog(@"REGISTRATE");
+    RegistroViewController *registro = [[RegistroViewController alloc] init];
+    [self.navigationController pushViewController:registro animated:YES];
 }
 
 - (IBAction)passOK:(id)sender {

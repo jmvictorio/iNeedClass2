@@ -11,6 +11,8 @@
 #import "ExchangeViewCell.h"
 #import "AlertViewController.h"
 #import "CXCardView.h"
+#import "AddClassViewController.h"
+#import "AddExchangeViewController.h"
 
 @interface ClassViewController ()
 
@@ -45,7 +47,7 @@
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
     [flowlayout setSectionInset:UIEdgeInsetsMake(20, 5, 10, 5)];
     [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowlayout setHeaderReferenceSize:CGSizeMake(300, 50)];
+    //[flowlayout setHeaderReferenceSize:CGSizeMake(300, 50)];
 
     if(self.options == 0)
     {
@@ -58,7 +60,7 @@
         [self.collection registerNib:[ExchangeViewCell nib] forCellWithReuseIdentifier:@"exchangeCell"];
     }
     
-    [self.collection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
+    //[self.collection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
 
     [self.collection setCollectionViewLayout:flowlayout];
 }
@@ -90,7 +92,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -112,7 +114,7 @@
     
     return cell;
 }
-
+/*
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if (kind == UICollectionElementKindSectionHeader)
@@ -139,8 +141,8 @@
     }
     return nil;
 }
-
-- (void)add
+*/
+/*- (void)add
 {
     AlertViewController *alert;
     UILabel *descriptionLabel = [[UILabel alloc] init];
@@ -170,6 +172,6 @@
     
     
     [CXCardView showWithView:alert draggable:YES];
-}
+}*/
 
 @end

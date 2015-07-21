@@ -195,10 +195,10 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
             viewController = self.addExchangeViewController;
             break;
         case 3:
-            if(!login){
-                viewController = [LoginViewController new];
-            }else{
+            if(login){
                 viewController = [ProfileViewController new];
+            }else{
+                viewController = [LoginViewController new];
             }
             break;
     }

@@ -45,6 +45,11 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
+    
+    self.loginView.delegate = self;
+    
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
     
     [self.tableView setRowHeight:62.0];
     
@@ -61,12 +66,6 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     [self.labelName setFont:[UIFont fontMontseBold:17]];
     [self.labelName setText:@"Dr Mustache"];
     
-    self.loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
-    
-    self.loginView.delegate = self;
-    
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_birthday"];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,6 +134,8 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // first get the buttons set for login mode
     [self.profilePic setHidden:NO];
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
