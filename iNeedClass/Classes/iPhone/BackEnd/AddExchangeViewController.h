@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddExchangeViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface AddExchangeViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textMateriasBusco;
 @property (weak, nonatomic) IBOutlet UITextField *textMateriasOfrezco;
 @property (weak, nonatomic) IBOutlet UITextField *textCiudad;
+@property (weak, nonatomic) IBOutlet UITextView *textDescription;
 
 //TABLAS
 @property (weak, nonatomic) IBOutlet UITableView *tableViewMateriasBusco;

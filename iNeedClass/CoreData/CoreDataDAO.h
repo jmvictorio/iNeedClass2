@@ -72,6 +72,28 @@
 - (NSArray *)findAllSubjects:(NSString *)categoryId;
 
 
+// añade todas las ciudades y paises al sistema.
+- (BOOL)addCity:(NSDictionary *)city;
+
+- (BOOL)findCity:(NSString *)city;
+
+// añade todas las ciudades y paises al sistema.
+- (BOOL)addState:(NSDictionary *)state;
+
+- (BOOL)findState:(NSString *)state;
+
+// añade todas las ciudades y paises al sistema.
+- (BOOL)addCountry:(NSDictionary *)country;
+
+- (BOOL)findCountry:(NSString *)country;
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllCities;
+
+
+// Elimina el intercambio del dispositivo
+- (BOOL)deleteAllCities;
+
 
 /**
  Persiste los cambios sobre el contexto asociado.

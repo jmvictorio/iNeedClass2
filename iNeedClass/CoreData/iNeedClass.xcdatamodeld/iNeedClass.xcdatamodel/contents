@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6735" systemVersion="14C81f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F6a" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CategoryType" representedClassName="Category" syncable="YES">
         <attribute name="id_category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_subcategory" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,13 +8,16 @@
         <attribute name="subcategory" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="subject_category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="category_subject" inverseEntity="Subject" syncable="YES"/>
     </entity>
-    <entity name="City" syncable="YES">
+    <entity name="City" representedClassName="City" syncable="YES">
         <attribute name="id_city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitud" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitud" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postal" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="state_city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="city_state" inverseEntity="State" syncable="YES"/>
     </entity>
-    <entity name="Country" syncable="YES">
+    <entity name="Country" representedClassName="Country" syncable="YES">
         <attribute name="id_country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="state_country" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="State" inverseName="country_state" inverseEntity="State" syncable="YES"/>
@@ -40,10 +43,11 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user_login" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="login_user" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="State" syncable="YES">
+    <entity name="State" representedClassName="State" syncable="YES">
         <attribute name="id_country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name3" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="city_state" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="state_city" inverseEntity="City" syncable="YES"/>
         <relationship name="country_state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="state_country" inverseEntity="Country" syncable="YES"/>
     </entity>
@@ -85,11 +89,11 @@
     </entity>
     <elements>
         <element name="CategoryType" positionX="-711" positionY="90" width="128" height="133"/>
-        <element name="City" positionX="115" positionY="137" width="128" height="103"/>
+        <element name="City" positionX="115" positionY="137" width="128" height="148"/>
         <element name="Country" positionX="-245" positionY="150" width="128" height="88"/>
         <element name="Exchange" positionX="-495" positionY="-207" width="128" height="208"/>
         <element name="Login" positionX="-2" positionY="-144" width="128" height="135"/>
-        <element name="State" positionX="-65" positionY="146" width="128" height="118"/>
+        <element name="State" positionX="-65" positionY="146" width="128" height="133"/>
         <element name="Subject" positionX="-713" positionY="-144" width="128" height="135"/>
         <element name="Teacher" positionX="-495" positionY="18" width="128" height="193"/>
         <element name="User" positionX="-198" positionY="-153" width="128" height="253"/>

@@ -183,15 +183,32 @@
         case 0:
             if([MFMessageComposeViewController canSendText])
             {
+                
+                [[UINavigationBar appearance] setBarTintColor:[UIColor colorINC]];
+                
                 MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
                 controller.body = @"Cuerpo del Mensaje";
                 controller.recipients = @[@"605993892"];
                 controller.messageComposeDelegate = self;
-                [self presentViewController:controller animated:YES completion:nil];
+                
+                [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+                
+                NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
+                                                  [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                  [UIFont fontMontseRegular:15.0], NSFontAttributeName,nil];
+                
+                [controller.navigationBar setTitleTextAttributes:navBarTextAttrs];
+                
+                [self presentViewController:controller animated:YES completion:^{
+                    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                }];
             }
             break;
         case 1:
             if([MFMailComposeViewController canSendMail]){
+                
+                [[UINavigationBar appearance] setBarTintColor:[UIColor colorINC]];
+                
                 // Email Subject
                 NSString *emailTitle = @"Titulo del Email";
                 // Email Content
@@ -207,7 +224,7 @@
                 
                 [mc.navigationBar setTintColor:[UIColor whiteColor]];
                 NSDictionary *navBarTextAttrs =  [NSDictionary dictionaryWithObjectsAndKeys:
-                                                  [UIColor colorINC], NSForegroundColorAttributeName,
+                                                  [UIColor whiteColor], NSForegroundColorAttributeName,
                                                   [UIFont fontMontseRegular:15.0], NSFontAttributeName,nil];
                 
                 [mc.navigationController.navigationBar setTitleTextAttributes:navBarTextAttrs];
@@ -217,7 +234,10 @@
                 [mc.navigationController.navigationBar setBarTintColor:[UIColor colorINC]];
                 
                 // Present mail view controller on screen
-                [self presentViewController:mc animated:YES completion:NULL];
+                [self presentViewController:mc animated:YES completion:^{
+                    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                }];
+
             }else{
                 NSLog(@"NO PUE SEEEEEE");
             }

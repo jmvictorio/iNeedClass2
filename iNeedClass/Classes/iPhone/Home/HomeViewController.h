@@ -23,4 +23,5 @@
 - (IBAction)actionClass:(id)sender;
 - (IBAction)actionExchange:(id)sender;
 
++ (id)init2;
 @end

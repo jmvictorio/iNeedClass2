@@ -302,7 +302,7 @@
     UIButton *loginOut = [UIButton buttonWithType:UIButtonTypeCustom];
     loginOut.frame = CGRectMake(0, 0, 300, 45);
     loginOut.backgroundColor = [UIColor redColor];
-    [loginOut addTarget:self action:@selector(dismissButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [loginOut addTarget:self action:@selector(notifyOut) forControlEvents:UIControlEventTouchUpInside];
     [loginOut setTitle:@"Cerrar Sesión" forState:UIControlStateNormal];
     [loginOut.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0f]];
     [loginOut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -587,5 +587,9 @@
     
 }
 
+- (void)notifyOut{
+    [self dismissButtonPressed:nil];
+    [SITNotificator notifyEvent:ExitAndUpdateMenu withUserInfo:nil];
+}
 
 @end

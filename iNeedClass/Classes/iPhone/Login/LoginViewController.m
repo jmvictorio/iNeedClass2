@@ -80,7 +80,7 @@
     [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"login"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.buttonPassOK setHidden:NO];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"actualizaMenu" object:@""];
+    [SITNotificator notifyEvent:ActualizaMenu withUserInfo:nil];
     ProfileViewController *profile = [[ProfileViewController alloc]init];
     
     [self.navigationController pushViewController:profile animated:YES];

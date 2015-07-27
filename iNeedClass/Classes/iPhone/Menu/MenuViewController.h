@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SITNotificator.h"
 
 @protocol MenuDelegate
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,FBLoginViewDelegate>
+@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,FBLoginViewDelegate, SITNotificatorDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;

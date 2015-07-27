@@ -265,12 +265,12 @@
     else if (textField.tag == 2)
     {
         [self.tableViewMateriasBusco setHidden:NO];
-        [self.scroll setContentOffset:CGPointMake(0, textField.frame.origin.y-40) animated:YES];
+        [self.scroll setContentOffset:CGPointMake(0, textField.frame.origin.y+40) animated:YES];
     }
     else if (textField.tag == 3)
     {
         [self.tableViewMateriasOfrezco setHidden:NO];
-        [self.scroll setContentOffset:CGPointMake(0, textField.frame.origin.y-60) animated:YES];
+        [self.scroll setContentOffset:CGPointMake(0, textField.frame.origin.y+40) animated:YES];
     }
     return YES;
 }

@@ -12,6 +12,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ClassShowViewController.h"
 #import "ExchangeShowViewController.h"
+#import "GetCitiesAndCountries.h"
+#import "SITQueueManager.h"
 
 @interface HomeViewController (){
     // Botones de 'Edicion'
@@ -320,8 +322,11 @@
     [self animation1];
     
     [mustache removeFromSuperview];
-    AboutViewController *about = [[AboutViewController alloc]init];
-    [self.navigationController pushViewController:about animated:YES];
+    //AboutViewController *about = [[AboutViewController alloc]init];
+    //[self.navigationController pushViewController:about animated:YES];
+    
+    [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndCountries defaultView:0]];
+    [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndCountries defaultView:1]];
      
 }
 

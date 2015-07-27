@@ -25,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setUp];
+    NSArray *events = [NSArray arrayWithObjects:ExitAndUpdateMenu, nil];
+    [SITNotificator addObserver:self forEvents:events];
 }
 
 - (void)setUp
@@ -138,12 +140,15 @@
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
     loginOK = false;
-    [self.textPass setEnabled:YES];
-    [[AppDelegate sharedInstance] didMenuItemSelected:0];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"actualizaMenu" object:@""];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    BOOL sesion=[[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
+    if(!sesion){
+        [self.textPass setEnabled:YES];
+        [[AppDelegate sharedInstance] didMenuItemSelected:0];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        [SITNotificator notifyEvent:ActualizaMenu withUserInfo:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -217,6 +222,21 @@
         return NO;
     }
     return YES;
+}
+
+- (void)didReceiveNotificationEvent:(NSNotification *)notification
+{
+    NSString *eventName = [notification name];
+    
+    if ([eventName isEqualToString:ExitAndUpdateMenu])
+    {
+        [self.textPass setEnabled:YES];
+        [[AppDelegate sharedInstance] didMenuItemSelected:0];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        [SITNotificator notifyEvent:ActualizaMenu withUserInfo:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 

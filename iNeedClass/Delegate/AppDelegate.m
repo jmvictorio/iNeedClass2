@@ -18,6 +18,7 @@
 #import "AddClassViewController.h"
 #import "AddExchangeViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
+#import "Constants.h"
 
 NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNotification";
 
@@ -47,6 +48,10 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     [SITCoreDataManager sharedInstance];
     self.coreDataDAO = [[CoreDataDAO alloc] init];
+    
+    NSArray *events = [NSArray arrayWithObjects:CloseRegistro, nil];
+    
+    [SITNotificator addObserver:self forEvents:events];
     
     [self appearance];
     
@@ -325,5 +330,21 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
         [[UIApplication sharedApplication] openURL: whatsappURL];
     }
 }
+
+- (void)didReceiveNotificationEvent:(NSNotification *)notification
+{
+      NSString *eventName = [notification name];
+     //NSDictionary *eventInfo = notification.userInfo;
+     
+     if ([eventName isEqualToString:CloseRegistro])
+     {
+         [self.navController popViewControllerAnimated:NO];
+         [self.navController popViewControllerAnimated:NO];
+         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
+         [[NSUserDefaults standardUserDefaults] synchronize];
+         [self didMenuItemSelected:3];
+     }
+}
+
 
 @end

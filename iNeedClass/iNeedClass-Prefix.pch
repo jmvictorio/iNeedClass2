@@ -18,5 +18,7 @@
     #import "UIColor+RGB.h"
     #import "UIFont+Montserrat.h"
     #import "AppDelegate.h"
-    #import <CoreData/CoreData.h>
+    #import <CoreData/CoreData.h>   
+    #import "SITNotificator.h"
+    #import "Constants.h"
 #endif

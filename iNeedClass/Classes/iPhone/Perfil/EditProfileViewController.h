@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditProfileViewController : UIViewController <UITextFieldDelegate, FBLoginViewDelegate>
+@interface EditProfileViewController : UIViewController <UITextFieldDelegate, FBLoginViewDelegate, SITNotificatorDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textName;
 @property (weak, nonatomic) IBOutlet UITextField *textLastName;

@@ -71,6 +71,7 @@
 		A0AABF2619A11A73008E3F99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0AABF1919A11A73008E3F99 /* Icon@2x.png */; };
 		C600F70E1B55AA9200412901 /* AddExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C600F70C1B55AA9200412901 /* AddExchangeViewController.m */; };
 		C600F70F1B55AA9200412901 /* AddExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C600F70D1B55AA9200412901 /* AddExchangeViewController.xib */; };
+		C603B7161B5FE195008A5C3E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C603B7151B5FE195008A5C3E /* Constants.m */; };
 		C611703D1B5EBE6A007FE5F0 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170341B5EBE6A007FE5F0 /* 1.png */; };
 		C611703E1B5EBE6A007FE5F0 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170351B5EBE6A007FE5F0 /* 2.png */; };
 		C611703F1B5EBE6A007FE5F0 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C61170361B5EBE6A007FE5F0 /* 3.png */; };
@@ -85,6 +86,8 @@
 		C61D2ED11A210FE200EF8023 /* iconoTeacher.png in Resources */ = {isa = PBXBuildFile; fileRef = C61D2ED01A210FE200EF8023 /* iconoTeacher.png */; };
 		C61D2ED41A21107100EF8023 /* iconoTeacher-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C61D2ED31A21107100EF8023 /* iconoTeacher-32.png */; };
 		C61D2ED61A2110B700EF8023 /* data_in_both_directions-32White.png in Resources */ = {isa = PBXBuildFile; fileRef = C61D2ED51A2110B700EF8023 /* data_in_both_directions-32White.png */; };
+		C624E5261B623BFE00A1924D /* GetCitiesAndCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = C624E5251B623BFE00A1924D /* GetCitiesAndCountries.m */; };
+		C624E52B1B62486100A1924D /* CitiesProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C624E52A1B62486100A1924D /* CitiesProcessor.m */; };
 		C62BC9381A41816A00C45DB6 /* ClassShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC9361A41816A00C45DB6 /* ClassShowViewController.m */; };
 		C62BC9391A41816A00C45DB6 /* ClassShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62BC9371A41816A00C45DB6 /* ClassShowViewController.xib */; };
 		C62BC93E1A41818000C45DB6 /* ExchangeShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC93C1A41818000C45DB6 /* ExchangeShowViewController.m */; };
@@ -102,6 +105,9 @@
 		C6467D8819B2467C0041CAE8 /* drtuto1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6467D8419B2467C0041CAE8 /* drtuto1.png */; };
 		C6467D8919B2467C0041CAE8 /* drtuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6467D8519B2467C0041CAE8 /* drtuto2.png */; };
 		C6467D8B19B2467C0041CAE8 /* drtuto4.png in Resources */ = {isa = PBXBuildFile; fileRef = C6467D8719B2467C0041CAE8 /* drtuto4.png */; };
+		C6495ADB1B61422B00682A9A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = C6495ADA1B61422B00682A9A /* Country.m */; };
+		C6495ADE1B61422C00682A9A /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = C6495ADD1B61422C00682A9A /* State.m */; };
+		C6495AE11B61422C00682A9A /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = C6495AE01B61422C00682A9A /* City.m */; };
 		C673E7451A2526D80008B5BE /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C673E7431A2526D80008B5BE /* ClassViewController.m */; };
 		C673E7461A2526D80008B5BE /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C673E7441A2526D80008B5BE /* ClassViewController.xib */; };
 		C673E74B1A252D610008B5BE /* ClassViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C673E7491A252D610008B5BE /* ClassViewCell.m */; };
@@ -307,6 +313,8 @@
 		C600F70B1B55AA9200412901 /* AddExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExchangeViewController.h; sourceTree = "<group>"; };
 		C600F70C1B55AA9200412901 /* AddExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExchangeViewController.m; sourceTree = "<group>"; };
 		C600F70D1B55AA9200412901 /* AddExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddExchangeViewController.xib; sourceTree = "<group>"; };
+		C603B7141B5FE195008A5C3E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C603B7151B5FE195008A5C3E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		C61170341B5EBE6A007FE5F0 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = animales/1.png; sourceTree = "<group>"; };
 		C61170351B5EBE6A007FE5F0 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = animales/2.png; sourceTree = "<group>"; };
 		C61170361B5EBE6A007FE5F0 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = animales/3.png; sourceTree = "<group>"; };
@@ -322,6 +330,10 @@
 		C61D2ED01A210FE200EF8023 /* iconoTeacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoTeacher.png; sourceTree = "<group>"; };
 		C61D2ED31A21107100EF8023 /* iconoTeacher-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconoTeacher-32.png"; sourceTree = "<group>"; };
 		C61D2ED51A2110B700EF8023 /* data_in_both_directions-32White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data_in_both_directions-32White.png"; sourceTree = "<group>"; };
+		C624E5241B623BFE00A1924D /* GetCitiesAndCountries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetCitiesAndCountries.h; path = Communications/GetCitiesAndCountries.h; sourceTree = "<group>"; };
+		C624E5251B623BFE00A1924D /* GetCitiesAndCountries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetCitiesAndCountries.m; path = Communications/GetCitiesAndCountries.m; sourceTree = "<group>"; };
+		C624E5291B62486100A1924D /* CitiesProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CitiesProcessor.h; path = Communications/CitiesProcessor.h; sourceTree = "<group>"; };
+		C624E52A1B62486100A1924D /* CitiesProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesProcessor.m; path = Communications/CitiesProcessor.m; sourceTree = "<group>"; };
 		C62BC9351A41816A00C45DB6 /* ClassShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassShowViewController.h; sourceTree = "<group>"; };
 		C62BC9361A41816A00C45DB6 /* ClassShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassShowViewController.m; sourceTree = "<group>"; };
 		C62BC9371A41816A00C45DB6 /* ClassShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassShowViewController.xib; sourceTree = "<group>"; };
@@ -345,6 +357,12 @@
 		C6467D8419B2467C0041CAE8 /* drtuto1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto1.png; sourceTree = "<group>"; };
 		C6467D8519B2467C0041CAE8 /* drtuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto2.png; sourceTree = "<group>"; };
 		C6467D8719B2467C0041CAE8 /* drtuto4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drtuto4.png; sourceTree = "<group>"; };
+		C6495AD91B61422B00682A9A /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		C6495ADA1B61422B00682A9A /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		C6495ADC1B61422C00682A9A /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		C6495ADD1B61422C00682A9A /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		C6495ADF1B61422C00682A9A /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		C6495AE01B61422C00682A9A /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		C673E7421A2526D80008B5BE /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
 		C673E7431A2526D80008B5BE /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
 		C673E7441A2526D80008B5BE /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
@@ -560,6 +578,12 @@
 				C68790BC1A335C7000E83B47 /* Exchange.m */,
 				C68790B81A335C6F00E83B47 /* CategoryType.h */,
 				C68790B91A335C6F00E83B47 /* CategoryType.m */,
+				C6495ADF1B61422C00682A9A /* City.h */,
+				C6495AE01B61422C00682A9A /* City.m */,
+				C6495ADC1B61422C00682A9A /* State.h */,
+				C6495ADD1B61422C00682A9A /* State.m */,
+				C6495AD91B61422B00682A9A /* Country.h */,
+				C6495ADA1B61422B00682A9A /* Country.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -633,6 +657,7 @@
 		A060C1BE1997CCD700C4C876 /* iNeedClass */ = {
 			isa = PBXGroup;
 			children = (
+				C624E5221B623BAE00A1924D /* Communications */,
 				A060C2171997DAB400C4C876 /* CoreData */,
 				A060C1F01997CE3300C4C876 /* Delegate */,
 				A060C1F31997CE3300C4C876 /* Resources */,
@@ -782,6 +807,8 @@
 		A060C1FF1997D0FA00C4C876 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C603B7141B5FE195008A5C3E /* Constants.h */,
+				C603B7151B5FE195008A5C3E /* Constants.m */,
 				A060C2001997D0FA00C4C876 /* ConfigHelper.h */,
 				A060C2011997D0FA00C4C876 /* ConfigHelper.m */,
 				A060C2021997D0FA00C4C876 /* Defines.h */,
@@ -1008,6 +1035,33 @@
 				C611703C1B5EBE6A007FE5F0 /* 9.png */,
 			);
 			name = animales;
+			sourceTree = "<group>";
+		};
+		C624E5221B623BAE00A1924D /* Communications */ = {
+			isa = PBXGroup;
+			children = (
+				C624E5281B62483000A1924D /* WS */,
+				C624E5271B62482800A1924D /* Processor */,
+			);
+			name = Communications;
+			sourceTree = "<group>";
+		};
+		C624E5271B62482800A1924D /* Processor */ = {
+			isa = PBXGroup;
+			children = (
+				C624E5291B62486100A1924D /* CitiesProcessor.h */,
+				C624E52A1B62486100A1924D /* CitiesProcessor.m */,
+			);
+			name = Processor;
+			sourceTree = "<group>";
+		};
+		C624E5281B62483000A1924D /* WS */ = {
+			isa = PBXGroup;
+			children = (
+				C624E5241B623BFE00A1924D /* GetCitiesAndCountries.h */,
+				C624E5251B623BFE00A1924D /* GetCitiesAndCountries.m */,
+			);
+			name = WS;
 			sourceTree = "<group>";
 		};
 		C62BFCEC1A1E091100D84ED5 /* Perfil */ = {
@@ -1534,6 +1588,7 @@
 				C6DB41771A1D13D300179803 /* PKLayerAnimator.m in Sources */,
 				C68579731A43216F00839FE9 /* ExchangeShowViewCell.m in Sources */,
 				A060C1F81997CE3300C4C876 /* AppDelegate.m in Sources */,
+				C624E5261B623BFE00A1924D /* GetCitiesAndCountries.m in Sources */,
 				C6DB41711A1D13D300179803 /* CAAnimation+PKIdentifier.m in Sources */,
 				A060C20B1997D0FA00C4C876 /* UIColor+RGB.m in Sources */,
 				C68790C61A335C7000E83B47 /* User.m in Sources */,
@@ -1547,8 +1602,10 @@
 				A0A717D419A8B581000C6527 /* MenuItemCell.m in Sources */,
 				C6D1EB711A1F53FA003AF7A5 /* NSString+Morphing.m in Sources */,
 				A060C1C51997CCD700C4C876 /* main.m in Sources */,
+				C6495ADB1B61422B00682A9A /* Country.m in Sources */,
 				A060C2091997D0FA00C4C876 /* ConfigHelper.m in Sources */,
 				C68790BD1A335C7000E83B47 /* Exchange.m in Sources */,
+				C603B7161B5FE195008A5C3E /* Constants.m in Sources */,
 				C6FE5AAE1B33120B00BAF55E /* MYIntroductionPanel.m in Sources */,
 				C6DD311B1ABC64A300B325A9 /* AddClassViewController.m in Sources */,
 				C6FE5AAD1B33120B00BAF55E /* MYBlurIntroductionView.m in Sources */,
@@ -1559,7 +1616,9 @@
 				C6A0E11E1A237ADC008D518A /* CXCardView.m in Sources */,
 				C6DD31261ABC7D3600B325A9 /* AddClassAlumnViewController.m in Sources */,
 				C68790C91A335C7000E83B47 /* Login.m in Sources */,
+				C6495AE11B61422C00682A9A /* City.m in Sources */,
 				C6C88B951A543A380093CEBF /* HTAutocompleteTextField.m in Sources */,
+				C624E52B1B62486100A1924D /* CitiesProcessor.m in Sources */,
 				C673E7501A2535E60008B5BE /* ExchangeViewCell.m in Sources */,
 				C6DB41781A1D13D300179803 /* PKSequentialAnimation.m in Sources */,
 				A060C20C1997D0FA00C4C876 /* Utils.m in Sources */,
@@ -1567,6 +1626,7 @@
 				C62BFCF71A1E0B6A00D84ED5 /* BFPaperTabBar.m in Sources */,
 				A0A717C719A8A61D000C6527 /* IntroViewController.m in Sources */,
 				A060C21A1997DAE500C4C876 /* iNeedClass.xcdatamodeld in Sources */,
+				C6495ADE1B61422C00682A9A /* State.m in Sources */,
 				C673E7451A2526D80008B5BE /* ClassViewController.m in Sources */,
 				C6DD31211ABC7D1700B325A9 /* AddClassTeachViewController.m in Sources */,
 				C6DB41721A1D13D300179803 /* CALayer+PKConvenienceAnimations.m in Sources */,
@@ -1729,6 +1789,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1763,6 +1824,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

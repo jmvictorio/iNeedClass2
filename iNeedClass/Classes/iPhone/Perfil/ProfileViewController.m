@@ -78,7 +78,7 @@
 {
     EditProfileViewController *editProfile = [[EditProfileViewController alloc] init];
     
-    [self.navigationController presentViewController:editProfile animated:YES completion:nil];
+    [self presentViewController:editProfile animated:YES completion:nil];
 }
 
 - (void)prepareViews

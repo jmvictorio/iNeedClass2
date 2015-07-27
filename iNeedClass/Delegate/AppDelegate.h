@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MenuViewController.h"
 #import "CoreDataDAO.h"
+#import "SITNotificator.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, MenuDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MenuDelegate, SITNotificatorDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

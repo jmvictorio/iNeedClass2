@@ -184,15 +184,23 @@
          case 0:
              if([MFMessageComposeViewController canSendText])
              {
+                 [[UINavigationBar appearance] setBarTintColor:[UIColor colorINC]];
+                 
                  MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
                  controller.body = @"Cuerpo del Mensaje";
                  controller.recipients = @[@"605993892"];
                  controller.messageComposeDelegate = self;
-                 [self presentViewController:controller animated:YES completion:nil];
+                 
+                 [self presentViewController:controller animated:YES completion:^{
+                     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                 }];
              }
              break;
          case 1:
              if([MFMailComposeViewController canSendMail]){
+                
+                 [[UINavigationBar appearance] setBarTintColor:[UIColor colorINC]];
+                 
                  // Email Subject
                  NSString *emailTitle = @"Titulo del Email";
                  // Email Content
@@ -218,7 +226,10 @@
                  [mc.navigationController.navigationBar setBarTintColor:[UIColor colorINC]];
                  
                  // Present mail view controller on screen
-                 [self presentViewController:mc animated:YES completion:NULL];
+                 [self presentViewController:mc animated:YES completion:^{
+                     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                 }];
+                 
              }else{
                  NSLog(@"NO PUE SEEEEEE");
              }

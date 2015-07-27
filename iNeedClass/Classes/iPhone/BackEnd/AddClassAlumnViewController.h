@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddClassAlumnViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface AddClassAlumnViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textPrice;
 @property (weak, nonatomic) IBOutlet UITextField *textMaterias;
 @property (weak, nonatomic) IBOutlet UITextField *textCiudad;
+@property (weak, nonatomic) IBOutlet UITextView *textDescription;
 
 //TABLAS
 @property (weak, nonatomic) IBOutlet UITableView *tableViewMaterias;

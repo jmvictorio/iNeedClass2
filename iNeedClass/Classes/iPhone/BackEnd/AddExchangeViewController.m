@@ -46,7 +46,7 @@
 
     _pickerData = @[ @"Todo el día", @"Mañana", @"Tarde"];
     
-    [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+20)];
+    [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+100)];
     
     [self.labelTitle setFont:[UIFont fontMontseBold:22]];
     
@@ -449,7 +449,7 @@
         dataCell = [_dataPoblacionesTable objectAtIndex:indexPath.row];
         [self.textCiudad setText:[NSString stringWithFormat:@"%@, %@",[dataCell valueForKey:@"poblacion"],[dataCell valueForKey:@"provincia"]]];
         [self.textCiudad resignFirstResponder];
-        [self.scrollView setFrame:CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height-150)];
+        [self.scrollView setContentOffset:CGPointMake(0, tableView.frame.size.height+150) animated:YES];
         
     }
     [tableView setHidden:YES];
@@ -477,7 +477,17 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.pickerHorario setHidden:YES];
+    if([self.textDescription.text length] > 0){
+        [self.textDescription resignFirstResponder];
+    }
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    [self.scrollView setContentOffset:CGPointMake(0, textView.frame.size.height) animated:YES];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    [textView resignFirstResponder];
+}
 
 @end

@@ -8,6 +8,10 @@
 
 #import "RegistroViewController.h"
 #import "ProfileViewController.h"
+#import "SITNotificator.h"
+#import "Constants.h"
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 
 @interface RegistroViewController (){
     NSInteger index;
@@ -34,7 +38,6 @@
     
     index = -1;
     
-    //[buttonContinuarUsuario setEnabled:NO];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"previous-24"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
@@ -65,8 +68,8 @@
 }
 
 - (IBAction)actionFinaliza:(id)sender {
-    ProfileViewController *profile = [[ProfileViewController alloc] init];
-    [self.navigationController pushViewController:profile animated:YES];
+    [SITNotificator notifyEvent:CloseRegistro withUserInfo:nil];
+    
 }
 
 - (IBAction)pasoAtras2:(id)sender {

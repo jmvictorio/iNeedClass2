@@ -17,6 +17,9 @@
 #import "Exchange.h"
 #import "Subject.h"
 #import "CategoryType.h"
+#import "Country.h"
+#import "State.h"
+#import "City.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation CoreDataDAO
@@ -588,6 +591,102 @@
     }];
     
     return changesDone;
+}
+
+- (BOOL)addCities:(NSArray *)cities{
+    
+    __block BOOL changesDone = NO;
+    __block City *message = nil;
+    
+    [self.context performBlockAndWait: ^{
+        /*
+        
+        for (NSString *messageId in arrayMessageIds)
+        {
+            message = [NSEntityDescription insertNewObjectForEntityForName: @"ACNotificationDelete"
+                                                    inManagedObjectContext: _context];
+            
+            [message setValue:messageId forKey:@"messageID"];
+        }
+        
+        changesDone = [self commitChanges];
+        
+        if (changesDone) [SITLog debug:@"Se han insertado los identificadore %@ en ACNotificationDelete.", arrayMessageIds];
+        */
+        
+    }];
+    return YES;
+}
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllCities{
+    return nil;
+}
+
+// Elimina el intercambio del dispositivo
+- (BOOL)deleteAllCities{
+    NSFetchRequest *fetchRequestCountry = [[NSFetchRequest alloc] init];
+    [fetchRequestCountry setEntity:[NSEntityDescription entityForName:@"Country" inManagedObjectContext:_context]];
+    [fetchRequestCountry setIncludesPropertyValues:NO];
+    
+    NSFetchRequest *fetchRequestCities = [[NSFetchRequest alloc] init];
+    [fetchRequestCities setEntity:[NSEntityDescription entityForName:@"City" inManagedObjectContext:_context]];
+    [fetchRequestCities setIncludesPropertyValues:NO];
+    
+    NSFetchRequest *fetchRequestStates= [[NSFetchRequest alloc] init];
+    [fetchRequestStates setEntity:[NSEntityDescription entityForName:@"State" inManagedObjectContext:_context]];
+    [fetchRequestStates setIncludesPropertyValues:NO];
+    
+    __block BOOL changesDone = NO;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjectsCountry = [_context executeFetchRequest:fetchRequestCountry error:&error];
+        NSArray *fetchedObjectsCity = [_context executeFetchRequest:fetchRequestCities error:&error];
+        NSArray *fetchedObjectsState = [_context executeFetchRequest:fetchRequestStates error:&error];
+        
+        for (Country *deleteObject in fetchedObjectsCountry)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        for (City *deleteObject in fetchedObjectsCity)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        for (State *deleteObject in fetchedObjectsState)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        
+        if ([fetchedObjectsCountry count])
+        {
+            changesDone = [self commitChanges];
+        }
+        
+        if (changesDone)
+        {
+            NSLog(@"PERFE EL VACIADO DE CIUDADES");
+            //[SITLog info:@"Se ha vaciado la tabla deleteAllACNotificationDelete: %@",
+             //[error localizedDescription]];
+        }
+        else if ([fetchedObjectsCountry count] > 0)
+        {
+            NSLog(@"ERROR AL VACIAR LAS CIUDADES");
+            //[SITLog error:@"Se ha producido el siguiente error en el metodo deleteAllACNotificationDelete: %@",
+             //[error localizedDescription]];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+
+    return YES;
 }
 
 #pragma mark - SAVE CONTEXT

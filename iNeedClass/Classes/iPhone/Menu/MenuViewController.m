@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "UIColor+RGB.h"
 #import "MenuItemCell.h"
+#import "Constants.h"
 
 
 static NSString * const MenuCellIdentifier = @"MenuItemCell";
@@ -57,7 +58,8 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     
     login = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeStatusLogin) name:@"actualizaMenu" object:nil];
+    NSArray *events = [NSArray arrayWithObjects:CloseRegistro, ActualizaMenu, nil];
+    [SITNotificator addObserver:self forEvents:events];
     
     [self.labelName setTextAlignment:NSTextAlignmentCenter];
     [self.labelName setTextColor:[UIColor whiteColor]];
@@ -175,6 +177,17 @@ static NSString * const MenuCellIdentifier = @"MenuItemCell";
     if(login != loginNew){
         login = loginNew;
         [self.tableView reloadData];
+    }
+}
+
+
+- (void)didReceiveNotificationEvent:(NSNotification *)notification
+{
+    NSString *eventName = [notification name];
+    
+    if ([eventName isEqualToString:ActualizaMenu])
+    {
+        [self changeStatusLogin];
     }
 }
 
