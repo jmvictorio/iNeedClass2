@@ -63,7 +63,7 @@ NSString *const FBSessionStateChangedNotification = @":FBSessionStateChangedNoti
     
     if([Utils is_iPhoneDevice])
     {
-        self.navController = [[UINavigationController alloc] initWithRootViewController:self.homeViewController];
+        self.navController = [[UINavigationController alloc] initWithRootViewController:self.introViewController];
     
         //HACER OVERLAY DE UN NAVIGATIONBAR
         [self.navController.navigationBar setBackgroundImage:[UIImage new]

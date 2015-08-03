@@ -1,14 +1,14 @@
 //
-//  Login.m
+//  CityState.m
 //  iNeedClass
 //
-//  Created by injevm on 4/8/15.
+//  Created by injevm on 28/7/15.
 //  Copyright © 2015 Jesus Victorio. All rights reserved.
 //
 
-#import "Login.h"
+#import "CityState.h"
 
-@implementation Login
+@implementation CityState
 
 // Insert code here to add functionality to your managed object subclass
 

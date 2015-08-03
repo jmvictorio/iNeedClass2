@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <SITNotificatorDelegate>
 @property (weak, nonatomic) IBOutlet UIView *barraVertical;
 @property (weak, nonatomic) IBOutlet UIButton *borde1;
 @property (weak, nonatomic) IBOutlet UIButton *borde2;
@@ -23,5 +23,4 @@
 - (IBAction)actionClass:(id)sender;
 - (IBAction)actionExchange:(id)sender;
 
-+ (id)init2;
 @end

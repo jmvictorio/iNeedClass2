@@ -1,22 +1,21 @@
 //
-//  GetCitiesAndCountries.m
+//  GetLogin.m
 //  iNeedClass
 //
-//  Created by injevm on 24/7/15.
-//  Copyright (c) 2015 Jesus Victorio. All rights reserved.
+//  Created by injevm on 3/8/15.
+//  Copyright © 2015 Jesus Victorio. All rights reserved.
 //
 
-#import "GetCitiesAndCountries.h"
+#import "GetLogin.h"
 #import "Defines.h"
 #import "SITQueueManager.h"
-#import "SITNotificator.h"
 #import "ConfigHelper.h"
 #import "Utils.h"
-#import "CitiesProcessor.h"
+#import "LoginProcessor.h"
 
 #define MAX_SYNC_ATTEMPTS   3
 
-@interface GetCitiesAndCountries()
+@interface GetLogin ()
 
 /// Bandera para controlar el ruunloop del hilo
 @property (atomic) BOOL runloopLive;
@@ -27,25 +26,9 @@
 /// Contador de reintentos de sincronizacion
 @property (nonatomic) NSInteger connAttemptsCounter;
 
-@property (nonatomic) NSString *WS_GETCITIESOPTION;
-
-
-/// Ejecuta la peticion de sincronizacion
-- (void)getCities;
-
-/**
- * Procesa el contenido de una pagina de sincronizacion. Determina la clase encargada del procesamiento
- * de la pagina y lanza una nueva sincronizacion si hay mas paginas disponibles.
- */
-    
-/** Envia a nivel de aplicacion el evento asociado al resultado de la sincronizacion.
- Si la operacion fue exitosa (success = YES) envia 'SyncCompleted'. e.o.c. SyncFailed
- */
-- (void)broadcastSyncResult:(BOOL)success;
-
 @end
 
-@implementation GetCitiesAndCountries
+@implementation GetLogin
 
 - (id)init
 {
@@ -57,47 +40,18 @@
         _connAttemptsCounter = 0;
         
         self.idOperation = [Utils buildDateNow];
-        self.WS_GETCITIESOPTION = WS_GETPOBLACIONES;
     }
     
     return self;
 }
 
-- (id)init2
-{
-    self = [super init];
-    
-    if (self) {
-        _runloopLive = NO;
-        
-        _connAttemptsCounter = 0;
-        
-        self.idOperation = [Utils buildDateNow];
-        self.WS_GETCITIESOPTION = WS_GETPROVINCIAS;
-        
-    }
-    
-    return self;
-}
-
-+ (GetCitiesAndCountries *)defaultView:(NSInteger)option
-{
-    GetCitiesAndCountries *view;
-    
-    switch (option) {
-        case 0:
-            view = [[GetCitiesAndCountries alloc] init];
-            break;
-        case 1:
-            view = [[GetCitiesAndCountries alloc] init2];
-            break;
-        default:
-            break;
-    }
++ (GetLogin *)defaultView:(NSDictionary *)user{
+    GetLogin *view = [[GetLogin alloc] init];
+    view.mail = [user valueForKey:@"user"];
+    view.pass = [user valueForKey:@"pass"];
     
     return view;
 }
-
 
 #pragma mark - Punto de entrada de las clases NSOperation
 
@@ -105,7 +59,7 @@
     
     @autoreleasepool {
         
-        [self getCities];
+        [self getLogin];
         
     }
 }
@@ -113,7 +67,7 @@
 #pragma mark - Helper methods
 
 /// Ejecuta la peticion de sincronizacion
-- (void)getCities
+- (void)getLogin
 {
     NSLog(@"Lanzando peticion de GetCities...");
     
@@ -121,23 +75,28 @@
     
     // Recuperar la direccion del servicio requerido para la sincronizacion
     // asi como las credenciales de autenticacion para el BUS
-    NSString *address        = self.WS_GETCITIESOPTION;
-    //NSString *user           = USER;
-    //NSString *password       = PASS;
+    NSString *address           = WS_GETLOGIN;
+    NSString *usertmp           = self.mail;
+    NSString *passwordtmp       = self.pass;
+    
+    NSMutableString *requestParams = [NSMutableString stringWithFormat:
+                                      @"%@&texto1=%@&texto2=%@",
+                                      address,
+                                      usertmp, passwordtmp];
     
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     [request setHTTPMethod:@"GET"];
-    [request setURL:[NSURL URLWithString:address]];
+    [request setURL:[NSURL URLWithString:requestParams]];
     [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     /*NSString *authStr = [NSString stringWithFormat:@"%@:%@", user, password];
-    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
-    [request setValue:authValue forHTTPHeaderField:@"Authorization"];*/
+     NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+     [request setValue:authValue forHTTPHeaderField:@"Authorization"];*/
     [request setTimeoutInterval:kTimeout];
     
-     NSLog(@"(Operacion GETCITIES) Esperando respuesta del SERVIDOR...");
+    NSLog(@"(Operacion GETLOGIN) Esperando respuesta del SERVIDOR...");
     
     // Crear la conexion con el servicio y lanzar la peticion
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -192,17 +151,17 @@
         // Intentar sincronizar mientras no se haya superado el numero maximo de reintentos
         if ( _connAttemptsCounter < MAX_SYNC_ATTEMPTS )
         {
-            NSLog(@"Reintentar getCities.");
+            NSLog(@"Reintentar getLogin.");
             
             // Esperar 2 segundos hasta el proximo intento
             [NSThread sleepForTimeInterval:2];
             
-            [self getCities];
+            [self getLogin];
             
             return;
         }
         
-        NSLog(@"didReceiveResponse: Se ha abortado la peticion de GetCities!");
+        NSLog(@"didReceiveResponse: Se ha abortado la peticion de GetLogin!");
         
         [self broadcastSyncResult:NO];
         
@@ -231,17 +190,23 @@
                                                                              error: nil];
         if(syncDataCollection)
         {
-            CitiesProcessor *citiesProcessor = [[CitiesProcessor alloc] initWithCities:syncDataCollection];
-            [citiesProcessor execute];
+            
+            NSArray *loginArray = (NSArray *)syncDataCollection;
+            NSMutableDictionary *loginfinal = [[NSMutableDictionary alloc] initWithDictionary:[loginArray objectAtIndex:0]];
+            [loginfinal setValue:self.mail forKey:@"mail"];
+            [loginfinal setValue:self.pass forKey:@"pass"];
+            
+            LoginProcessor *loginProcessor = [[LoginProcessor alloc] initWithLogin:loginfinal];
+            [loginProcessor execute];
         }
-        NSLog(@"Se ha parseado citiesProcessor");
+        NSLog(@"Se ha parseado loginProcessor");
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // La conexion ha fallado por alguna razon. Revisar el error producido y determinar la accion ha seguir
     
-    [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"cities"];
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSLog(@"Se ha producido un fallo. Codigo de error: %ld. Descripcion de error: ", (long)[error code]);
@@ -254,7 +219,7 @@
         // Esperar 2 segundos hasta el pr√≥ximo intento
         [NSThread sleepForTimeInterval:2];
         
-        [self getCities];
+        [self getLogin];
         
         return;
     }

@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "ProfileViewController.h"
 #import "RegistroViewController.h"
+#import "SITQueueManager.h"
+#import "GetLogin.h"
 
 
 @interface LoginViewController ()
@@ -46,10 +48,6 @@
     [self.textFieldEmail setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     [self.textFieldPass setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     
-    [self.buttonPassOK.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
-    [self.buttonPassOK.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.buttonPassOK.titleLabel setNumberOfLines:5];
-    
     delegate = [AppDelegate sharedInstance];
     
     [self.viewButtons setBackgroundColor:[UIColor colorWithHexString:@"3b5998"]];
@@ -79,7 +77,7 @@
     NSLog(@"LOGADO, DEBE DE IR DIRECTAMENTE A PERFIL");
     [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"login"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.buttonPassOK setHidden:NO];
+    
     [SITNotificator notifyEvent:ActualizaMenu withUserInfo:nil];
     ProfileViewController *profile = [[ProfileViewController alloc]init];
     
@@ -113,7 +111,7 @@
     // test to see if we can use the share dialog built into the Facebook application
     FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
     p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
-    [self.buttonPassOK setHidden:YES];
+    
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"login"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //BOOL canShareFB = [FBDialogs canPresentShareDialogWithParams:p];
@@ -147,6 +145,16 @@
 }
 
 - (IBAction)loginUser:(id)sender {
+    NSString *mail = [self.textFieldEmail text];
+    NSString *pass = [self.textFieldPass text];
+    
+    if([mail length] == 0 || [pass length] == 0){
+        [SITNotificator showAlertWithTextMessage:@"Faltan datos" andTitle:@"Error detectado"];
+    }else{
+        NSDictionary *user = [[NSDictionary alloc] initWithObjectsAndKeys:mail, @"user", pass, @"pass", nil];
+        [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetLogin defaultView:user]];
+    }
+    
     NSLog(@"LOGARSE");
 }
 

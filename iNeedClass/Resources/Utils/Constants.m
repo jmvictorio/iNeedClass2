@@ -14,3 +14,9 @@ NSString * const EventNameKey  = @"event_name";
 NSString * const CloseRegistro                      = @"CloseRegistro";
 NSString * const ActualizaMenu                      = @"ActualizaMenu";
 NSString * const ExitAndUpdateMenu                  = @"ExitAndUpdateMenu";
+NSString * const UpdateProgress                     = @"UpdateProgress";
+NSString * const EndProgress                        = @"EndProgress";
+NSString * const FinishStates                       = @"FinishStates";
+NSString * const FinishStatesAll                    = @"FinishStatesAll";
+
+

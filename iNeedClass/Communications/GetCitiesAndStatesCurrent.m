@@ -1,22 +1,22 @@
 //
-//  GetCitiesAndCountries.m
+//  GetCitiesAndStatesCurrent.m
 //  iNeedClass
 //
-//  Created by injevm on 24/7/15.
-//  Copyright (c) 2015 Jesus Victorio. All rights reserved.
+//  Created by injevm on 31/7/15.
+//  Copyright © 2015 Jesus Victorio. All rights reserved.
 //
 
-#import "GetCitiesAndCountries.h"
+#import "GetCitiesAndStatesCurrent.h"
 #import "Defines.h"
 #import "SITQueueManager.h"
-#import "SITNotificator.h"
 #import "ConfigHelper.h"
 #import "Utils.h"
-#import "CitiesProcessor.h"
+#import "CitiesProcessorCurrent.h"
+
 
 #define MAX_SYNC_ATTEMPTS   3
 
-@interface GetCitiesAndCountries()
+@interface GetCitiesAndStatesCurrent ()
 
 /// Bandera para controlar el ruunloop del hilo
 @property (atomic) BOOL runloopLive;
@@ -30,22 +30,9 @@
 @property (nonatomic) NSString *WS_GETCITIESOPTION;
 
 
-/// Ejecuta la peticion de sincronizacion
-- (void)getCities;
-
-/**
- * Procesa el contenido de una pagina de sincronizacion. Determina la clase encargada del procesamiento
- * de la pagina y lanza una nueva sincronizacion si hay mas paginas disponibles.
- */
-    
-/** Envia a nivel de aplicacion el evento asociado al resultado de la sincronizacion.
- Si la operacion fue exitosa (success = YES) envia 'SyncCompleted'. e.o.c. SyncFailed
- */
-- (void)broadcastSyncResult:(BOOL)success;
-
 @end
 
-@implementation GetCitiesAndCountries
+@implementation GetCitiesAndStatesCurrent
 
 - (id)init
 {
@@ -57,7 +44,7 @@
         _connAttemptsCounter = 0;
         
         self.idOperation = [Utils buildDateNow];
-        self.WS_GETCITIESOPTION = WS_GETPOBLACIONES;
+        self.WS_GETCITIESOPTION = WS_GETPOBLACIONESCURRENT;
     }
     
     return self;
@@ -73,23 +60,23 @@
         _connAttemptsCounter = 0;
         
         self.idOperation = [Utils buildDateNow];
-        self.WS_GETCITIESOPTION = WS_GETPROVINCIAS;
+        self.WS_GETCITIESOPTION = WS_GETPROVINCIASCURRENT;
         
     }
     
     return self;
 }
 
-+ (GetCitiesAndCountries *)defaultView:(NSInteger)option
++ (GetCitiesAndStatesCurrent *)defaultView:(NSInteger)option
 {
-    GetCitiesAndCountries *view;
+    GetCitiesAndStatesCurrent *view;
     
     switch (option) {
         case 0:
-            view = [[GetCitiesAndCountries alloc] init];
+            view = [[GetCitiesAndStatesCurrent alloc] init];
             break;
         case 1:
-            view = [[GetCitiesAndCountries alloc] init2];
+            view = [[GetCitiesAndStatesCurrent alloc] init2];
             break;
         default:
             break;
@@ -97,7 +84,6 @@
     
     return view;
 }
-
 
 #pragma mark - Punto de entrada de las clases NSOperation
 
@@ -132,12 +118,12 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     /*NSString *authStr = [NSString stringWithFormat:@"%@:%@", user, password];
-    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
-    [request setValue:authValue forHTTPHeaderField:@"Authorization"];*/
+     NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+     [request setValue:authValue forHTTPHeaderField:@"Authorization"];*/
     [request setTimeoutInterval:kTimeout];
     
-     NSLog(@"(Operacion GETCITIES) Esperando respuesta del SERVIDOR...");
+    NSLog(@"(Operacion GETCITIES) Esperando respuesta del SERVIDOR...");
     
     // Crear la conexion con el servicio y lanzar la peticion
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -231,7 +217,7 @@
                                                                              error: nil];
         if(syncDataCollection)
         {
-            CitiesProcessor *citiesProcessor = [[CitiesProcessor alloc] initWithCities:syncDataCollection];
+            CitiesProcessorCurrent *citiesProcessor = [[CitiesProcessorCurrent alloc] initWithCities:syncDataCollection];
             [citiesProcessor execute];
         }
         NSLog(@"Se ha parseado citiesProcessor");
@@ -296,6 +282,7 @@
     
     CFRunLoopStop(CFRunLoopGetCurrent());
 }
+
 
 
 @end

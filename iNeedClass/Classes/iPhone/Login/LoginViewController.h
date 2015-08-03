@@ -15,10 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldEmail;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldPass;
 @property (weak, nonatomic) IBOutlet UILabel *labelOR;
-@property (weak, nonatomic) IBOutlet UIButton *buttonPassOK;
 
 - (IBAction)loginUser:(id)sender;
 - (IBAction)RegisterUser:(id)sender;
-- (IBAction)passOK:(id)sender;
 
 @end

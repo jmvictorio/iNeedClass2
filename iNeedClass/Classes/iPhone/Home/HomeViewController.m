@@ -13,7 +13,9 @@
 #import "ClassShowViewController.h"
 #import "ExchangeShowViewController.h"
 #import "GetCitiesAndCountries.h"
+#import "GetCitiesAndStatesCurrent.h"
 #import "SITQueueManager.h"
+#import "City.h"
 
 @interface HomeViewController (){
     // Botones de 'Edicion'
@@ -58,6 +60,10 @@
     
     [self setUpAnimations];
     
+    NSArray *events = [NSArray arrayWithObjects:FinishStates, FinishStatesAll, nil];
+    
+    [SITNotificator addObserver:self forEvents:events];
+    
     menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"]
                                                   style:UIBarButtonItemStyleBordered
                                                  target:self
@@ -84,12 +90,22 @@
     
     [self loadFonts];
     
+    BOOL cities = [[NSUserDefaults standardUserDefaults] boolForKey:@"cities"];
+    
+    [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndStatesCurrent defaultView:0]];
+    [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndStatesCurrent defaultView:1]];
+    
+    if(!cities){
+        [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndCountries defaultView:0]];
+        [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndCountries defaultView:1]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     delegate = [AppDelegate sharedInstance];
     [delegate doOverlay];
+
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorINC]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *firstTime = [defaults objectForKey:@"firstTime"];
@@ -123,6 +139,7 @@
 
 - (void)loadFirstTime
 {
+    
     tutorialGray = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     [tutorialGray setBackgroundColor:[UIColor blackColor]];
@@ -155,10 +172,14 @@
 
 - (void)finishFirstTime
 {
+    [mustache removeFromSuperview];
     [self.arrow removeFromSuperview];
     [self.tutorial removeFromSuperview];
     [tutorialGray removeFromSuperview];
     [menuButton setEnabled:YES];
+    
+    Tutorial2ViewController *tuto = [[Tutorial2ViewController alloc]init];
+    [self presentViewController:tuto animated:YES completion:nil];
 }
 
 - (void)setUpAnimations
@@ -321,12 +342,10 @@
 - (IBAction)actionAbout:(id)sender {
     [self animation1];
     
-    [mustache removeFromSuperview];
+    NSLog(@"%lu",(unsigned long)[[[delegate coreDataDAO] findAllCities] count]);
+    //[mustache removeFromSuperview];
     //AboutViewController *about = [[AboutViewController alloc]init];
     //[self.navigationController pushViewController:about animated:YES];
-    
-    [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndCountries defaultView:0]];
-    [[SITQueueManager sharedInstance] enqueueSyncOperation:[GetCitiesAndCountries defaultView:1]];
      
 }
 
@@ -343,4 +362,15 @@
     [class setTitle:@"Intercambios"];
     [self.navigationController pushViewController:class animated:YES];
 }
+
+- (void)didReceiveNotificationEvent:(NSNotification *)notification{
+    NSString *name = [notification name];
+    
+    if([name isEqualToString:FinishStates]){
+        [delegate.coreDataDAO prepareInsertStates];
+    }else if([name isEqualToString:FinishStatesAll]){
+        [delegate.coreDataDAO prepareInsertStatesAll];
+    }
+}
+
 @end

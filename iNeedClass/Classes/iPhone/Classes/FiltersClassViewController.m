@@ -16,6 +16,12 @@
     
     NSMutableArray *_dataMaterias;
     NSMutableArray *_dataMateriasTable;
+    
+    NSArray *arrayCiudades;
+    NSArray *arrayProvincias;
+    
+    NSString *id_city_selected;
+    NSString *id_matery_selected;
 }
 
 @end
@@ -53,63 +59,10 @@
 }
 - (void)setUp
 {
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Sevilla" forKey:@"provincia"];
-    [dic setValue:@"Écija" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Sevilla" forKey:@"provincia"];
-    [dic setValue:@"Sevilla" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Sevilla" forKey:@"provincia"];
-    [dic setValue:@"Dos Hermanas" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Sevilla" forKey:@"provincia"];
-    [dic setValue:@"Mairena del Alcor" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Sevilla" forKey:@"provincia"];
-    [dic setValue:@"Mairena del Aznaljarafe" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Cádiz" forKey:@"provincia"];
-    [dic setValue:@"San Fernando" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Cádiz" forKey:@"provincia"];
-    [dic setValue:@"Cádiz" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Cádiz" forKey:@"provincia"];
-    [dic setValue:@"Puerto de Santa Maria" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Huelva" forKey:@"provincia"];
-    [dic setValue:@"Huelva" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Granada" forKey:@"provincia"];
-    [dic setValue:@"Granada" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Granada" forKey:@"provincia"];
-    [dic setValue:@"Sierra Nevada" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Granada" forKey:@"provincia"];
-    [dic setValue:@"Motril" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Malaga" forKey:@"provincia"];
-    [dic setValue:@"Torremolinos" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"Malaga" forKey:@"provincia"];
-    [dic setValue:@"Fuengirola" forKey:@"poblacion"];
-    [_dataPoblaciones addObject:dic];
+    //8087 registros + 8087 poblaciones + 53 provincias = 16227 ----> 0,0061625 para el 100%
+    _dataPoblaciones = [[NSMutableArray alloc] initWithArray:[[[AppDelegate sharedInstance] coreDataDAO] findAllCitiesStates]];
     
+    /*
     NSMutableDictionary *dic2 = [[NSMutableDictionary alloc] init];
     [dic2 setValue:@"Inglés" forKey:@"materia"];
     [_dataMaterias addObject:dic2];
@@ -152,7 +105,7 @@
     dic2 = [[NSMutableDictionary alloc] init];
     [dic2 setValue:@"Kizomba Intermedio" forKey:@"materia"];
     [_dataMaterias addObject:dic2];
-    
+    */
 }
 
 
@@ -256,6 +209,9 @@
         return YES;
     }
     
+    if(([textField.text length] + 1) < 3){
+        return YES;
+    }
     NSString *strippedStr = [NSString stringWithFormat:@"%@%@",[textField text], string];;
     // break up the search terms (separated by spaces)
     /*NSArray *searchItems = nil;
@@ -279,18 +235,13 @@
     
     if([textField tag] == 1)
     {
-        NSString *attributeProvincia = @"provincia";
-        NSString *attributePoblacion = @"poblacion";
+        NSString *attributePoblacion = @"name";
         NSString *attributeValue = strippedStr;
-        
-        NSPredicate *predicatePoblacion = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributeProvincia, attributeValue];//keySelected is NSString itself
-        NSArray *poblaciones = [NSMutableArray arrayWithArray:[_dataPoblaciones filteredArrayUsingPredicate:predicatePoblacion]];
         
         NSPredicate *predicateProvincia = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributePoblacion, attributeValue];//keySelected is NSString itself
         NSArray *provincias = [NSMutableArray arrayWithArray:[_dataPoblaciones filteredArrayUsingPredicate:predicateProvincia]];
         
-        NSMutableSet *filtroRepetidos = [[NSMutableSet alloc] initWithArray:poblaciones];
-        [filtroRepetidos addObjectsFromArray:provincias];
+        NSMutableSet *filtroRepetidos = [[NSMutableSet alloc] initWithArray:provincias];
         
         _dataPoblacionesTable = [[NSMutableArray alloc]initWithArray:[filtroRepetidos allObjects]];
         
@@ -328,7 +279,7 @@
     if(tableView.tag == 1)
     {
         dataCell = [_dataPoblacionesTable objectAtIndex:indexPath.row];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@, %@",[dataCell valueForKey:@"poblacion"],[dataCell valueForKey:@"provincia"]]];
+        [cell.textLabel setText:[dataCell valueForKey:@"name"]];
         [cell.textLabel setFont:[UIFont fontMontseRegular:14]];
     }
     else if (tableView.tag == 2)
@@ -360,14 +311,20 @@
     if(tableView.tag == 1)
     {
         dataCell = [_dataPoblacionesTable objectAtIndex:indexPath.row];
-        [self.poblacionTextField setText:[NSString stringWithFormat:@"%@, %@",[dataCell valueForKey:@"poblacion"],[dataCell valueForKey:@"provincia"]]];
+        [self.poblacionTextField setText:[dataCell valueForKey:@"name"]];
         [self.poblacionTextField resignFirstResponder];
+        
+        id_city_selected = [dataCell valueForKey:@"id_city"];
+        NSLog(@"%@", id_city_selected);
     }
     else if (tableView.tag == 2)
     {
         dataCell = [_dataMateriasTable objectAtIndex:indexPath.row];
         [self.materiaTextField setText:[dataCell valueForKey:@"materia"]];
         [self.materiaTextField resignFirstResponder];
+        
+        id_matery_selected = [dataCell valueForKey:@"id_matery"];
+        NSLog(@"%@", id_matery_selected);
     }
 }
 

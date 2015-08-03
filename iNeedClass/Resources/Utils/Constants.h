@@ -21,4 +21,7 @@ extern NSString * const EventNameKey;
 extern NSString * const CloseRegistro;
 extern NSString * const ActualizaMenu;
 extern NSString * const ExitAndUpdateMenu;
-
+extern NSString * const UpdateProgress;
+extern NSString * const EndProgress;
+extern NSString * const FinishStates;
+extern NSString * const FinishStatesAll;

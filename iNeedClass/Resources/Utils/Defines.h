@@ -13,9 +13,11 @@
 
 
 //WEBSERVICES
-#define WS_GETPOBLACIONES   @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=201"
-#define WS_GETPROVINCIAS    @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=202"
-
+#define WS_GETPOBLACIONES           @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=201"
+#define WS_GETPROVINCIAS            @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=202"
+#define WS_GETPOBLACIONESCURRENT    @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=203"
+#define WS_GETPROVINCIASCURRENT     @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=204"
+#define WS_GETLOGIN                 @"http://s505130685.onlinehome.us/inc/consulta.php?opcion=205"
 
 
 // Codigos de respuesta de los servicios del BUS

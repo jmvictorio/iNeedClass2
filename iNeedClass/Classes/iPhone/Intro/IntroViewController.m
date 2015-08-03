@@ -8,7 +8,10 @@
 
 #import "IntroViewController.h"
 #import "CBZSplashView.h"
+#import "SITQueueManager.h"
 #import "HomeViewController.h"
+#import "GetCitiesAndCountries.h"
+#import "UIFont+Montserrat.h"
 
 @interface IntroViewController ()
 {
@@ -40,7 +43,6 @@
                                            userInfo:nil
                                             repeats:NO];
     
-    delegate = [AppDelegate sharedInstance];
 }
 
 - (void)viewDidAppear:(BOOL)animated

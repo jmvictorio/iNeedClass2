@@ -1,8 +1,8 @@
 //
-//  Login.h
+//  CityState.h
 //  iNeedClass
 //
-//  Created by injevm on 4/8/15.
+//  Created by injevm on 28/7/15.
 //  Copyright © 2015 Jesus Victorio. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Login : NSManagedObject
+@interface CityState : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Login+CoreDataProperties.h"
+#import "CityState+CoreDataProperties.h"

@@ -13,6 +13,7 @@
 #import "SITUtils.h"
 #import "SITNotificator.h"
 #import "User.h"
+#import "Login.h"
 #import "Teacher.h"
 #import "Exchange.h"
 #import "Subject.h"
@@ -20,6 +21,7 @@
 #import "Country.h"
 #import "State.h"
 #import "City.h"
+#import "CityState.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation CoreDataDAO
@@ -251,55 +253,131 @@
     return exchanges;
 }
 
-- (BOOL)deleteUser:(NSString *)userId
+- (BOOL)createLoginWithData:(NSDictionary *)loginData
 {
-    NSManagedObject *userToDelete = [self findUserWithID:userId];
+    __block Login *login = nil;
+    __block BOOL changesDone = NO;
+    
+    [self.context performBlockAndWait: ^{
+        
+        login = [NSEntityDescription insertNewObjectForEntityForName: @"Login"
+                                             inManagedObjectContext: _context];
+        
+        for (NSString *field in [loginData allKeys]) {
+            [login setValue:[loginData valueForKey:field] forKey:field];
+        }
+        
+        changesDone = [self commitChanges]; //[self saveChangesInContext:_context];
+        
+        if (changesDone)
+        {
+            NSLog(@"FUE BIEN EL LOGIN");
+        }else{
+            NSLog(@"ERROR EL LOGIN");
+        }////[SitLog debug:@"La tarea %@ ha sido almacenada.", [userData objectForKey:@"id"]];
+        
+    }];
+    
+    return changesDone;
+    
+}
+
+- (BOOL)deleteLogin
+{
+    NSFetchRequest *fetchRequestLogin= [[NSFetchRequest alloc] init];
+    [fetchRequestLogin setEntity:[NSEntityDescription entityForName:@"Login" inManagedObjectContext:_context]];
+    [fetchRequestLogin setIncludesPropertyValues:NO];
     
     __block BOOL changesDone = NO;
     
-    [_context performBlockAndWait: ^{
+    void (^doSearch)(void) = ^{
         
-        if(userToDelete)
+        NSError *error = nil;
+        NSArray *fetchedObjectsLogin = [_context executeFetchRequest:fetchRequestLogin error:&error];
+        
+        for (Country *deleteObject in fetchedObjectsLogin)
         {
-            User *user = (User *)userToDelete;
-            if([user teacher_user]>0){
-                for(Teacher *teach in [user teacher_user])
-                {
-                    [self deleteTeach:teach.id_teacher toUserId:userId];
-                }
-            }
-            if([user exchange_user]>0){
-                for(Exchange *exchange in [user exchange_user])
-                {
-                    [self deleteExchange:exchange.id_exchange toUserId:userId];
-                }
-            }
-            
-            [_context deleteObject:user];
-            
+            [_context deleteObject:deleteObject];
+        }
+        
+        if ([fetchedObjectsLogin count])
+        {
             changesDone = [self commitChanges];
         }
         
         if (changesDone)
         {
-            ////[SitLog info:@"El usuario %@ ha sido eliminado.", userId];
+            NSLog(@"PERFE EL VACIADO DE LOGIN");
+            //[SITLog info:@"Se ha vaciado la tabla deleteAllACNotificationDelete: %@",
+            //[error localizedDescription]];
         }
-        else
+        else if ([fetchedObjectsLogin count] > 0)
         {
-            if (userToDelete == nil)
-            {
-                ////[SitLog warning:@"El usuario %@ no ha podido ser eliminado porque no esta en la bd.", userId];
-            }
-            else
-            {
-                ////[SitLog warning:@"El usuario %@ esta en la bd pero no ha podido ser eliminado.", userId];
-                
-            }
+            NSLog(@"ERROR AL VACIAR LOGIN");
+            //[SITLog error:@"Se ha producido el siguiente error en el metodo deleteAllACNotificationDelete: %@",
+            //[error localizedDescription]];
         }
         
-    }];
+    };
     
-    return changesDone;
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return YES;
+}
+
+- (BOOL)deleteUser:(NSString *)userId
+{
+    
+    //TODO: REFORMA
+    NSFetchRequest *fetchRequestLogin= [[NSFetchRequest alloc] init];
+    [fetchRequestLogin setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:_context]];
+    [fetchRequestLogin setIncludesPropertyValues:NO];
+    
+    __block BOOL changesDone = NO;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjectsLogin = [_context executeFetchRequest:fetchRequestLogin error:&error];
+        
+        for (Country *deleteObject in fetchedObjectsLogin)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        
+        if ([fetchedObjectsLogin count])
+        {
+            changesDone = [self commitChanges];
+        }
+        
+        if (changesDone)
+        {
+            NSLog(@"PERFE EL VACIADO DE LOGIN");
+            //[SITLog info:@"Se ha vaciado la tabla deleteAllACNotificationDelete: %@",
+            //[error localizedDescription]];
+        }
+        else if ([fetchedObjectsLogin count] > 0)
+        {
+            NSLog(@"ERROR AL VACIAR LOGIN");
+            //[SITLog error:@"Se ha producido el siguiente error en el metodo deleteAllACNotificationDelete: %@",
+            //[error localizedDescription]];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return YES;
 }
 
 - (User *)addTeach:(NSDictionary *)teachData toUserId:(NSString *)userId
@@ -593,34 +671,332 @@
     return changesDone;
 }
 
-- (BOOL)addCities:(NSArray *)cities{
+
+/**
+ 
+ BD de todas las ciudades y provincias ACTUALES
+ 
+ */
+
+- (BOOL)addCountry:(NSDictionary *)country{
     
     __block BOOL changesDone = NO;
-    __block City *message = nil;
+    __block Country *pais = nil;
     
     [self.context performBlockAndWait: ^{
-        /*
         
-        for (NSString *messageId in arrayMessageIds)
-        {
-            message = [NSEntityDescription insertNewObjectForEntityForName: @"ACNotificationDelete"
-                                                    inManagedObjectContext: _context];
-            
-            [message setValue:messageId forKey:@"messageID"];
+        pais = [NSEntityDescription insertNewObjectForEntityForName: @"Country"
+                                             inManagedObjectContext: _context];
+        
+        for (NSString *field in [country allKeys]) {
+            [pais setValue:[country valueForKey:field] forKey:field];
+        }
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"se ha insertado la pronvincia: %@", [pais name]);
+        
+        
+    }];
+    return YES;
+}
+
+- (BOOL)addState:(NSDictionary *)state{
+    
+    __block BOOL changesDone = NO;
+    __block State *stat = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        
+        stat = [NSEntityDescription insertNewObjectForEntityForName: @"State"
+                                             inManagedObjectContext: _context];
+        
+        for (NSString *field in [state allKeys]) {
+            [stat setValue:[state valueForKey:field] forKey:field];
         }
         
         changesDone = [self commitChanges];
         
-        if (changesDone) [SITLog debug:@"Se han insertado los identificadore %@ en ACNotificationDelete.", arrayMessageIds];
-        */
+        if (changesDone) NSLog(@"se ha insertado la pronvincia: %@", [stat name]);
+        
+        
+    }];
+    return YES;
+}
+
+- (BOOL)addCity:(NSDictionary *)city{
+    
+    __block BOOL changesDone = NO;
+    __block City *ciudad = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        
+        ciudad = [NSEntityDescription insertNewObjectForEntityForName: @"City"
+                                               inManagedObjectContext: _context];
+        
+        for (NSString *field in [city allKeys]) {
+            [ciudad setValue:[city valueForKey:field] forKey:field];
+        }
+        
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"Se ha insertado la ciudad: %@", [ciudad name]);
+        
         
     }];
     return YES;
 }
 
 //Retorna todas las categorias persistidas.
+- (NSArray *)findAllStates{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"State"];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block NSMutableArray *provincias = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        provincias = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return provincias;
+}
+
+- (void)prepareInsertStates{
+    NSArray *arrayCiudades = [self findAllCities];
+    NSArray *arrayProvincias = [self findAllStates];
+    
+    for(NSManagedObject *ciudad in arrayCiudades){
+        NSArray *keys = [[[ciudad entity] attributesByName] allKeys];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[ciudad dictionaryWithValuesForKeys:keys]];
+        
+        NSString *attributeProvincia = @"id_state";
+        NSString *attributeValue = [dict valueForKey:@"id_state"];
+        NSPredicate *predicatePoblacion = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributeProvincia, attributeValue];//keySelected is NSString itself
+        NSArray *poblaciones = [NSMutableArray arrayWithArray:[arrayProvincias filteredArrayUsingPredicate:predicatePoblacion]];
+        
+        [dict setValue:[[poblaciones objectAtIndex:0] valueForKey:@"name"] forKey:@"provincia"];
+        
+        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@, %@", [dict valueForKey:@"name"], [dict valueForKey:@"provincia"]], @"name", [dict valueForKey:@"id_city"], @"id_city", nil];
+        
+        [self insertCityStates:dictionary];
+    }
+}
+
+- (BOOL)insertCityStates:(NSDictionary *)dict{
+    
+    __block BOOL changesDone = NO;
+    __block CityState *ciudad = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        
+        ciudad = [NSEntityDescription insertNewObjectForEntityForName: @"CityState"
+                                               inManagedObjectContext: _context];
+        
+        [ciudad setValue:[dict valueForKey:@"name"] forKey:@"name"];
+        [ciudad setValue:[dict valueForKey:@"id_city"] forKey:@"id_city"];
+        
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"Se ha insertado la CityState: %@", [ciudad name]);
+        
+        
+    }];
+    return YES;
+}
+
+- (NSArray *)findAllCitiesStates{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CityState"];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block NSMutableArray *ciudades = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        ciudades = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return ciudades;
+}
+
+//Retorna todas las categorias persistidas.
 - (NSArray *)findAllCities{
-    return nil;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"City"];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block NSMutableArray *ciudades = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        ciudades = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return ciudades;
+}
+
+- (City *)findCity:(NSString *)city
+{
+    NSPredicate *queryPredicate = [NSPredicate predicateWithFormat:@"id_city = %@", city];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"City"];
+    [fetchRequest setPredicate:queryPredicate];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block City *ciudad = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        if ( fetchedObjects != nil && [fetchedObjects count] > 0 ) {
+            ciudad = [fetchedObjects objectAtIndex:0];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return ciudad;
+}
+
+- (Country *)findCountry:(NSString *)country
+{
+    NSPredicate *queryPredicate = [NSPredicate predicateWithFormat:@"id_country = %@", country];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Country"];
+    [fetchRequest setPredicate:queryPredicate];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block Country *pais = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        if ( fetchedObjects != nil && [fetchedObjects count] > 0 ) {
+            pais = [fetchedObjects objectAtIndex:0];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return pais;
+}
+
+- (State *)findState:(NSString *)state
+{
+    NSPredicate *queryPredicate = [NSPredicate predicateWithFormat:@"id_state = %@", state];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"State"];
+    [fetchRequest setPredicate:queryPredicate];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block State *provincia = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        if ( fetchedObjects != nil && [fetchedObjects count] > 0 ) {
+            provincia = [fetchedObjects objectAtIndex:0];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return provincia;
 }
 
 // Elimina el intercambio del dispositivo
@@ -635,6 +1011,398 @@
     
     NSFetchRequest *fetchRequestStates= [[NSFetchRequest alloc] init];
     [fetchRequestStates setEntity:[NSEntityDescription entityForName:@"State" inManagedObjectContext:_context]];
+    [fetchRequestStates setIncludesPropertyValues:NO];
+    
+    __block BOOL changesDone = NO;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjectsCountry = [_context executeFetchRequest:fetchRequestCountry error:&error];
+        NSArray *fetchedObjectsCity = [_context executeFetchRequest:fetchRequestCities error:&error];
+        NSArray *fetchedObjectsState = [_context executeFetchRequest:fetchRequestStates error:&error];
+        
+        for (Country *deleteObject in fetchedObjectsCountry)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        for (City *deleteObject in fetchedObjectsCity)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        for (State *deleteObject in fetchedObjectsState)
+        {
+            [_context deleteObject:deleteObject];
+        }
+        
+        if ([fetchedObjectsCountry count])
+        {
+            changesDone = [self commitChanges];
+        }
+        
+        if (changesDone)
+        {
+            NSLog(@"PERFE EL VACIADO DE CIUDADES");
+            //[SITLog info:@"Se ha vaciado la tabla deleteAllACNotificationDelete: %@",
+            //[error localizedDescription]];
+        }
+        else if ([fetchedObjectsCountry count] > 0)
+        {
+            NSLog(@"ERROR AL VACIAR LAS CIUDADES");
+            //[SITLog error:@"Se ha producido el siguiente error en el metodo deleteAllACNotificationDelete: %@",
+            //[error localizedDescription]];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return YES;
+}
+
+/**
+ 
+ BD de todas las ciudades y provincias
+ 
+ */
+
+- (BOOL)addCountryAll:(NSDictionary *)country{
+    
+    __block BOOL changesDone = NO;
+    __block Country *pais = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        pais = [NSEntityDescription insertNewObjectForEntityForName: @"CountryAll"
+                                                inManagedObjectContext: _context];
+        
+        for (NSString *field in [country allKeys]) {
+            [pais setValue:[country valueForKey:field] forKey:field];
+        }
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"se ha insertado la pronvincia: %@", [pais name]);
+        
+        
+    }];
+    return YES;
+}
+
+- (BOOL)addStateAll:(NSDictionary *)state{
+    
+    __block BOOL changesDone = NO;
+    __block State *stat = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        
+        stat = [NSEntityDescription insertNewObjectForEntityForName: @"StateAll"
+                                                inManagedObjectContext: _context];
+        
+        for (NSString *field in [state allKeys]) {
+            [stat setValue:[state valueForKey:field] forKey:field];
+        }
+
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"se ha insertado la pronvincia: %@", [stat name]);
+        
+        
+    }];
+    return YES;
+}
+
+- (BOOL)addCityAll:(NSDictionary *)city{
+    
+    __block BOOL changesDone = NO;
+    __block City *ciudad = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        
+        ciudad = [NSEntityDescription insertNewObjectForEntityForName: @"CityAll"
+                                                    inManagedObjectContext: _context];
+        
+        for (NSString *field in [city allKeys]) {
+            [ciudad setValue:[city valueForKey:field] forKey:field];
+        }
+        
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"Se ha insertado la ciudad: %@", [ciudad name]);
+        
+        
+    }];
+    return YES;
+}
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllStatesAll{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"StateAll"];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block NSMutableArray *provincias = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        provincias = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return provincias;
+}
+
+- (void)prepareInsertStatesAll{
+    NSArray *arrayCiudades = [self findAllCities];
+    NSArray *arrayProvincias = [self findAllStates];
+    
+    for(NSManagedObject *ciudad in arrayCiudades){
+        NSArray *keys = [[[ciudad entity] attributesByName] allKeys];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[ciudad dictionaryWithValuesForKeys:keys]];
+        
+        NSString *attributeProvincia = @"id_state";
+        NSString *attributeValue = [dict valueForKey:@"id_state"];
+        NSPredicate *predicatePoblacion = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", attributeProvincia, attributeValue];//keySelected is NSString itself
+        NSArray *poblaciones = [NSMutableArray arrayWithArray:[arrayProvincias filteredArrayUsingPredicate:predicatePoblacion]];
+        
+        [dict setValue:[[poblaciones objectAtIndex:0] valueForKey:@"name"] forKey:@"provincia"];
+        
+        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@, %@", [dict valueForKey:@"name"], [dict valueForKey:@"provincia"]], @"name", nil];
+  
+        [self insertCityStates:dictionary];
+    }
+}
+
+- (BOOL)insertCityStatesAll:(NSDictionary *)dict{
+    
+    __block BOOL changesDone = NO;
+    __block CityState *ciudad = nil;
+    
+    [self.context performBlockAndWait: ^{
+        
+        
+        ciudad = [NSEntityDescription insertNewObjectForEntityForName: @"CityStateAll"
+                                               inManagedObjectContext: _context];
+        
+        [ciudad setValue:[dict valueForKey:@"name"] forKey:@"name"];
+        
+        changesDone = [self commitChanges];
+        
+        if (changesDone) NSLog(@"Se ha insertado la CityState: %@", [ciudad name]);
+        
+        
+    }];
+    return YES;
+}
+
+- (NSArray *)findAllCitiesStatesAll{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CityStateAll"];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block NSMutableArray *ciudades = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        ciudades = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return ciudades;
+}
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllCitiesAll{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CityAll"];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block NSMutableArray *ciudades = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        ciudades = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return ciudades;
+}
+
+- (City *)findCityAll:(NSString *)city
+{
+    NSPredicate *queryPredicate = [NSPredicate predicateWithFormat:@"id_city = %@", city];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CityAll"];
+    [fetchRequest setPredicate:queryPredicate];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block City *ciudad = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        if ( fetchedObjects != nil && [fetchedObjects count] > 0 ) {
+            ciudad = [fetchedObjects objectAtIndex:0];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return ciudad;
+}
+
+- (Country *)findCountryAll:(NSString *)country
+{
+    NSPredicate *queryPredicate = [NSPredicate predicateWithFormat:@"id_country = %@", country];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CountryAll"];
+    [fetchRequest setPredicate:queryPredicate];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block Country *pais = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        if ( fetchedObjects != nil && [fetchedObjects count] > 0 ) {
+            pais = [fetchedObjects objectAtIndex:0];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return pais;
+}
+
+- (State *)findStateAll:(NSString *)state
+{
+    NSPredicate *queryPredicate = [NSPredicate predicateWithFormat:@"id_state = %@", state];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"StateAll"];
+    [fetchRequest setPredicate:queryPredicate];
+    [fetchRequest setReturnsDistinctResults:YES];
+    
+    __block State *provincia = nil;
+    
+    void (^doSearch)(void) = ^{
+        
+        NSError *error = nil;
+        NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error:&error];
+        
+        if (error)
+        {
+            //[SitLog error:@"Se ha producido el siguiente error intentando recuperar el usuario: %@",
+            //[error localizedDescription]];
+        }
+        
+        if ( fetchedObjects != nil && [fetchedObjects count] > 0 ) {
+            provincia = [fetchedObjects objectAtIndex:0];
+        }
+        
+    };
+    
+    if ([NSThread isMainThread]) {
+        doSearch();
+    }
+    else {
+        [_context performBlockAndWait:doSearch];
+    }
+    
+    return provincia;
+}
+
+// Elimina el intercambio del dispositivo
+- (BOOL)deleteAllCitiesAll{
+    NSFetchRequest *fetchRequestCountry = [[NSFetchRequest alloc] init];
+    [fetchRequestCountry setEntity:[NSEntityDescription entityForName:@"CountryAll" inManagedObjectContext:_context]];
+    [fetchRequestCountry setIncludesPropertyValues:NO];
+    
+    NSFetchRequest *fetchRequestCities = [[NSFetchRequest alloc] init];
+    [fetchRequestCities setEntity:[NSEntityDescription entityForName:@"CityAll" inManagedObjectContext:_context]];
+    [fetchRequestCities setIncludesPropertyValues:NO];
+    
+    NSFetchRequest *fetchRequestStates= [[NSFetchRequest alloc] init];
+    [fetchRequestStates setEntity:[NSEntityDescription entityForName:@"StateAll" inManagedObjectContext:_context]];
     [fetchRequestStates setIncludesPropertyValues:NO];
     
     __block BOOL changesDone = NO;

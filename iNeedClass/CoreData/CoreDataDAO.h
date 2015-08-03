@@ -14,6 +14,9 @@
 @class Exchange;
 @class Subject;
 @class CategoryType;
+@class City;
+@class State;
+@class Country;
 
 @interface CoreDataDAO : NSObject
 
@@ -43,6 +46,10 @@
 // Elimina el usuario del dispositivo
 - (BOOL)deleteUser:(NSString *)userId;
 
+- (BOOL)createLoginWithData:(NSDictionary *)loginData;
+
+- (BOOL)deleteLogin;
+
 //----------------------------------------------------------------------------------------------------------
 
 // añade una asignatura para clases a un usuario y al sistema
@@ -71,28 +78,68 @@
 //Retorna todas las asignaturas de una categoria
 - (NSArray *)findAllSubjects:(NSString *)categoryId;
 
-
 // añade todas las ciudades y paises al sistema.
 - (BOOL)addCity:(NSDictionary *)city;
 
-- (BOOL)findCity:(NSString *)city;
+- (City *)findCity:(NSString *)city;
 
 // añade todas las ciudades y paises al sistema.
 - (BOOL)addState:(NSDictionary *)state;
 
-- (BOOL)findState:(NSString *)state;
+- (State *)findState:(NSString *)state;
 
 // añade todas las ciudades y paises al sistema.
 - (BOOL)addCountry:(NSDictionary *)country;
 
-- (BOOL)findCountry:(NSString *)country;
+- (Country *)findCountry:(NSString *)country;
 
 //Retorna todas las categorias persistidas.
 - (NSArray *)findAllCities;
 
+- (NSArray *)findAllCitiesStates;
+
+- (void)prepareInsertStates;
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllStates;
 
 // Elimina el intercambio del dispositivo
 - (BOOL)deleteAllCities;
+
+/**
+ 
+ BD de las ciudades en global
+ 
+ */
+
+// añade todas las ciudades y paises al sistema.
+- (BOOL)addCityAll:(NSDictionary *)city;
+
+- (City *)findCityAll:(NSString *)city;
+
+// añade todas las ciudades y paises al sistema.
+- (BOOL)addStateAll:(NSDictionary *)state;
+
+- (State *)findStateAll:(NSString *)state;
+
+// añade todas las ciudades y paises al sistema.
+- (BOOL)addCountryAll:(NSDictionary *)country;
+
+- (Country *)findCountryAll:(NSString *)country;
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllCitiesAll;
+
+- (NSArray *)findAllCitiesStatesAll;
+
+- (void)prepareInsertStatesAll;
+
+//Retorna todas las categorias persistidas.
+- (NSArray *)findAllStatesAll;
+
+// Elimina el intercambio del dispositivo
+- (BOOL)deleteAllCitiesAll;
+
 
 
 /**
